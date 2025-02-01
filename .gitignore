@@ -1,0 +1,24 @@
+# Archivos específicos de Android Studio
+.idea/
+*.iml
+local.properties
+
+# Carpetas de compilación y generadas
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Archivos de Gradle
+.gradle/
+
+# Archivos específicos de macOS
+.DS_Store
+
+# Archivos de configuración de Android Studio (redundantes, ya que .idea/ los cubre)
+# /.idea/caches
+# /.idea/libraries
+# /.idea/modules.xml
+# /.idea/workspace.xml
+# /.idea/navEditor.xml
+# /.idea/assetWizardSettings.xml
