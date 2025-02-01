@@ -122,5 +122,5 @@ public class MenuPrincipal extends AppCompatActivity {
         noHayMaquina.setVisibility(View.GONE);
         contenido.setVisibility(View.VISIBLE);
     }
-
+//Comentario
 }
