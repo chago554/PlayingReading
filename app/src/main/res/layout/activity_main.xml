@@ -5,38 +5,35 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:layout_gravity="center"
+    android:background="@drawable/fondoinicio"
     android:onClick="menuPrincipal"
-    android:rotationX="0"
-    android:rotationY="0"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:background="#00BCD4"
-        android:gravity="center"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:contentDescription="Logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/playingreadinlogo" />
 
-        <LinearLayout
-            android:layout_width="312dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
+    <Button
+        android:id="@+id/btnIniciar"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/btniniciar"
+        android:onClick="menuPrincipal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+       />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="223dp"
-                android:layout_height="246dp"
-                app:srcCompat="@drawable/playingreadinlogo" />
 
-            <Button
-                android:id="@+id/btnIniciar"
-                android:layout_width="338dp"
-                android:layout_height="wrap_content"
-                android:onClick="menuPrincipal"
-                android:text="INICIAR" />
-        </LinearLayout>
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
