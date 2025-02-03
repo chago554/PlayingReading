@@ -8,14 +8,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import com.utsem.playingreading.Controller.MenuPrincipal;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
             android.Manifest.permission.BLUETOOTH_SCAN,
             android.Manifest.permission.BLUETOOTH_CONNECT
     };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
-
     // Método para gestionar la respuesta del usuario
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -75,21 +71,32 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Permisos", "Todos los permisos concedidos.");
         }
     }
-
-
     //ir al menu principal
     public void menuPrincipal(View v){
         Intent menu = new Intent(this, MenuPrincipal.class);
         mediaPlayer.stop();
         startActivity(menu);
     }
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+        }
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+        }
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
         if (mediaPlayer != null) {
-            mediaPlayer.stop(); // Detener la reproducción
-            mediaPlayer.release(); // Liberar recursos del MediaPlayer
+            mediaPlayer.stop();
+            mediaPlayer.release();
             mediaPlayer = null;
         }
     }

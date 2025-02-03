@@ -8,7 +8,6 @@
 
     android:layout_gravity="center"
     android:background="@drawable/fondoinicio"
-    android:onClick="menuPrincipal"
     tools:context=".MainActivity">
 
     <ImageView
@@ -34,6 +33,4 @@
         app:layout_constraintHeight_percent="0.15"
         app:layout_constraintStart_toStartOf="parent"
        />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
