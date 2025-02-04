@@ -8,14 +8,12 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
 
 public class BluetoothService extends Service {
-
     public static final String TAG = "BluetoothService";
     private final IBinder binder = new LocalBinder();
     private BluetoothSocket btSocket;
@@ -50,7 +48,6 @@ public class BluetoothService extends Service {
             return false;
         }
     }
-
     public void sendData(String data) {
         if (mmOutStream != null) {
             try {
@@ -63,7 +60,6 @@ public class BluetoothService extends Service {
             Log.e(TAG, "El flujo de salida es nulo, no se pueden enviar datos");
         }
     }
-
     public String recibirData() {
         byte[] buffer = new byte[1024];
         try {
@@ -76,7 +72,6 @@ public class BluetoothService extends Service {
         }
         return null;
     }
-
     public void startListening() {
         new Thread(() -> {
             while (true) {
@@ -87,7 +82,6 @@ public class BluetoothService extends Service {
             }
         }).start();
     }
-
     public void closeConnection() {
         try {
             if (btSocket != null) btSocket.close();
