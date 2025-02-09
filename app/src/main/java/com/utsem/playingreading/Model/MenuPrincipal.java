@@ -1,4 +1,4 @@
-package com.utsem.playingreading.Controller;
+package com.utsem.playingreading.Model;
 import android.content.Intent;
 import android.os.Bundle;
 //bluetooth
@@ -9,7 +9,10 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.view.View;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,11 +43,23 @@ public class MenuPrincipal extends AppCompatActivity {
         LinearLayout vistaConectar =findViewById(R.id.lnyConectar);
         LinearLayout vistaContenido =findViewById(R.id.lnyContenido);
         LinearLayout vistaBarra =findViewById(R.id.lnyBarra);
-
+        TextView textoOtrasOpciones = findViewById(R.id.txtOtrasOpciones);
+        HorizontalScrollView srcOtrasOpciones = findViewById(R.id.scrOtrasOpciones);
 
         vistaConectar.setVisibility(View.VISIBLE);
         vistaContenido.setVisibility(View.GONE);
         vistaBarra.setVisibility(View.GONE);
+        textoOtrasOpciones.setVisibility(View.GONE);
+        srcOtrasOpciones.setVisibility(View.GONE);
+
+
+        ImageButton aventuras = findViewById(R.id.btnAventura);
+        ImageButton cienciaFiccion = findViewById(R.id.btnCienciaFiccion);
+        ImageButton superheroes = findViewById(R.id.btnSuperheroes);
+        ImageButton princesasyhadas = findViewById(R.id.btnPrincesasYHadas);
+        ImageButton misterio = findViewById(R.id.btnMisterio);
+
+
 
         // Vincula el servicio Bluetooth
         Intent intent = new Intent(this, BluetoothService.class);
@@ -59,13 +74,13 @@ public class MenuPrincipal extends AppCompatActivity {
                 connectButton.setText("CONECTAR");
                 Toast.makeText(this, "Activa el Bluetooth primero", Toast.LENGTH_SHORT).show();
 
-
-
                 //poner para que se muestre solo cuando se conecte a la maquina
                 //por lo mientras solo se muestra en pruebas
-                vistaBarra.setVisibility(View.VISIBLE);
                 vistaConectar.setVisibility(View.GONE);
                 vistaContenido.setVisibility(View.VISIBLE);
+                vistaBarra.setVisibility(View.VISIBLE);
+                textoOtrasOpciones.setVisibility(View.VISIBLE);
+                srcOtrasOpciones.setVisibility(View.VISIBLE);
                 //aqui termina
 
 
@@ -91,9 +106,11 @@ public class MenuPrincipal extends AppCompatActivity {
 
                 //poner para que se muestre solo cuando se conecte a la maquina
                 //por lo mientras solo se muestra en pruebas
-                vistaBarra.setVisibility(View.VISIBLE);
                 vistaConectar.setVisibility(View.GONE);
                 vistaContenido.setVisibility(View.VISIBLE);
+                vistaBarra.setVisibility(View.VISIBLE);
+                textoOtrasOpciones.setVisibility(View.VISIBLE);
+                srcOtrasOpciones.setVisibility(View.VISIBLE);
                 //aqui termina
 
 
@@ -118,6 +135,13 @@ public class MenuPrincipal extends AppCompatActivity {
             isBound = false;
         }
     };
+
+
+    public void goAventuras (View v){
+        Intent menu = new Intent(this, AventuraModel.class);
+        startActivity(menu);
+    }
+
 
     public void salir(View v){
         this.finish();

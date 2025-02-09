@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    tools:context=".Model.MenuPrincipal">
+    tools:context=".Model.AventuraModel">
+
 
     <ScrollView
         android:layout_width="0dp"
@@ -22,39 +22,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_horizontal">
-
-            <LinearLayout
-                android:id="@+id/lnyConectar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="50dp"
-                android:layout_marginTop="300dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical"
-                android:visibility="visible">
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="¡Usa tu dispositivo para activar la máquina de sorpresas!"
-                    android:textAlignment="center"
-                    android:textColor="#070000"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/btnConectar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:background="#E9AB05"
-                    android:text="CONECTAR"
-                    android:textColor="#070000"
-                    android:textSize="24sp"
-                    android:textStyle="bold|italic"
-                    android:tooltipText="¡Presiona para conectarte!" />
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/lnyContenido"
@@ -192,7 +159,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -202,16 +169,26 @@
             android:orientation="horizontal"
             android:paddingHorizontal="10dp">
 
+
+            <ImageButton
+                android:id="@+id/btnGoBack"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/flecha_izquierda"
+                android:onClick="goBack"
+                android:tooltipText="Volver"/>
+
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="SELECCIONA LA\n CATEGORÍA DE CUENTOS"
+                android:text="SELECCIONA El CUENTO"
                 android:textAlignment="center"
                 android:textColor="#F2F1F2"
                 android:textSize="24sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
