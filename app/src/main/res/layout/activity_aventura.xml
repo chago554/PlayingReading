@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Model_Controller.AventuraModel">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#34C759"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingHorizontal="25dp"
+                android:paddingBottom="100dp">
+
+                <ImageButton
+                    android:id="@+id/btnCuento001"
+                    android:layout_width="200dp"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/aventura"
+                    android:tooltipText="¡Categoría de Aventuras!" />
+
+                <ImageButton
+                    android:id="@+id/btnCuento002"
+                    android:layout_width="200dp"
+                    android:layout_height="180dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/cienciaficcion"
+                    android:tooltipText="¡Categoría de Ciencia Ficción!" />
+
+                <ImageButton
+                    android:id="@+id/btnCuento003"
+                    android:layout_width="200dp"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/superheroes"
+                    android:tooltipText="¡Categoría de Superhéroes!" />
+
+                <ImageButton
+                    android:id="@+id/btnCuento004"
+                    android:layout_width="200dp"
+                    android:layout_height="180dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/princesasyhadas"
+                    android:tooltipText="¡Categoría de Princesas y hadas!" />
+
+                <ImageButton
+                    android:id="@+id/btnCuento005"
+                    android:layout_width="200dp"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/misterioydetective"
+                    android:tooltipText="¡Categoría de Misterios y detectives!" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#4C9D0D"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp">
+
+            <ImageButton
+                android:id="@+id/btnGoBack"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/flecha_izquierda"
+                android:onClick="goBack"
+                android:tooltipText="Volver"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="SELECCIONA El CUENTO"
+                android:textAlignment="center"
+                android:textColor="#F2F1F2"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import com.utsem.playingreading.Model.MenuPrincipal;
+import com.utsem.playingreading.Model_Controller.MenuPrincipal;
 
 public class MainActivity extends AppCompatActivity {
     //para poner la musica de loop al iniciar

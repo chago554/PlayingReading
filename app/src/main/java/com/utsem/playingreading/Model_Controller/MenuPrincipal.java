@@ -1,4 +1,4 @@
-package com.utsem.playingreading.Model;
+package com.utsem.playingreading.Model_Controller;
 import android.content.Intent;
 import android.os.Bundle;
 //bluetooth
@@ -138,8 +138,24 @@ public class MenuPrincipal extends AppCompatActivity {
 
 
     public void goAventuras (View v){
-        Intent menu = new Intent(this, AventuraModel.class);
-        startActivity(menu);
+        Intent intent = new Intent(this, AventuraModel.class);
+        startActivity(intent);
+    }
+    public void goCienciaFiccion (View v){
+        Intent intent =  new Intent(this, CienciaFiccion.class);
+        startActivity(intent);
+    }
+    public void goSuperheroes (View v){
+        Intent intent =  new Intent(this, Superheroes.class);
+        startActivity(intent);
+    }
+    public void goPrincesas(View v){
+        Intent intent =  new Intent(this, PrincesasyHadas.class);
+        startActivity(intent);
+    }
+    public void goMisterio(View v){
+        Intent intent =  new Intent(this, MisterioyDetectives.class);
+        startActivity(intent);
     }
 
 

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Model.MenuPrincipal">
+    tools:context=".Model_Controller.MenuPrincipal">
 
     <ScrollView
         android:layout_width="0dp"
