@@ -22,6 +22,7 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.Set;
 import com.utsem.playingreading.R;
 import com.utsem.playingreading.Services.BluetoothService;
+
 public class MenuPrincipal extends AppCompatActivity {
     private static final String TAG = "MenuPrincipal";
     private BluetoothService bluetoothService;
@@ -52,14 +53,11 @@ public class MenuPrincipal extends AppCompatActivity {
         textoOtrasOpciones.setVisibility(View.GONE);
         srcOtrasOpciones.setVisibility(View.GONE);
 
-
         ImageButton aventuras = findViewById(R.id.btnAventura);
         ImageButton cienciaFiccion = findViewById(R.id.btnCienciaFiccion);
         ImageButton superheroes = findViewById(R.id.btnSuperheroes);
         ImageButton princesasyhadas = findViewById(R.id.btnPrincesasYHadas);
         ImageButton misterio = findViewById(R.id.btnMisterio);
-
-
 
         // Vincula el servicio Bluetooth
         Intent intent = new Intent(this, BluetoothService.class);
@@ -82,7 +80,6 @@ public class MenuPrincipal extends AppCompatActivity {
                 textoOtrasOpciones.setVisibility(View.VISIBLE);
                 srcOtrasOpciones.setVisibility(View.VISIBLE);
                 //aqui termina
-
 
 
                 return;
@@ -136,7 +133,6 @@ public class MenuPrincipal extends AppCompatActivity {
         }
     };
 
-
     public void goAventuras (View v){
         Intent intent = new Intent(this, AventuraModel.class);
         startActivity(intent);
@@ -157,17 +153,17 @@ public class MenuPrincipal extends AppCompatActivity {
         Intent intent =  new Intent(this, MisterioyDetectives.class);
         startActivity(intent);
     }
-
-
-    public void salir(View v){
-        this.finish();
+    public void goMemoramas(View v){
+        Intent intent =  new Intent(this, Memorama.class);
+        startActivity(intent);
     }
+
+    public void salir(View v){this.finish();}
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         if (isBound) {
-            //unbindService(serviceConnection);
             isBound = false;
         }
     }
