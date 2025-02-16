@@ -46,8 +46,8 @@ public class Memorama extends AppCompatActivity {
                 R.drawable.aventura,
                 R.drawable.cienciaficcion,
                 R.drawable.cienciaficcion,
-                R.drawable.cuento,
-                R.drawable.cuento,
+                R.drawable.portatil,
+                R.drawable.portatil,
                 R.drawable.playingreadinlogo,
                 R.drawable.playingreadinlogo,
                 R.drawable.misterioydetective,
@@ -86,6 +86,9 @@ public class Memorama extends AppCompatActivity {
             bluetoothService.sendData("A");
             Toast.makeText(this, "Recoge tu premio", Toast.LENGTH_SHORT).show();
         }
+    }
+    public void goBack(View v){
+        this.finish();
     }
 
     public void reset(View v){

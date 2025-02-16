@@ -140,13 +140,13 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="150dp"
                     android:orientation="horizontal">
 
                     <ImageButton
                         android:id="@+id/btnMemorama"
                         android:layout_width="200dp"
-                        android:layout_height="100dp"
+                        android:layout_height="120dp"
                         android:layout_marginEnd="15dp"
                         android:background="@drawable/memorama"
                         android:onClick="goMemoramas"
@@ -156,7 +156,7 @@
                     <ImageButton
                         android:id="@+id/btnColores"
                         android:layout_width="200dp"
-                        android:layout_height="100dp"
+                        android:layout_height="120dp"
                         android:layout_marginEnd="15dp"
                         android:background="@drawable/misterioydetective"
                         android:onClick="goMisterio"
@@ -164,7 +164,7 @@
                     <ImageButton
                         android:id="@+id/btnRompecabezas"
                         android:layout_width="200dp"
-                        android:layout_height="100dp"
+                        android:layout_height="120dp"
                         android:layout_marginEnd="15dp"
                         android:background="@drawable/misterioydetective"
                         android:onClick="goMisterio"
@@ -173,7 +173,7 @@
                     <ImageButton
                         android:id="@+id/btnMemoramna"
                         android:layout_width="200dp"
-                        android:layout_height="100dp"
+                        android:layout_height="120dp"
                         android:layout_marginEnd="15dp"
                         android:background="@drawable/misterioydetective"
                         android:onClick="goMisterio"
