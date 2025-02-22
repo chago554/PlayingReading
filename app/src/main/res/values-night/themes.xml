@@ -4,4 +4,27 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
+
+
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">#000000</item> <!-- Fondo negro del diálogo -->
+        <item name="android:textColorPrimary">#FFFFFF</item> <!-- Color del título y contenido -->
+        <item name="android:textColorSecondary">#FFFFFF</item> <!-- Color para subtítulos o listas -->
+
+        <item name="android:listViewStyle">@style/CustomListViewStyle</item> <!-- Estilo personalizado para la lista -->
+    </style>
+
+    <!-- Estilo para el ListView dentro del AlertDialog -->
+    <style name="CustomListViewStyle" parent="Widget.AppCompat.ListView">
+        <item name="android:background">#999</item> <!-- Fondo negro para la lista -->
+
+
+        <item name="android:textColorPrimary">#999</item> <!-- Color del título y contenido -->
+        <item name="android:textColorSecondary">#FFFFFF</item> <!-- Color para subtítulos o listas -->
+
+
+        <item name="android:textColor">#FFF</item> <!-- Color blanco para el texto de la lista -->
+        <item name="android:divider">#000</item> <!-- Color del divisor entre elementos -->
+        <item name="android:dividerHeight">1dp</item> <!-- Altura del divisor -->
+    </style>
 </resources>

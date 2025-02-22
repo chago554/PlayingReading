@@ -1,32 +1,53 @@
 package com.utsem.playingreading.Model_Controller;
-import android.content.Intent;
-import android.os.Bundle;
-//bluetooth
+
+import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothManager;
 import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import java.util.Set;
+
 import com.utsem.playingreading.R;
 import com.utsem.playingreading.Services.BluetoothService;
 
+import java.util.ArrayList;
+import java.util.Set;
+
 public class MenuPrincipal extends AppCompatActivity {
-    private static final String TAG = "MenuPrincipal";
     private BluetoothService bluetoothService;
     private boolean isBound = false;
+    private static final int REQUEST_ENABLE_BT = 1;
+    private static final String TAG = "MenuPrincipal";
+
+    private LinearLayout vistaConectar, vistaContenido, vistaBarra;
+    private TextView textoOtrasOpciones;
+    private HorizontalScrollView srcOtrasOpciones;
+    private Button connectButton;
+
+    private BluetoothAdapter bluetoothAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,100 +59,185 @@ public class MenuPrincipal extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Button connectButton = findViewById(R.id.btnConectar);
-        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
-        LinearLayout vistaConectar =findViewById(R.id.lnyConectar);
-        LinearLayout vistaContenido =findViewById(R.id.lnyContenido);
-        LinearLayout vistaBarra =findViewById(R.id.lnyBarra);
-        TextView textoOtrasOpciones = findViewById(R.id.txtOtrasOpciones);
-        HorizontalScrollView srcOtrasOpciones = findViewById(R.id.scrOtrasOpciones);
+        // Inicialización de vistas
+        connectButton = findViewById(R.id.btnConectar);
+        vistaConectar = findViewById(R.id.lnyConectar);
+        vistaContenido = findViewById(R.id.lnyContenido);
+        vistaBarra = findViewById(R.id.lnyBarra);
+        textoOtrasOpciones = findViewById(R.id.txtOtrasOpciones);
+        srcOtrasOpciones = findViewById(R.id.scrOtrasOpciones);
 
+        //ver solo el boton
         vistaConectar.setVisibility(View.VISIBLE);
         vistaContenido.setVisibility(View.GONE);
         vistaBarra.setVisibility(View.GONE);
         textoOtrasOpciones.setVisibility(View.GONE);
         srcOtrasOpciones.setVisibility(View.GONE);
 
-        ImageButton aventuras = findViewById(R.id.btnAventura);
-        ImageButton cienciaFiccion = findViewById(R.id.btnCienciaFiccion);
-        ImageButton superheroes = findViewById(R.id.btnSuperheroes);
-        ImageButton princesasyhadas = findViewById(R.id.btnPrincesasYHadas);
-        ImageButton misterio = findViewById(R.id.btnMisterio);
+        // Verifica y solicita permisos si es necesario
+        checkPermissions();
+
+        // Inicializa Bluetooth
+        BluetoothManager bluetoothManager = getSystemService(BluetoothManager.class);
+        bluetoothAdapter = bluetoothManager.getAdapter();
+
+        if (bluetoothAdapter == null) {
+            Toast.makeText(this, "Este dispositivo no soporta Bluetooth", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // Vincula el servicio Bluetooth
         Intent intent = new Intent(this, BluetoothService.class);
         bindService(intent, serviceConnection, BIND_AUTO_CREATE);
-        connectButton.setOnClickListener(v -> {
-            if (bluetoothAdapter == null) {
-                connectButton.setText("IMPOSIBLE CONECTAR");
-                Toast.makeText(this, "Bluetooth no está disponible", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            if (!bluetoothAdapter.isEnabled()) {
-                connectButton.setText("CONECTAR");
-                Toast.makeText(this, "Activa el Bluetooth primero", Toast.LENGTH_SHORT).show();
 
-                //poner para que se muestre solo cuando se conecte a la maquina
-                //por lo mientras solo se muestra en pruebas
-                vistaConectar.setVisibility(View.GONE);
-                vistaContenido.setVisibility(View.VISIBLE);
-                vistaBarra.setVisibility(View.VISIBLE);
-                textoOtrasOpciones.setVisibility(View.VISIBLE);
-                srcOtrasOpciones.setVisibility(View.VISIBLE);
-                //aqui termina
+        connectButton.setOnClickListener(v -> conectarBluetooth());
+    }
 
+    /**
+     * Verifica y solicita permisos necesarios para Bluetooth.
+     */
+    private void checkPermissions() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED ||
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{
+                    Manifest.permission.BLUETOOTH_CONNECT,
+                    Manifest.permission.BLUETOOTH_SCAN
+            }, REQUEST_ENABLE_BT);
+        }
+    }
 
-                return;
-            }
-            Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
-            if (pairedDevices.size() > 0) {
-                BluetoothDevice device = pairedDevices.iterator().next(); // Selecciona el primer dispositivo
-                boolean success = bluetoothService.connectToDevice(device);
-                if (success) {
-                    connectButton.setText("CONECTADO");
-                    Toast.makeText(this, "Conectado a " + device.getName(), Toast.LENGTH_SHORT).show();
-                    if(connectButton.getText().toString().equals("CONECTADO")){
-                        bluetoothService.startListening();
-                    }
-                } else {
-                    connectButton.setText("DESCONECTADO");
-                    Toast.makeText(this, "Error al conectar", Toast.LENGTH_SHORT).show();
-                }
+    /**
+     * Maneja la respuesta de la solicitud de permisos.
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_ENABLE_BT) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Permisos concedidos", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "No hay dispositivos emparejados",   Toast.LENGTH_SHORT).show();
-
-                //poner para que se muestre solo cuando se conecte a la maquina
-                //por lo mientras solo se muestra en pruebas
-                vistaConectar.setVisibility(View.GONE);
-                vistaContenido.setVisibility(View.VISIBLE);
-                vistaBarra.setVisibility(View.VISIBLE);
-                textoOtrasOpciones.setVisibility(View.VISIBLE);
-                srcOtrasOpciones.setVisibility(View.VISIBLE);
-                //aqui termina
-
-
+                Toast.makeText(this, "Se necesitan permisos de Bluetooth para continuar", Toast.LENGTH_SHORT).show();
             }
-        });
+        }
+    }
+
+    /**
+     * Inicia el proceso de conexión Bluetooth.
+     */
+    private void conectarBluetooth() {
+
+        Log.d(TAG, "isBound: " + isBound);
+        Log.d(TAG, "bluetoothService: " + (bluetoothService != null ? "Inicializado" : "NULO"));
+
+
+        if (bluetoothAdapter == null || !bluetoothAdapter.isEnabled()) {
+            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+            return;
+        }
+
+        if (!isBound) {
+            Intent intent = new Intent(this, BluetoothService.class);
+            bindService(intent, serviceConnection, BIND_AUTO_CREATE);
+        }
+
+        new android.os.Handler().postDelayed(() -> {
+            if (bluetoothService == null) {
+                Toast.makeText(this, "El servicio Bluetooth aún no está listo. Intenta de nuevo.", Toast.LENGTH_SHORT).show();
+            } else {
+                Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
+
+                if (pairedDevices.isEmpty()) {
+                    Toast.makeText(this, "No hay dispositivos emparejados", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                ArrayList<String> deviceNames = new ArrayList<>();
+                ArrayList<BluetoothDevice> deviceList = new ArrayList<>();
+
+                for (BluetoothDevice device : pairedDevices) {
+                    deviceNames.add(device.getName() + "\n" + device.getAddress());
+                    deviceList.add(device);
+                }
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.CustomAlertDialog);
+                builder.setTitle("Selecciona un dispositivo")
+                        .setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, deviceNames),
+                                (dialog, which) -> conectarDispositivo(deviceList.get(which)));
+
+                builder.setNegativeButton("Cancelar", (dialog, which) -> dialog.dismiss());
+                builder.show();
+            }
+        }, 500); // Medio segundo de espera
+
+
+
 
     }
 
+    /**
+     * Conecta al dispositivo Bluetooth seleccionado.
+     */
+    private void conectarDispositivo(BluetoothDevice device) {
+        if (bluetoothService != null) {
+            boolean success = bluetoothService.connectToDevice(device);
+            if (success) {
+                Toast.makeText(this, "Conectado a " + device.getName(), Toast.LENGTH_SHORT).show();
+                bluetoothService.startListening();
+                mostrarInterfaz();
+            } else {
+                Toast.makeText(this, "Error al conectar con " + device.getName(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
+    /**
+     * Muestra la interfaz después de conectar.
+     */
+    private void mostrarInterfaz() {
+        vistaConectar.setVisibility(View.GONE);
+        vistaContenido.setVisibility(View.VISIBLE);
+        vistaBarra.setVisibility(View.VISIBLE);
+        textoOtrasOpciones.setVisibility(View.VISIBLE);
+        srcOtrasOpciones.setVisibility(View.VISIBLE);
+    }
 
-    // Maneja la conexión al servicio
-    private ServiceConnection serviceConnection = new ServiceConnection() {
+    /**
+     * Maneja la habilitación de Bluetooth.
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_ENABLE_BT) {
+            if (resultCode == RESULT_OK) {
+                Toast.makeText(this, "Bluetooth habilitado", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Bluetooth no habilitado", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    /**
+     * Conexión con el servicio Bluetooth.
+     */
+    private final ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             BluetoothService.LocalBinder binder = (BluetoothService.LocalBinder) service;
             bluetoothService = binder.getService();
             isBound = true;
+            Log.d(TAG, "Servicio Bluetooth vinculado correctamente");
         }
+
         @Override
         public void onServiceDisconnected(ComponentName name) {
             bluetoothService = null;
             isBound = false;
+            Log.d(TAG, "Servicio Bluetooth desvinculado");
         }
     };
+
 
     public void goAventuras (View v){
         Intent intent = new Intent(this, AventuraModel.class);
@@ -164,6 +270,7 @@ public class MenuPrincipal extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         if (isBound) {
+            unbindService(serviceConnection);
             isBound = false;
         }
     }
