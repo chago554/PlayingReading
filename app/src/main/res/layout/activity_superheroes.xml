@@ -12,7 +12,7 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#F24A3D"
+        android:background="#FF3B30"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
                     android:layout_height="180dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginEnd="50dp"
-                    android:background="@drawable/aventura"
+                    android:background="@drawable/hombrearana"
                     android:tooltipText="¡Categoría de Aventuras!" />
 
                 <ImageButton
@@ -48,7 +48,7 @@
                     android:layout_height="180dp"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="50dp"
-                    android:background="@drawable/cienciaficcion"
+                    android:background="@drawable/superman"
                     android:tooltipText="¡Categoría de Ciencia Ficción!" />
 
                 <ImageButton
@@ -57,7 +57,7 @@
                     android:layout_height="180dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginEnd="50dp"
-                    android:background="@drawable/superheroes"
+                    android:background="@drawable/batman"
                     android:tooltipText="¡Categoría de Superhéroes!" />
 
                 <ImageButton
@@ -66,7 +66,7 @@
                     android:layout_height="180dp"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="50dp"
-                    android:background="@drawable/princesasyhadas"
+                    android:background="@drawable/mujermaravilla"
                     android:tooltipText="¡Categoría de Princesas y hadas!" />
 
                 <ImageButton
@@ -75,7 +75,7 @@
                     android:layout_height="180dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginEnd="50dp"
-                    android:background="@drawable/misterioydetective"
+                    android:background="@drawable/flash"
                     android:tooltipText="¡Categoría de Misterios y detectives!" />
 
             </LinearLayout>
@@ -91,7 +91,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FB1100"
+            android:background="#9C1006"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingHorizontal="10dp">

@@ -38,7 +38,7 @@
                     android:layout_height="180dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginEnd="50dp"
-                    android:background="@drawable/aventura"
+                    android:background="@drawable/lostrescerditos"
                     android:tooltipText="¡Categoría de Aventuras!" />
 
                 <ImageButton
@@ -47,7 +47,7 @@
                     android:layout_height="180dp"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="50dp"
-                    android:background="@drawable/cienciaficcion"
+                    android:background="@drawable/caperucitaroja"
                     android:tooltipText="¡Categoría de Ciencia Ficción!" />
 
                 <ImageButton
@@ -56,7 +56,7 @@
                     android:layout_height="180dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginEnd="50dp"
-                    android:background="@drawable/superheroes"
+                    android:background="@drawable/elpatitofeo"
                     android:tooltipText="¡Categoría de Superhéroes!" />
 
                 <ImageButton
@@ -65,7 +65,7 @@
                     android:layout_height="180dp"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="50dp"
-                    android:background="@drawable/princesasyhadas"
+                    android:background="@drawable/laliebre"
                     android:tooltipText="¡Categoría de Princesas y hadas!" />
 
                 <ImageButton
@@ -74,7 +74,7 @@
                     android:layout_height="180dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginEnd="50dp"
-                    android:background="@drawable/misterioydetective"
+                    android:background="@drawable/hanselygretel"
                     android:tooltipText="¡Categoría de Misterios y detectives!" />
 
             </LinearLayout>
