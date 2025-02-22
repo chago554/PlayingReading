@@ -39,6 +39,7 @@
                     android:layout_marginTop="50dp"
                     android:layout_marginEnd="50dp"
                     android:background="@drawable/lostrescerditos"
+                    android:onClick="cuento01"
                     android:tooltipText="¡Categoría de Aventuras!" />
 
                 <ImageButton

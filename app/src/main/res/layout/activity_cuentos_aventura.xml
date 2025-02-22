@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".Model_Controller.Aventuras.CuentosAventura">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FF9500"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingHorizontal="25dp"
+                android:paddingBottom="200dp">
+
+                <TextView
+                    android:id="@+id/txtParrafo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Parrafo"
+                    android:textColor="#FFFFFF"
+                    android:textSize="34sp" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnEscuchar"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/escuchar"
+                    android:onClick="escuchar"
+                    android:tooltipText="Escucha el cuento"
+                    android:visibility="visible" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnParar"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/parar"
+                    android:onClick="parar"
+                    android:tooltipText="Detener el cuento"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/imgCadaCuento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/lostrescerditos" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Realiza el ejercicio"
+                    android:textColor="#FFFFFF"
+                    android:textSize="34sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/lyvSuperior"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#89580F"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp">
+
+            <ImageButton
+                android:id="@+id/btnGoBack"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/flecha_izquierda"
+                android:onClick="goBack"
+                android:tooltipText="Volver" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="titulo"
+                android:textAlignment="center"
+                android:textColor="#F2F1F2"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lyvInferior"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#89580F"
+        android:gravity="center_vertical|end"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/next"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:background="@drawable/next"
+            android:onClick="next"
+            android:tooltipText="Escucha el cuento"
+            android:visibility="visible" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

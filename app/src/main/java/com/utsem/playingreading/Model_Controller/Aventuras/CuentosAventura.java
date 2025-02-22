@@ -1,6 +1,5 @@
-package com.utsem.playingreading.Model_Controller;
+package com.utsem.playingreading.Model_Controller.Aventuras;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -10,16 +9,16 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.utsem.playingreading.Model_Controller.Aventuras.CuentosAventura;
 import com.utsem.playingreading.R;
 
-public class AventuraModel extends AppCompatActivity {
+public class CuentosAventura extends AppCompatActivity {
 
+    AventuraClass aventuraClass = new AventuraClass();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_aventura);
+        setContentView(R.layout.activity_cuentos_aventura);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -27,11 +26,18 @@ public class AventuraModel extends AppCompatActivity {
         });
     }
 
+    public void escuchar(View v){
+
+    }
+    public void parar(View v){
+
+    }
     public void goBack(View v){
         this.finish();
     }
-    public void cuento01(View v){
-        Intent intent = new Intent(this, CuentosAventura.class);
-        startActivity(intent);
+    public void next(View v){
+
     }
+
+
 }
