@@ -72,7 +72,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="50dp"
                     android:layout_marginEnd="50dp"
-                    android:background="@drawable/aventura"
+                    android:background="@drawable/aventuras"
                     android:onClick="goAventuras"
                     android:tooltipText="¡Categoría de Aventuras!" />
 
