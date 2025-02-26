@@ -20,6 +20,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.utsem.playingreading.Model_Controller.MenuPrincipal;
+import com.utsem.playingreading.Services.BluetoothService;
 
 public class MainActivity extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        Intent serviceIntent = new Intent(this, BluetoothService.class);
+        startService(serviceIntent);
         Button btnIniciar = findViewById(R.id.btnIniciar);
 
         // Configuración del MediaPlayer
@@ -146,5 +149,7 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer.release();
             mediaPlayer = null;
         }
+        Intent stopIntent = new Intent(this, BluetoothService.class);
+        stopService(stopIntent); 
     }
 }

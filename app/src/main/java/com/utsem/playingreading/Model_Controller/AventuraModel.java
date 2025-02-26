@@ -14,6 +14,7 @@ import com.utsem.playingreading.Model_Controller.Aventuras.CuentosAventura;
 import com.utsem.playingreading.R;
 
 public class AventuraModel extends AppCompatActivity {
+    private int valorCuentoSelecto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +28,38 @@ public class AventuraModel extends AppCompatActivity {
         });
     }
 
-    public void goBack(View v){
-        this.finish();
-    }
-    public void cuento01(View v){
+    public void goBack(View v){this.finish();}
+
+    public void cuento01(View v) {
         Intent intent = new Intent(this, CuentosAventura.class);
+        intent.putExtra("VALOR_CUENTO_SELECTO", 1);
         startActivity(intent);
+    }
+    public void cuento02(View v) {
+        Intent intent = new Intent(this, CuentosAventura.class);
+        intent.putExtra("VALOR_CUENTO_SELECTO", 2);
+        startActivity(intent);
+    }
+    public void cuento03(View v) {
+        Intent intent = new Intent(this, CuentosAventura.class);
+        intent.putExtra("VALOR_CUENTO_SELECTO", 3);
+        startActivity(intent);
+    }
+    public void cuento04(View v) {
+        Intent intent = new Intent(this, CuentosAventura.class);
+        intent.putExtra("VALOR_CUENTO_SELECTO", 4);
+        startActivity(intent);
+    }
+    public void cuento05(View v) {
+        Intent intent = new Intent(this, CuentosAventura.class);
+        intent.putExtra("VALOR_CUENTO_SELECTO", 5);
+        startActivity(intent);
+    }
+
+    public void setValorCuentoSelecto(int valorCuentoSelecto){
+        this.valorCuentoSelecto = valorCuentoSelecto;
+    }
+    public int getValorCuentoSelecto(){
+        return this.valorCuentoSelecto;
     }
 }

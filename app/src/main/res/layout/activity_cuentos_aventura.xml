@@ -8,10 +8,35 @@
     android:background="#000000"
     tools:context=".Model_Controller.Aventuras.CuentosAventura">
 
+    <LinearLayout
+        android:id="@+id/viewFinal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/viewfinal"
+        android:onClick="goBack"
+        android:orientation="vertical"
+        android:padding="50dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/frasefinal" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/copafinal" />
+    </LinearLayout>
+
     <ScrollView
+        android:id="@+id/scrCuento"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#FF9500"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,27 +61,22 @@
                     android:id="@+id/txtParrafo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:gravity="center"
                     android:text="Parrafo"
                     android:textColor="#FFFFFF"
-                    android:textSize="34sp" />
+                    android:textSize="24sp" />
 
                 <ImageButton
                     android:id="@+id/imgBtnEscuchar"
-                    android:layout_width="150dp"
-                    android:layout_height="100dp"
+                    android:layout_width="100dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="50dp"
                     android:background="@drawable/escuchar"
                     android:onClick="escuchar"
                     android:tooltipText="Escucha el cuento"
                     android:visibility="visible" />
 
-                <ImageButton
-                    android:id="@+id/imgBtnParar"
-                    android:layout_width="150dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/parar"
-                    android:onClick="parar"
-                    android:tooltipText="Detener el cuento"
-                    android:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/imgCadaCuento"
@@ -64,13 +84,28 @@
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/lostrescerditos" />
 
-                <TextView
-                    android:id="@+id/textView5"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Realiza el ejercicio"
-                    android:textColor="#FFFFFF"
-                    android:textSize="34sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Actividad"
+                            android:textColor="#E9D4D4"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
@@ -80,11 +115,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/lnhBarraSuperior"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#89580F"
@@ -101,10 +138,11 @@
                 android:tooltipText="Volver" />
 
             <TextView
+                android:id="@+id/tituloCuento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="titulo"
+                android:text="titulo  "
                 android:textAlignment="center"
                 android:textColor="#F2F1F2"
                 android:textSize="24sp"
@@ -117,12 +155,24 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#89580F"
-        android:gravity="center_vertical|end"
+        android:gravity="center_horizontal|center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="10dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/atras"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="180dp"
+            android:background="@drawable/next"
+            android:onClick="atras"
+            android:rotation="180"
+            android:tooltipText="Clic para retroceder.."
+            android:visibility="visible" />
 
         <ImageButton
             android:id="@+id/next"
@@ -130,8 +180,10 @@
             android:layout_height="70dp"
             android:background="@drawable/next"
             android:onClick="next"
-            android:tooltipText="Escucha el cuento"
+            android:tooltipText="Clic para continuar.."
             android:visibility="visible" />
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

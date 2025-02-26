@@ -1,21 +1,30 @@
 package com.utsem.playingreading.Services;
 
 import android.Manifest;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.Service;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Binder;
+import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
+import android.os.Handler;
+import android.os.Looper;
+
+import com.utsem.playingreading.R;
 
 public class BluetoothService extends Service {
 
@@ -27,6 +36,10 @@ public class BluetoothService extends Service {
     private OutputStream mmOutStream;
     private InputStream mmInputStream;
     private boolean isConnected = false;
+    private final Handler reconnectHandler = new Handler(Looper.getMainLooper());
+    private static final int RECONNECT_DELAY = 5000; // 5 segundos de espera antes de intentar reconectar
+    private BluetoothDevice lastDevice; // Guardar el último dispositivo conectado
+
 
     public class LocalBinder extends Binder {
         public BluetoothService getService() {
@@ -38,7 +51,29 @@ public class BluetoothService extends Service {
     public void onCreate() {
         super.onCreate();
         Log.d(TAG, "Servicio iniciado");
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    "BluetoothServiceChannel",
+                    "Bluetooth Service",
+                    NotificationManager.IMPORTANCE_LOW
+            );
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            if (manager != null) {
+                manager.createNotificationChannel(channel);
+            }
+
+            Notification notification = new NotificationCompat.Builder(this, "BluetoothServiceChannel")
+                    .setContentTitle("Conexión Bluetooth Activa")
+                    .setContentText("Manteniendo la conexión con la máquina de recompensas")
+                    .setSmallIcon(R.drawable.bluetooth)
+                    .build();
+
+            startForeground(1, notification);
+        }
     }
+
+
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -59,7 +94,8 @@ public class BluetoothService extends Service {
             return false;
         }
 
-        closeConnection();
+        closeConnection(); // Cierra cualquier conexión anterior
+        lastDevice = device; // Guarda el último dispositivo conectado
 
         new Thread(() -> {
             try {
@@ -75,18 +111,24 @@ public class BluetoothService extends Service {
                 startListening();
             } catch (IOException e) {
                 Log.e(TAG, "Error al conectar: " + e.getMessage());
-                closeConnection();
+                scheduleReconnect(); // Intentar reconectar
             }
         }).start();
 
         return true;
     }
 
-    public void sendData(String data) {
-        if (!isConnected || mmOutStream == null) {
-            Log.e(TAG, "No se puede enviar datos: no hay conexión establecida.");
-            return;
+    private void scheduleReconnect() {
+        if (lastDevice != null) {
+            Log.d(TAG, "Intentando reconectar en " + RECONNECT_DELAY / 1000 + " segundos...");
+            reconnectHandler.postDelayed(() -> connectToDevice(lastDevice), RECONNECT_DELAY);
         }
+    }
+
+
+
+    public void sendData(String data) {
+
 
         try {
             mmOutStream.write(data.getBytes());

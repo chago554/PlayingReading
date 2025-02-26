@@ -11,6 +11,8 @@
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
 
     <application
         android:allowBackup="true"
@@ -23,10 +25,8 @@
         android:theme="@style/Theme.PlayingReading">
         <activity
             android:name=".Model_Controller.Aventuras.CuentosAventura"
-            android:exported="false" />
-        <activity
-            android:name=".Model_Controller.Aventuras.AventuraActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
 
         <service
             android:name=".Services.BluetoothService"

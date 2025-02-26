@@ -94,9 +94,8 @@ public class MenuPrincipal extends AppCompatActivity {
         connectButton.setOnClickListener(v -> conectarBluetooth());
     }
 
-    /**
-     * Verifica y solicita permisos necesarios para Bluetooth.
-     */
+    //Verifica y solicita permisos necesarios para Bluetooth.
+
     private void checkPermissions() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED ||
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
@@ -107,9 +106,8 @@ public class MenuPrincipal extends AppCompatActivity {
         }
     }
 
-    /**
-     * Maneja la respuesta de la solicitud de permisos.
-     */
+    // Maneja la respuesta de la solicitud de permisos.
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -122,9 +120,8 @@ public class MenuPrincipal extends AppCompatActivity {
         }
     }
 
-    /**
-     * Inicia el proceso de conexión Bluetooth.
-     */
+    //Inicia el proceso de conexión Bluetooth.
+
     private void conectarBluetooth() {
 
         Log.d(TAG, "isBound: " + isBound);
@@ -176,9 +173,8 @@ public class MenuPrincipal extends AppCompatActivity {
 
     }
 
-    /**
-     * Conecta al dispositivo Bluetooth seleccionado.
-     */
+    //Conecta al dispositivo Bluetooth seleccionado.
+
     private void conectarDispositivo(BluetoothDevice device) {
         if (bluetoothService != null) {
             boolean success = bluetoothService.connectToDevice(device);
@@ -192,9 +188,8 @@ public class MenuPrincipal extends AppCompatActivity {
         }
     }
 
-    /**
-     * Muestra la interfaz después de conectar.
-     */
+    // Muestra la interfaz después de conectar.
+
     private void mostrarInterfaz() {
         vistaConectar.setVisibility(View.GONE);
         vistaContenido.setVisibility(View.VISIBLE);
@@ -203,9 +198,8 @@ public class MenuPrincipal extends AppCompatActivity {
         srcOtrasOpciones.setVisibility(View.VISIBLE);
     }
 
-    /**
-     * Maneja la habilitación de Bluetooth.
-     */
+    //Maneja la habilitación de Bluetooth.
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -218,9 +212,7 @@ public class MenuPrincipal extends AppCompatActivity {
         }
     }
 
-    /**
-     * Conexión con el servicio Bluetooth.
-     */
+    //Conexión con el servicio Bluetooth.
     private final ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
