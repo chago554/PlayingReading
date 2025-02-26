@@ -30,8 +30,10 @@
 
         <service
             android:name=".Services.BluetoothService"
+            android:foregroundServiceType="connectedDevice"
             android:enabled="true"
             android:exported="false" />
+
 
         <activity
             android:name=".Model_Controller.Memorama"
