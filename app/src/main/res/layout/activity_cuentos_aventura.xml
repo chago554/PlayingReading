@@ -55,7 +55,8 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:paddingHorizontal="25dp"
-                android:paddingBottom="200dp">
+                android:paddingBottom="200dp"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/txtParrafo"
