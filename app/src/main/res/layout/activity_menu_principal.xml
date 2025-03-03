@@ -153,31 +153,6 @@
                         android:layout_marginStart="25dp"
                         android:tooltipText="¡Memoramas!"/>
 
-                    <ImageButton
-                        android:id="@+id/btnColores"
-                        android:layout_width="200dp"
-                        android:layout_height="120dp"
-                        android:layout_marginEnd="15dp"
-                        android:background="@drawable/misterioydetective"
-                        android:onClick="goMisterio"
-                        android:tooltipText="¡Categoría de Misterios y detectives!"/>
-                    <ImageButton
-                        android:id="@+id/btnRompecabezas"
-                        android:layout_width="200dp"
-                        android:layout_height="120dp"
-                        android:layout_marginEnd="15dp"
-                        android:background="@drawable/misterioydetective"
-                        android:onClick="goMisterio"
-                        android:tooltipText="¡Categoría de Misterios y detectives!"/>
-
-                    <ImageButton
-                        android:id="@+id/btnMemoramna"
-                        android:layout_width="200dp"
-                        android:layout_height="120dp"
-                        android:layout_marginEnd="15dp"
-                        android:background="@drawable/misterioydetective"
-                        android:onClick="goMisterio"
-                        android:tooltipText="¡Categoría de Misterios y detectives!"/>
 
                 </LinearLayout>
             </HorizontalScrollView>

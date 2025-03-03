@@ -150,6 +150,6 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer = null;
         }
         Intent stopIntent = new Intent(this, BluetoothService.class);
-        stopService(stopIntent); 
+        stopService(stopIntent);
     }
 }

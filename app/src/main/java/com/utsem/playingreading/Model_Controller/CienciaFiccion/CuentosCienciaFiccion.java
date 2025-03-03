@@ -1,7 +1,6 @@
-package com.utsem.playingreading.Model_Controller.Aventuras;
+package com.utsem.playingreading.Model_Controller.CienciaFiccion;
 
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.graphics.Color;
@@ -22,16 +21,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.utsem.playingreading.Model_Controller.Aventuras.AventuraClass;
 import com.utsem.playingreading.R;
 import com.utsem.playingreading.Services.BluetoothService;
 
-public class CuentosAventura extends AppCompatActivity {
+public class CuentosCienciaFiccion extends AppCompatActivity {
 
+    CienciaFiccionClass cienciaFiccionClass;
     private int cuentoSelecto;
     private LinearLayout barraSuperior;
     private LinearLayout barraInferior;
     private TextView titulo;
-    AventuraClass aventuraClass;
     private TextView parrafo;
     private int valorAvance = 20;
     private ImageButton btnAudio;
@@ -47,6 +47,7 @@ public class CuentosAventura extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_cuentos_aventura);
         scrCuento = findViewById(R.id.scrCuento);
         barraSuperior = findViewById(R.id.lnhBarraSuperior);
@@ -62,7 +63,7 @@ public class CuentosAventura extends AppCompatActivity {
 
         cuentoSelecto = getIntent().getIntExtra("VALOR_CUENTO_SELECTO", 0);
         titulo = findViewById(R.id.tituloCuento);
-        aventuraClass = new AventuraClass();
+        cienciaFiccionClass = new CienciaFiccionClass();
         parrafo = findViewById(R.id.txtParrafo);
         btnAudio = findViewById(R.id.imgBtnEscuchar);
         next = findViewById(R.id.next);
@@ -74,7 +75,6 @@ public class CuentosAventura extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         setCuentoSelecto(cuentoSelecto-1);
         colorActivity();
         avance20();
@@ -103,19 +103,19 @@ public class CuentosAventura extends AppCompatActivity {
     public void colorActivity() {
         switch (cuentoSelecto) {
             case 0:
-                scrCuento.setBackgroundColor(Color.parseColor("#FF9500"));
-                barraSuperior.setBackgroundColor(Color.parseColor("#89580F"));
-                barraInferior.setBackgroundColor(Color.parseColor("#89580F"));
+                scrCuento.setBackgroundColor(Color.parseColor("#34C759"));
+                barraSuperior.setBackgroundColor(Color.parseColor("#4C9D0D"));
+                barraInferior.setBackgroundColor(Color.parseColor("#4C9D0D"));
                 break;
             case 1:
-                scrCuento.setBackgroundColor(Color.parseColor("#FF3B30"));
-                barraSuperior.setBackgroundColor(Color.parseColor("#9C1006"));
-                barraInferior.setBackgroundColor(Color.parseColor("#9C1006"));
+                scrCuento.setBackgroundColor(Color.parseColor("#007AFF"));
+                barraSuperior.setBackgroundColor(Color.parseColor("#165FAF"));
+                barraInferior.setBackgroundColor(Color.parseColor("#165FAF"));
                 break;
             case 2:
-                scrCuento.setBackgroundColor(Color.parseColor("#A2845E"));
-                barraSuperior.setBackgroundColor(Color.parseColor("#975B0F"));
-                barraInferior.setBackgroundColor(Color.parseColor("#975B0F"));
+                scrCuento.setBackgroundColor(Color.parseColor("#80230E"));
+                barraSuperior.setBackgroundColor(Color.parseColor("#56180A"));
+                barraInferior.setBackgroundColor(Color.parseColor("#56180A"));
                 break;
             case 3:
                 scrCuento.setBackgroundColor(Color.parseColor("#32ADE6"));
@@ -137,18 +137,18 @@ public class CuentosAventura extends AppCompatActivity {
 
     public void avance20() {
         scrCuento.scrollTo(0, 0);
-        String[] titulos = aventuraClass.getTitulos();
+        String[] titulos = cienciaFiccionClass.getTitulos();
         atras.setEnabled(false);
         if (titulos == null) {
             titulo.setText("Error: Títulos no disponibles");
             return;
         }
         if (cuentoSelecto >= 0 && cuentoSelecto < titulos.length) {
-            aventuraClass.setCuentoSelecto(cuentoSelecto);
-            aventuraClass.avance20();
-            String tituloCuento = aventuraClass.getTituloCuentoSelecto();
+            cienciaFiccionClass.setCuentoSelecto(cuentoSelecto);
+            cienciaFiccionClass.avance20();
+            String tituloCuento = cienciaFiccionClass.getTituloCuentoSelecto();
             titulo.setText(tituloCuento);
-            parrafo.setText(aventuraClass.getParrafo());
+            parrafo.setText(cienciaFiccionClass.getParrafo());
         } else {
             titulo.setText("Título no encontrado");
         }
@@ -156,16 +156,16 @@ public class CuentosAventura extends AppCompatActivity {
 
     public void avance40() {
         scrCuento.scrollTo(0, 0);
-        String[] titulos = aventuraClass.getTitulos();
+        String[] titulos = cienciaFiccionClass.getTitulos();
         atras.setEnabled(true);
         if (titulos == null) {
             titulo.setText("Error: Títulos no disponibles");
             return;
         }
         if (cuentoSelecto >= 0 && cuentoSelecto < titulos.length) {
-            aventuraClass.setCuentoSelecto(cuentoSelecto);
-            aventuraClass.avance40();
-            parrafo.setText(aventuraClass.getParrafo());
+            cienciaFiccionClass.setCuentoSelecto(cuentoSelecto);
+            cienciaFiccionClass.avance40();
+            parrafo.setText(cienciaFiccionClass.getParrafo());
         } else {
             titulo.setText("Título no encontrado");
         }
@@ -173,15 +173,15 @@ public class CuentosAventura extends AppCompatActivity {
 
     public void avance60() {
         scrCuento.scrollTo(0, 0);
-        String[] titulos = aventuraClass.getTitulos();
+        String[] titulos = cienciaFiccionClass.getTitulos();
         if (titulos == null) {
             titulo.setText("Error: Títulos no disponibles");
             return;
         }
         if (cuentoSelecto >= 0 && cuentoSelecto < titulos.length) {
-            aventuraClass.setCuentoSelecto(cuentoSelecto);
-            aventuraClass.avance60();
-            parrafo.setText(aventuraClass.getParrafo());
+            cienciaFiccionClass.setCuentoSelecto(cuentoSelecto);
+            cienciaFiccionClass.avance60();
+            parrafo.setText(cienciaFiccionClass.getParrafo());
         } else {
             titulo.setText("Título no encontrado");
         }
@@ -189,15 +189,15 @@ public class CuentosAventura extends AppCompatActivity {
 
     public void avance80() {
         scrCuento.scrollTo(0, 0);
-        String[] titulos = aventuraClass.getTitulos();
+        String[] titulos = cienciaFiccionClass.getTitulos();
         if (titulos == null) {
             titulo.setText("Error: Títulos no disponibles");
             return;
         }
         if (cuentoSelecto >= 0 && cuentoSelecto < titulos.length) {
-            aventuraClass.setCuentoSelecto(cuentoSelecto);
-            aventuraClass.avance80();
-            parrafo.setText(aventuraClass.getParrafo());
+            cienciaFiccionClass.setCuentoSelecto(cuentoSelecto);
+            cienciaFiccionClass.avance80();
+            parrafo.setText(cienciaFiccionClass.getParrafo());
 
         } else {
             titulo.setText("Título no encontrado");
@@ -206,15 +206,15 @@ public class CuentosAventura extends AppCompatActivity {
 
     public void avance100() {
         scrCuento.scrollTo(0, 0);
-        String[] titulos = aventuraClass.getTitulos();
+        String[] titulos = cienciaFiccionClass.getTitulos();
         if (titulos == null) {
             titulo.setText("Error: Títulos no disponibles");
             return;
         }
         if (cuentoSelecto >= 0 && cuentoSelecto < titulos.length) {
-            aventuraClass.setCuentoSelecto(cuentoSelecto);
-            aventuraClass.avance100();
-            parrafo.setText(aventuraClass.getParrafo());
+            cienciaFiccionClass.setCuentoSelecto(cuentoSelecto);
+            cienciaFiccionClass.avance100();
+            parrafo.setText(cienciaFiccionClass.getParrafo());
         } else {
             titulo.setText("Título no encontrado");
         }
@@ -229,7 +229,7 @@ public class CuentosAventura extends AppCompatActivity {
             // Si el audio está en pausa o no se está reproduciendo, cambiamos la imagen a "parar"
             btnAudio.setBackgroundResource(R.drawable.parar);
             if (audio == null) {
-                audio = MediaPlayer.create(this, aventuraClass.getAudio());
+                audio = MediaPlayer.create(this, cienciaFiccionClass.getAudio());
                 if (audio != null) {
                     audio.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
@@ -345,6 +345,7 @@ public class CuentosAventura extends AppCompatActivity {
             audio.release();
             audio = null;
         }
+
     }
 
     // Getters y setters
@@ -363,5 +364,4 @@ public class CuentosAventura extends AppCompatActivity {
     public void setValorAvance(int valorAvance) {
         this.valorAvance = valorAvance;
     }
-
 }

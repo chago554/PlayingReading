@@ -1,21 +1,22 @@
-package com.utsem.playingreading.Model_Controller.Aventuras;
-
+package com.utsem.playingreading.Model_Controller.CienciaFiccion;
 import android.media.MediaPlayer;
 import android.widget.Button;
-import com.utsem.playingreading.R;
 
-public class AventuraClass {
+import com.utsem.playingreading.Model_Controller.Aventuras.CuentosAventura;
+import com.utsem.playingreading.R;
+public class CienciaFiccionClass {
+
 
     CuentosAventura cuentosAventura = new CuentosAventura();
 
     private Button escuchar;
     private Button parar;
     private String [] titulos= {
-            "Los Tres Cerditos ",
-            "Caperucita Roja",
-            "El Patito Feo",
-            "La Liebre y la Tortuga",
-            "Hansel y Gretel"
+            "El gigante de Hierro",
+            "La guerra de los mundos",
+            "Planeta rojo",
+            "Viaje al centro de la Tierra",
+            "El niño estrella"
     };
     private String tituloCuentoSelecto;
     private int cuentoSelecto;
@@ -29,31 +30,30 @@ public class AventuraClass {
 
         switch (this.cuentoSelecto){
             case 0:
-                setParrafo("Había tres cerditos que decidieron construir sus casas. El primero, perezoso, usó paja; el segundo, un poco más trabajador, usó madera; y el tercero, precavido, usó ladrillos. Cada uno confiaba en su elección.");
-                setAudio(R.raw.lostrescerditos01);
+                setParrafo("Hogarth, un niño curioso, descubrió un enorme robot en el bosque. Aunque al principio sintió miedo, pronto vio su nobleza. El gigante parecía inofensivo y se hizo su amigo.");
+                setAudio(R.raw.elgigantedehierro01);
                 setImagen(R.drawable.casa);
-            break;
+                break;
             case 1:
                 setParrafo("Caperucita Roja siempre usaba una capa roja hecha por su abuela. Un día, su madre le pidió que llevara pan y miel a la casa de la abuela, que estaba al otro lado del bosque. Antes de partir, le advirtió no hablar con extraños.");
                 setAudio(R.raw.caperucitaroja01);
                 System.out.println("audio: caper" + R.raw.caperucitaroja01);
                 setImagen(R.drawable.caperucitarojafoto);
-            break;
+                break;
             case 2:
                 setParrafo("En un apacible estanque, nacieron varios patitos. Todos eran amarillos y esponjosos, salvo uno, que era grande y gris. Los demás se burlaban de él, llamándolo feo.");
                 setAudio(R.raw.patitofeo01);
-            break;
+                break;
             case 3:
                 setParrafo("La liebre se burlaba de la tortuga por su lentitud. Para demostrar su velocidad, la retó a una carrera. La tortuga aceptó con determinación, pese a las burlas.");
                 setAudio(R.raw.liebreytortuga01);
-            break;
+                break;
             case 4:
                 setParrafo("Hansel y Gretel vivían en una familia pobre. Sus padres, desesperados, los llevaron al bosque y los abandonaron. Para no perderse, Hansel dejó migas de pan en el camino.");
                 setAudio(R.raw.hanselygretel01);
                 break;
             default: setParrafo("Creo que este cuento se acabo...");
         }
-
     }
 
 
@@ -61,8 +61,8 @@ public class AventuraClass {
     public void avance40(){
         switch (this.cuentoSelecto){
             case 0:
-                setParrafo("Un día, un lobo hambriento llegó al pueblo y vio la casa de paja. Sopló con fuerza y la destruyó en segundos. El cerdito huyó a la casa de su hermano, y el lobo lo siguió.");
-                setAudio(R.raw.lostrescerditos02);
+                setParrafo("El ejército, al enterarse del robot, creyó que era una amenaza. Soldados y tanques llegaron para destruirlo sin escuchar a Hogarth. El miedo cegó a los adultos.");
+                setAudio(R.raw.elgigantedehierro02);
                 break;
             case 1:
                 setParrafo("Mientras caminaba por el bosque, se encontró con un lobo astuto. Él le preguntó adónde iba, y sin sospechar nada, le contó su destino. El lobo ideó un plan para adelantarse.");
@@ -71,7 +71,7 @@ public class AventuraClass {
             case 2:
                 setParrafo("Sentirse rechazado lo hizo marcharse. El patito vagó solo durante un crudo invierno. A pesar de la soledad, nunca perdió la esperanza.");
                 setAudio(R.raw.patitofeo02);
-            break;
+                break;
             case 3:
                 setParrafo("Al inicio de la carrera, la liebre salió disparada y dejó a la tortuga muy atrás. Confiada en su triunfo, se detuvo a descansar bajo un árbol. El sueño la venció por completo.");
                 setAudio(R.raw.liebreytortuga02);
@@ -88,9 +88,9 @@ public class AventuraClass {
     public void avance60(){
         switch (this.cuentoSelecto){
             case 0:
-                setParrafo("Al llegar a la casa de madera, el lobo sopló aún más fuerte y la derribó. Los dos hermanos corrieron asustados hacia la casa de ladrillos del mayor. El peligro se intensificaba.");
-                setAudio(R.raw.lostrescerditos03);
-            break;
+                setParrafo("Cuando un misil se dirigió hacia la ciudad, el robot tomó una decisión heroica. Voló hasta el cielo y se estrelló contra el misil para salvar a todos. La explosión resonó en el aire.");
+                setAudio(R.raw.elgigantedehierro03);
+                break;
             case 1:
                 setParrafo("El lobo tomó un camino corto y llegó primero a la casa de la anciana. Se disfrazó con su ropa y se metió en la cama. Esperaba engañar a Caperucita al momento de su llegada.");
                 setAudio(R.raw.caperucitaroja03);
@@ -114,8 +114,8 @@ public class AventuraClass {
     public void avance80(){
         switch (this.cuentoSelecto){
             case 0:
-                setParrafo("El lobo intentó derribar la casa de ladrillos sin éxito. Furioso, decidió entrar por la chimenea sin prever nada. La situación parecía desesperada para él.");
-                setAudio(R.raw.lostrescerditos04);
+                setParrafo("Hogarth quedó desconsolado, pensando que había perdido a su amigo. Pero una noche, encontró una pequeña pieza del robot moviéndose sola. La esperanza se encendió en su corazón.");
+                setAudio(R.raw.elgigantedehierro04);
                 break;
             case 1:
                 setParrafo("Cuando la niña entró, notó que su \"abuela\" tenía grandes orejas, ojos y dientes. Al instante, el lobo saltó de la cama para atraparla. La tensión llenó la habitación en segundos.");
@@ -140,8 +140,8 @@ public class AventuraClass {
     public void avance100(){
         switch (this.cuentoSelecto){
             case 0:
-                setParrafo("El mayor había preparado una olla con agua hirviendo en la chimenea. Al bajar, el lobo cayó en ella, se quemó y huyó para nunca volver. Así, los cerditos aprendieron el valor del esfuerzo y la dedicación.");
-                setAudio(R.raw.lostrescerditos05);
+                setParrafo("Con paciencia, esperó el día en que todas las partes se reunieran. Sabía que el gigante volvería a ser completo y juntos reanudarían su amistad. La fe en lo imposible prevaleció.");
+                setAudio(R.raw.elgigantedehierro05);
                 break;
             case 1:
                 setParrafo("Por fortuna, un leñador cercano escuchó los gritos. Entró corriendo, espantó al lobo y rescató a la abuela y a la niña. Desde ese día, Caperucita obedeció las advertencias de su madre.");

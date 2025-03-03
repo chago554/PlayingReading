@@ -5,7 +5,6 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
@@ -30,6 +29,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.utsem.playingreading.Model_Controller.Aventuras.AventuraMenu;
+import com.utsem.playingreading.Model_Controller.CienciaFiccion.CienciaFiccionMenu;
 import com.utsem.playingreading.R;
 import com.utsem.playingreading.Services.BluetoothService;
 
@@ -76,7 +77,7 @@ public class MenuPrincipal extends AppCompatActivity {
         srcOtrasOpciones.setVisibility(View.GONE);
 
         // Verifica y solicita permisos si es necesario
-        checkPermissions();
+        revisarPerimisos();
 
         // Inicializa Bluetooth
         BluetoothManager bluetoothManager = getSystemService(BluetoothManager.class);
@@ -96,7 +97,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
     //Verifica y solicita permisos necesarios para Bluetooth.
 
-    private void checkPermissions() {
+    private void revisarPerimisos() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED ||
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{
@@ -180,7 +181,6 @@ public class MenuPrincipal extends AppCompatActivity {
             boolean success = bluetoothService.connectToDevice(device);
             if (success) {
                 Toast.makeText(this, "Conectado a " + device.getName(), Toast.LENGTH_SHORT).show();
-                bluetoothService.startListening();
                 mostrarInterfaz();
             } else {
                 Toast.makeText(this, "Error al conectar con " + device.getName(), Toast.LENGTH_SHORT).show();
@@ -232,11 +232,11 @@ public class MenuPrincipal extends AppCompatActivity {
 
 
     public void goAventuras (View v){
-        Intent intent = new Intent(this, AventuraModel.class);
+        Intent intent = new Intent(this, AventuraMenu.class);
         startActivity(intent);
     }
     public void goCienciaFiccion (View v){
-        Intent intent =  new Intent(this, CienciaFiccion.class);
+        Intent intent =  new Intent(this, CienciaFiccionMenu.class);
         startActivity(intent);
     }
     public void goSuperheroes (View v){

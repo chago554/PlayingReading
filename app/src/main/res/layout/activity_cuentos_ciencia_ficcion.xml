@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".Model_Controller.Aventuras.CuentosAventura">
+    tools:context=".Model_Controller.CienciaFiccion.CuentosCienciaFiccion">
+
 
     <LinearLayout
         android:id="@+id/viewFinal"
