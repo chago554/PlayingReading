@@ -50,7 +50,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
@@ -73,40 +73,673 @@
                     android:layout_width="100dp"
                     android:layout_height="70dp"
                     android:layout_marginTop="50dp"
+                    android:layout_marginBottom="50dp"
                     android:background="@drawable/escuchar"
                     android:onClick="escuchar"
                     android:tooltipText="Escucha el cuento"
                     android:visibility="visible" />
 
-
                 <ImageView
                     android:id="@+id/imgCadaCuento"
                     android:layout_width="match_parent"
+                    android:layout_height="269dp"
+                    android:minHeight="150dp"
+                    app:srcCompat="@drawable/playingreadinlogo" />
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/lostrescerditos" />
+                    android:text="Actividad"
+                    android:textAlignment="center"
+                    android:textColor="#FFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="25dp"
+                    android:paddingTop="50dp" />
 
                 <LinearLayout
+                    android:id="@+id/lyvAct01"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    android:paddingBottom="120dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Completa la palabra que representa la imagen"
+                        android:textAlignment="center"
+                        android:textColor="#FFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/imgAct01"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_margin="25dp"
+                        app:srcCompat="@drawable/playingreadinlogo" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView3"
-                            android:layout_width="match_parent"
+                            android:id="@+id/txtLetra01"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Actividad"
-                            android:textColor="#E9D4D4"
-                            android:textSize="24sp"
+                            android:layout_weight="1"
+                            android:text="__"
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtLetra02"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="__"
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtLetra03"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="__"
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtLetra04"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="__"
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtLetra05"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="__"
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnLetra01"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="#BC9CCC"
+                            android:onClick="ponerLetra01"
+                            android:text=""
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btnLetra02"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="#AEEA00"
+                            android:onClick="ponerLetra02"
+                            android:text=""
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btnLetra03"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="#00C853"
+                            android:onClick="ponerLetra03"
+                            android:text=""
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btnLetra04"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="#D50000"
+                            android:onClick="ponerLetra04"
+                            android:text=""
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btnLetra05"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="#6200EA"
+                            android:onClick="ponerLetra05"
+                            android:text=""
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnEvaluar01"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#0091EA"
+                            android:onClick="comprobarActividad01"
+                            android:text="Evaluar"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/lyvAct02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="25dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Selecciona la palabra que representan las imagenes"
+                        android:textAlignment="center"
+                        android:textColor="#FFF"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/img01Act02"
+                            android:layout_width="0dp"
+                            android:layout_height="183dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/playingreadinlogo" />
+
+                        <ImageView
+                            android:id="@+id/img02Act02"
+                            android:layout_width="0dp"
+                            android:layout_height="183dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/playingreadinlogo" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/img03Act02"
+                            android:layout_width="0dp"
+                            android:layout_height="183dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/playingreadinlogo" />
+
+                        <ImageView
+                            android:id="@+id/img04Act02"
+                            android:layout_width="0dp"
+                            android:layout_height="183dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/playingreadinlogo" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn01Act02"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="#00bbf9"
+                            android:onClick="comprobarBtn01Act02"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btn02Act02"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="#ff5400"
+                            android:onClick="comprobarBtn02Act02"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn03Act02"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="#00509d"
+                            android:onClick="comprobarBtn03Act02"
+                            android:textColor="#FFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btn04Act02"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="#f7b801"
+                            android:onClick="comprobarBtn04Act02"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lyvAct03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="25dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="25dp"
+                        android:text="Completa la palabra"
+                        android:textAlignment="center"
+                        android:textColor="#FFF"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtLetra01Act3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="__"
+                            android:textAlignment="center"
+                            android:textColor="#FFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtLetra02Act3"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="__"
+                            android:textAlignment="center"
+                            android:textColor="#FFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtLetra03Act3"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="__"
+                            android:textAlignment="center"
+                            android:textColor="#FFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtLetra04Act3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="__"
+                            android:textAlignment="center"
+                            android:textColor="#FFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtLetra05Act3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="__"
+                            android:textAlignment="center"
+                            android:textColor="#FFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtLetra06Act3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="__"
+                            android:textAlignment="center"
+                            android:textColor="#FFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="150dp">
+
+                        <Button
+                            android:id="@+id/btnLetra01Act3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="#E91E63"
+                            android:text=""
+                            android:textColor="#EDEDED"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btnLetra02Act3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="#5B7F33"
+                            android:text=""
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btnLetra03Act3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="#771010"
+                            android:text=""
+                            android:textColor="#FBF6F6"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btnLetra04Act3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="#3F51B5"
+                            android:text=""
+                            android:textColor="#F6EFEF"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lyvPreguntas"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="25dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="25dp"
+                            android:text="Selecciona la opción correcta"
+                            android:textAlignment="center"
+                            android:textColor="#FFF"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="50dp">
+
+                            <TextView
+                                android:id="@+id/txtPregunta01"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginBottom="10dp"
+                                android:gravity="center"
+                                android:paddingHorizontal="15dp"
+                                android:textColor="#FFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <RadioButton
+                                android:id="@+id/rdbP011"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:textSize="20sp"
+                                android:textColor="#FFF"/>
+
+                            <RadioButton
+                                android:id="@+id/rdbP012"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:textSize="20sp" />
+
+                            <RadioButton
+                                android:id="@+id/rdbP013"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:textSize="20sp" />
+                        </RadioGroup>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="50dp">
+
+                            <TextView
+                                android:id="@+id/txtPregunt02"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginBottom="10dp"
+                                android:gravity="center"
+                                android:paddingHorizontal="15dp"
+                                android:textColor="#000000"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <RadioButton
+                                android:id="@+id/rdbP021"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:textSize="20sp" />
+
+                            <RadioButton
+                                android:id="@+id/rdbP022"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:textSize="20sp" />
+
+                            <RadioButton
+                                android:id="@+id/rdbP023"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:textSize="20sp" />
+                        </RadioGroup>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="50dp">
+
+                            <TextView
+                                android:id="@+id/txtPregunta03"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginBottom="10dp"
+                                android:gravity="center"
+                                android:paddingHorizontal="15dp"
+                                android:textColor="#000000"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <RadioButton
+                                android:id="@+id/rdbP031"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:textSize="20sp" />
+
+                            <RadioButton
+                                android:id="@+id/rdbP032"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:textSize="20sp" />
+
+                            <RadioButton
+                                android:id="@+id/rdbP033"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:textSize="20sp" />
+                        </RadioGroup>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="50dp">
+
+                            <TextView
+                                android:id="@+id/txtPregunta04"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginBottom="10dp"
+                                android:gravity="center"
+                                android:paddingHorizontal="15dp"
+                                android:textColor="#000000"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <RadioButton
+                                android:id="@+id/rdbP041"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:textSize="20sp" />
+
+                            <RadioButton
+                                android:id="@+id/rdbP042"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:textSize="20sp" />
+
+                            <RadioButton
+                                android:id="@+id/rdbP043"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:textSize="20sp" />
+                        </RadioGroup>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="50dp">
+
+                            <TextView
+                                android:id="@+id/txtPregunta05"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginBottom="10dp"
+                                android:gravity="center"
+                                android:paddingHorizontal="15dp"
+                                android:textColor="#000000"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <RadioButton
+                                android:id="@+id/rdbP051"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:textSize="20sp" />
+
+                            <RadioButton
+                                android:id="@+id/rdbP052"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:textSize="20sp" />
+
+                            <RadioButton
+                                android:id="@+id/rdbP053"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:textSize="20sp" />
+                        </RadioGroup>
+
+                        <Button
+                            android:id="@+id/btnEva04"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#fff"
+                            android:text="Evaluar"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
@@ -140,10 +773,10 @@
 
             <TextView
                 android:id="@+id/tituloCuento"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="titulo  "
+                android:text="titulo"
                 android:textAlignment="center"
                 android:textColor="#F2F1F2"
                 android:textSize="24sp"
