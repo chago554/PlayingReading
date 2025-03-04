@@ -1,7 +1,7 @@
 package com.utsem.playingreading.Model_Controller.Aventuras;
 
-import android.graphics.Color;
 import android.widget.Button;
+
 import com.utsem.playingreading.R;
 
 public class AventuraClass {
@@ -36,6 +36,11 @@ public class AventuraClass {
     //componentes de la actividad 3
     private String letra_Act3_01= "", letra_Act3_02 = "", letra_Act3_03 ="", letra_Act3_04 = "", letra_Act3_05 ="", letra_Act3_06 ="";
     private String btn01Act03, btn02Act03, btn03Act03, btn04Act03, btn05Act03, btn06Act03;
+
+    //componentes de la activida 4
+    private String txtPregunta01, txtPregunta02, txtPregunta03, txtPregunta04, txtPregunta05;
+    private String rdbP011, rdbP012, rdbP013, rdbP021, rdbP022, rdbP023, rdbP031, rdbP032, rdbP033, rdbP041, rdbP042, rdbP043, rdbP051, rdbP052, rdbP053;
+    private int pre011, pre012, pre013, pre021, pre022, pre023, pre031, pre032, pre033, pre041, pre042, pre043, pre051, pre052, pre053 ;
 
     public void avance20(){
         setTituloCuentoSelecto(titulos[this.cuentoSelecto]);
@@ -152,16 +157,10 @@ public class AventuraClass {
                 setLetra_Act3_04("G");
                 setLetra_Act3_05("__");
                 setLetra_Act3_06("__");
-
-                setBtn02Act03("M");
-                setBtn03Act03("I");
-                setBtn05Act03("O");
-                setBtn06Act03("S");
-
-
-
-
-
+                setBtn01Act03("M");
+                setBtn02Act03("I");
+                setBtn03Act03("O");
+                setBtn04Act03("S");
 
 
                 break;
@@ -191,6 +190,38 @@ public class AventuraClass {
                 setParrafo("El mayor había preparado una olla con agua hirviendo en la chimenea. Al bajar, el lobo cayó en ella, se quemó y huyó para nunca volver. Así, los cerditos aprendieron el valor del esfuerzo y la dedicación.");
                 setAudio(R.raw.lostrescerditos05);
                 setImagen(R.drawable.olla);
+
+                setTxtPregunta01("¿De qué hizo su casita el cerdito más perezoso?");
+                setRdbP011("a) De ladrillos");
+                setRdbP012("b) De paja"); //corecta
+                setRdbP013("c) De madera");
+                setPre012(1);
+
+                setTxtPregunta02("¿Qué animal malo quería comerse a los cerditos?");
+                setRdbP021("a) Un león");
+                setRdbP022("b) Un oso");
+                setRdbP023("c) Un lobo");//correcta
+                setPre023(1);
+
+
+                setTxtPregunta03("¿Qué hizo el lobo para tirar la casa de paja?");
+                setRdbP031("a) La pateó");
+                setRdbP032("b) La sopló"); //correcta
+                setRdbP033("c) La mordió");
+                setPre032(1);
+
+                setTxtPregunta04("¿De qué material era la casa más fuerte?");
+                setRdbP041("a) De paja");
+                setRdbP042("b) De madera");
+                setRdbP043("c) De ladrillos");//correcta
+                setPre043(1);
+
+                setTxtPregunta05("¿Por dónde intentó entrar el lobo a la casa de ladrillos?");
+                setRdbP051("a) Por la puerta");
+                setRdbP052("b) Por la ventana");
+                setRdbP053("c) Por la chimenea");//correcta
+                setPre053(1);
+
                 break;
             case 1:
                 setParrafo("Por fortuna, un leñador cercano escuchó los gritos. Entró corriendo, espantó al lobo y rescató a la abuela y a la niña. Desde ese día, Caperucita obedeció las advertencias de su madre.");
@@ -216,9 +247,6 @@ public class AventuraClass {
 
 
 
-    public int getCuentoSelecto() {
-        return cuentoSelecto;
-    }
 
     public void setCuentoSelecto(int cuentoSelecto) {
         this.cuentoSelecto = cuentoSelecto;
@@ -574,5 +602,285 @@ public class AventuraClass {
 
     public void setBtn06Act03(String btn06Act03) {
         this.btn06Act03 = btn06Act03;
+    }
+
+    public String getTxtPregunta01() {
+        return txtPregunta01;
+    }
+
+    public void setTxtPregunta01(String txtPregunta01) {
+        this.txtPregunta01 = txtPregunta01;
+    }
+
+    public String getTxtPregunta02() {
+        return txtPregunta02;
+    }
+
+    public void setTxtPregunta02(String txtPregunta02) {
+        this.txtPregunta02 = txtPregunta02;
+    }
+
+    public String getTxtPregunta03() {
+        return txtPregunta03;
+    }
+
+    public void setTxtPregunta03(String txtPregunta03) {
+        this.txtPregunta03 = txtPregunta03;
+    }
+
+    public String getTxtPregunta04() {
+        return txtPregunta04;
+    }
+
+    public void setTxtPregunta04(String txtPregunta04) {
+        this.txtPregunta04 = txtPregunta04;
+    }
+
+    public String getTxtPregunta05() {
+        return txtPregunta05;
+    }
+
+    public void setTxtPregunta05(String txtPregunta05) {
+        this.txtPregunta05 = txtPregunta05;
+    }
+
+    public String getRdbP011() {
+        return rdbP011;
+    }
+
+    public void setRdbP011(String rdbP011) {
+        this.rdbP011 = rdbP011;
+    }
+
+    public String getRdbP012() {
+        return rdbP012;
+    }
+
+    public void setRdbP012(String rdbP012) {
+        this.rdbP012 = rdbP012;
+    }
+
+    public String getRdbP013() {
+        return rdbP013;
+    }
+
+    public void setRdbP013(String rdbP013) {
+        this.rdbP013 = rdbP013;
+    }
+
+    public String getRdbP021() {
+        return rdbP021;
+    }
+
+    public void setRdbP021(String rdbP021) {
+        this.rdbP021 = rdbP021;
+    }
+
+    public String getRdbP022() {
+        return rdbP022;
+    }
+
+    public void setRdbP022(String rdbP022) {
+        this.rdbP022 = rdbP022;
+    }
+
+    public String getRdbP023() {
+        return rdbP023;
+    }
+
+    public void setRdbP023(String rdbP023) {
+        this.rdbP023 = rdbP023;
+    }
+
+    public String getRdbP031() {
+        return rdbP031;
+    }
+
+    public void setRdbP031(String rdbP031) {
+        this.rdbP031 = rdbP031;
+    }
+
+    public String getRdbP032() {
+        return rdbP032;
+    }
+
+    public void setRdbP032(String rdbP032) {
+        this.rdbP032 = rdbP032;
+    }
+
+    public String getRdbP033() {
+        return rdbP033;
+    }
+
+    public void setRdbP033(String rdbP033) {
+        this.rdbP033 = rdbP033;
+    }
+
+    public String getRdbP041() {
+        return rdbP041;
+    }
+
+    public void setRdbP041(String rdbP041) {
+        this.rdbP041 = rdbP041;
+    }
+
+    public String getRdbP042() {
+        return rdbP042;
+    }
+
+    public void setRdbP042(String rdbP042) {
+        this.rdbP042 = rdbP042;
+    }
+
+    public String getRdbP043() {
+        return rdbP043;
+    }
+
+    public void setRdbP043(String rdbP043) {
+        this.rdbP043 = rdbP043;
+    }
+
+    public String getRdbP051() {
+        return rdbP051;
+    }
+
+    public void setRdbP051(String rdbP051) {
+        this.rdbP051 = rdbP051;
+    }
+
+    public String getRdbP052() {
+        return rdbP052;
+    }
+
+    public void setRdbP052(String rdbP052) {
+        this.rdbP052 = rdbP052;
+    }
+
+    public String getRdbP053() {
+        return rdbP053;
+    }
+
+    public void setRdbP053(String rdbP053) {
+        this.rdbP053 = rdbP053;
+    }
+
+    public int getPre011() {
+        return pre011;
+    }
+
+    public void setPre011(int pre011) {
+        this.pre011 = pre011;
+    }
+
+    public int getPre012() {
+        return pre012;
+    }
+
+    public void setPre012(int pre012) {
+        this.pre012 = pre012;
+    }
+
+    public int getPre013() {
+        return pre013;
+    }
+
+    public void setPre013(int pre013) {
+        this.pre013 = pre013;
+    }
+
+    public int getPre021() {
+        return pre021;
+    }
+
+    public void setPre021(int pre021) {
+        this.pre021 = pre021;
+    }
+
+    public int getPre022() {
+        return pre022;
+    }
+
+    public void setPre022(int pre022) {
+        this.pre022 = pre022;
+    }
+
+    public int getPre023() {
+        return pre023;
+    }
+
+    public void setPre023(int pre023) {
+        this.pre023 = pre023;
+    }
+
+    public int getPre031() {
+        return pre031;
+    }
+
+    public void setPre031(int pre031) {
+        this.pre031 = pre031;
+    }
+
+    public int getPre032() {
+        return pre032;
+    }
+
+    public void setPre032(int pre032) {
+        this.pre032 = pre032;
+    }
+
+    public int getPre033() {
+        return pre033;
+    }
+
+    public void setPre033(int pre033) {
+        this.pre033 = pre033;
+    }
+
+    public int getPre041() {
+        return pre041;
+    }
+
+    public void setPre041(int pre041) {
+        this.pre041 = pre041;
+    }
+
+    public int getPre042() {
+        return pre042;
+    }
+
+    public void setPre042(int pre042) {
+        this.pre042 = pre042;
+    }
+
+    public int getPre043() {
+        return pre043;
+    }
+
+    public void setPre043(int pre043) {
+        this.pre043 = pre043;
+    }
+
+    public int getPre051() {
+        return pre051;
+    }
+
+    public void setPre051(int pre051) {
+        this.pre051 = pre051;
+    }
+
+    public int getPre052() {
+        return pre052;
+    }
+
+    public void setPre052(int pre052) {
+        this.pre052 = pre052;
+    }
+
+    public int getPre053() {
+        return pre053;
+    }
+
+    public void setPre053(int pre053) {
+        this.pre053 = pre053;
     }
 }

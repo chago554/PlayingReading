@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,6 +47,9 @@ public class CuentosAventura extends AppCompatActivity {
     private boolean isBound = false;
     private ImageView imagenCuento;
 
+    private LinearLayout lyvAct01, lyvAct02, lyvAct03, lyvPreguntas;
+
+
     private String correcto =  "¡Correcto!";
     private String incorrecto = "Intentalo de nuevo...";
 
@@ -60,8 +64,12 @@ public class CuentosAventura extends AppCompatActivity {
 
     //componentes de la actividad 3
     private TextView txtLetra01Act3, txtLetra02Act3, txtLetra03Act3, txtLetra04Act3, txtLetra05Act3, txtLetra06Act3;
-    private Button btnLetra01Act3, btnLetra02Act3, btnLetra03Act3, btnLetra04Act3;
+    private Button btnLetra01Act3, btnLetra02Act3, btnLetra03Act3, btnLetra04Act3, btnEvaluar03;
 
+    //componentes de la activida 4
+    private TextView txtPregunta01, txtPregunta02, txtPregunta03, txtPregunta04, txtPregunta05, txtTotalAciertos;
+    private RadioButton rdbP011, rdbP012, rdbP013, rdbP021, rdbP022, rdbP023, rdbP031, rdbP032, rdbP033, rdbP041, rdbP042, rdbP043, rdbP051, rdbP052, rdbP053;
+    private int pre011, pre012, pre013, pre021, pre022, pre023, pre031, pre032, pre033, pre041, pre042, pre043, pre051, pre052, pre053, totalPuntos;
 
 
     @Override
@@ -95,6 +103,12 @@ public class CuentosAventura extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        lyvAct01 = findViewById(R.id.lyvAct01);
+        lyvAct02 = findViewById(R.id.lyvAct02);
+        lyvAct03 = findViewById(R.id.lyvAct03);
+        lyvPreguntas = findViewById(R.id.lyvPreguntas);
+
+
 
         cargarComponentesAct01();
 
@@ -161,6 +175,7 @@ public class CuentosAventura extends AppCompatActivity {
     public void avance20() {
         scrCuento.scrollTo(0, 0);
         String[] titulos = aventuraClass.getTitulos();
+        lyvAct01.setVisibility(View.GONE);
         atras.setEnabled(false);
 
         if (cuentoSelecto >= 0 && cuentoSelecto < titulos.length) {
@@ -179,6 +194,9 @@ public class CuentosAventura extends AppCompatActivity {
     public void avance40() {
         scrCuento.scrollTo(0, 0);
         cargarComponentesAct02();
+        lyvAct01.setVisibility(View.VISIBLE);
+        lyvAct02.setVisibility(View.GONE);
+
         String[] titulos = aventuraClass.getTitulos();
         atras.setEnabled(true);
 
@@ -204,12 +222,17 @@ public class CuentosAventura extends AppCompatActivity {
     public void avance60() {
         scrCuento.scrollTo(0, 0);
         cargarComponentesAct03();
+        lyvAct01.setVisibility(View.GONE);
+        lyvAct02.setVisibility(View.VISIBLE);
+        lyvAct03.setVisibility(View.GONE);
+
         String[] titulos = aventuraClass.getTitulos();
 
         if (cuentoSelecto >= 0 && cuentoSelecto < titulos.length) {
             aventuraClass.setCuentoSelecto(cuentoSelecto);
             aventuraClass.avance60();
             parrafo.setText(aventuraClass.getParrafo());
+            imagenCuento.setImageResource(aventuraClass.getImagen());
 
             //actividad 2
             img01Act02.setImageResource(aventuraClass.getImg01Act02());
@@ -229,6 +252,11 @@ public class CuentosAventura extends AppCompatActivity {
     public void avance80() {
         scrCuento.scrollTo(0, 0);
         String[] titulos = aventuraClass.getTitulos();
+        cargarComponentesAct04();
+        lyvAct02.setVisibility(View.GONE);
+        lyvAct03.setVisibility(View.VISIBLE);
+        lyvPreguntas.setVisibility(View.GONE);
+
 
         if (cuentoSelecto >= 0 && cuentoSelecto < titulos.length) {
             aventuraClass.setCuentoSelecto(cuentoSelecto);
@@ -244,10 +272,10 @@ public class CuentosAventura extends AppCompatActivity {
             txtLetra05Act3.setText(aventuraClass.getLetra_Act3_05());
             txtLetra06Act3.setText(aventuraClass.getLetra_Act3_06());
 
-            btnLetra01Act3.setText(aventuraClass.getBtn02Act03());
-            btnLetra02Act3.setText(aventuraClass.getBtn03Act03());
-            btnLetra03Act3.setText(aventuraClass.getBtn05Act03());
-            btnLetra04Act3.setText(aventuraClass.getBtn06Act03());
+            btnLetra01Act3.setText(aventuraClass.getBtn01Act03());
+            btnLetra02Act3.setText(aventuraClass.getBtn02Act03());
+            btnLetra03Act3.setText(aventuraClass.getBtn03Act03());
+            btnLetra04Act3.setText(aventuraClass.getBtn04Act03());
 
 
         } else {
@@ -258,12 +286,40 @@ public class CuentosAventura extends AppCompatActivity {
     public void avance100() {
         scrCuento.scrollTo(0, 0);
         String[] titulos = aventuraClass.getTitulos();
+        lyvAct03.setVisibility(View.GONE);
+        lyvPreguntas.setVisibility(View.VISIBLE);
 
         if (cuentoSelecto >= 0 && cuentoSelecto < titulos.length) {
             aventuraClass.setCuentoSelecto(cuentoSelecto);
             aventuraClass.avance100();
             parrafo.setText(aventuraClass.getParrafo());
             imagenCuento.setImageResource(aventuraClass.getImagen());
+
+            //actividad 4
+            txtPregunta01.setText(aventuraClass.getTxtPregunta01());
+            rdbP011.setText(aventuraClass.getRdbP011());
+            rdbP012.setText(aventuraClass.getRdbP012());
+            rdbP013.setText(aventuraClass.getRdbP013());
+
+            txtPregunta02.setText(aventuraClass.getTxtPregunta02());
+            rdbP021.setText(aventuraClass.getRdbP021());
+            rdbP022.setText(aventuraClass.getRdbP022());
+            rdbP023.setText(aventuraClass.getRdbP023());
+
+            txtPregunta03.setText(aventuraClass.getTxtPregunta03());
+            rdbP031.setText(aventuraClass.getRdbP031());
+            rdbP032.setText(aventuraClass.getRdbP032());
+            rdbP033.setText(aventuraClass.getRdbP033());
+
+            txtPregunta04.setText(aventuraClass.getTxtPregunta04());
+            rdbP041.setText(aventuraClass.getRdbP041());
+            rdbP042.setText(aventuraClass.getRdbP042());
+            rdbP043.setText(aventuraClass.getRdbP043());
+
+            txtPregunta05.setText(aventuraClass.getTxtPregunta05());
+            rdbP051.setText(aventuraClass.getRdbP051());
+            rdbP052.setText(aventuraClass.getRdbP052());
+            rdbP053.setText(aventuraClass.getRdbP053());
 
         } else {
             titulo.setText("Título no encontrado");
@@ -429,10 +485,39 @@ public class CuentosAventura extends AppCompatActivity {
         btnLetra02Act3 = findViewById(R.id.btnLetra02Act3);
         btnLetra03Act3 = findViewById(R.id.btnLetra03Act3);
         btnLetra04Act3 = findViewById(R.id.btnLetra04Act3);
-
+        btnEvaluar03 = findViewById(R.id.btnEvaluar03);
     }
 
+    private  void cargarComponentesAct04(){
+        txtTotalAciertos = findViewById(R.id.txtTotalAciertos);
 
+        txtPregunta01 = findViewById(R.id.txtPregunta01);
+        txtPregunta02 = findViewById(R.id.txtPregunta02);
+        txtPregunta03 = findViewById(R.id.txtPregunta03);
+        txtPregunta04 = findViewById(R.id.txtPregunta04);
+        txtPregunta05 = findViewById(R.id.txtPregunta05);
+
+        rdbP011 = findViewById(R.id.rdbP011);
+        rdbP012 = findViewById(R.id.rdbP012);
+        rdbP013 = findViewById(R.id.rdbP013);
+
+        rdbP021 = findViewById(R.id.rdbP021);
+        rdbP022 = findViewById(R.id.rdbP022);
+        rdbP023 = findViewById(R.id.rdbP023);
+
+        rdbP031 = findViewById(R.id.rdbP031);
+        rdbP032 = findViewById(R.id.rdbP032);
+        rdbP033 = findViewById(R.id.rdbP033);
+
+        rdbP041 = findViewById(R.id.rdbP041);
+        rdbP042 = findViewById(R.id.rdbP042);
+        rdbP043 = findViewById(R.id.rdbP043);
+
+        rdbP051 = findViewById(R.id.rdbP051);
+        rdbP052 = findViewById(R.id.rdbP052);
+        rdbP053 = findViewById(R.id.rdbP053);
+
+    }
 
     //actividad 1 cuento 1
     public void ponerLetra01(View v) {
@@ -530,6 +615,86 @@ public class CuentosAventura extends AppCompatActivity {
     }
 
     //actividad 3 cuento 1
+    public void ponerLetra01Act03(View v) {
+        TextView[] letras = {txtLetra01Act3, txtLetra02Act3, txtLetra03Act3, txtLetra04Act3, txtLetra05Act3, txtLetra06Act3};
+        for(TextView letra : letras){
+            if(letra.getText().toString().equals("__")){
+                letra.setText(aventuraClass.getBtn01Act03());
+                btnLetra01Act3.setEnabled(false);
+                return;
+            }
+        }
+    }
+    public void ponerLetra02Act03(View v) {
+        TextView[] letras = {txtLetra01Act3, txtLetra02Act3, txtLetra03Act3, txtLetra04Act3, txtLetra05Act3, txtLetra06Act3};
+        for(TextView letra : letras){
+            if(letra.getText().toString().equals("__")){
+                letra.setText(aventuraClass.getBtn02Act03());
+                btnLetra02Act3.setEnabled(false);
+                return;
+            }
+        }
+    }
+    public void ponerLetra03Act03(View v) {
+        TextView[] letras = {txtLetra01Act3, txtLetra02Act3, txtLetra03Act3, txtLetra04Act3, txtLetra05Act3, txtLetra06Act3};
+        for(TextView letra : letras){
+            if(letra.getText().toString().equals("__")){
+                letra.setText(aventuraClass.getBtn03Act03());
+                btnLetra03Act3.setEnabled(false);
+                return;
+            }
+        }
+    }
+    public void ponerLetra04Act03(View v) {
+        TextView[] letras = {txtLetra01Act3, txtLetra02Act3, txtLetra03Act3, txtLetra04Act3, txtLetra05Act3, txtLetra06Act3};
+        for(TextView letra : letras){
+            if(letra.getText().toString().equals("__")){
+                letra.setText(aventuraClass.getBtn04Act03());
+                btnLetra04Act3.setEnabled(false);
+                return;
+            }
+        }
+    }
+    public void comprobarActividad03(View v){
+        if(txtLetra01Act3.getText().toString().equals("A") && txtLetra02Act3.getText().toString().equals("M") &&  txtLetra03Act3.getText().toString().equals("I") && txtLetra04Act3.getText().toString().equals("G") && txtLetra05Act3.getText().toString().equals("O") && txtLetra06Act3.getText().toString().equals("S")){
+
+            btnLetra01Act3.setEnabled(false);
+            btnLetra02Act3.setEnabled(false);
+            btnLetra03Act3.setEnabled(false);
+            btnLetra04Act3.setEnabled(false);
+            btnEvaluar03.setEnabled(false);
+
+            Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+            txtLetra01Act3.setText(aventuraClass.getLetra_Act3_01());
+            txtLetra02Act3.setText(aventuraClass.getLetra_Act3_02());
+            txtLetra03Act3.setText(aventuraClass.getLetra_Act3_03());
+            txtLetra04Act3.setText(aventuraClass.getLetra_Act3_04());
+            txtLetra05Act3.setText(aventuraClass.getLetra_Act3_05());
+            txtLetra06Act3.setText(aventuraClass.getLetra_Act3_06());
+
+            btnLetra01Act3.setEnabled(true);
+            btnLetra02Act3.setEnabled(true);
+            btnLetra03Act3.setEnabled(true);
+            btnLetra04Act3.setEnabled(true);
+            btnEvaluar03.setEnabled(true);
+
+        }
+    }
+
+    //comprobar las prguntas
+    public void comprobarPreguntas(View v){
+        int[] respuestas = {aventuraClass.getPre011(), aventuraClass.getPre012(), aventuraClass.getPre013(), aventuraClass.getPre021(), aventuraClass.getPre022(), aventuraClass.getPre023(), aventuraClass.getPre031(), aventuraClass.getPre032(), aventuraClass.getPre033(), aventuraClass.getPre041(), aventuraClass.getPre042(), aventuraClass.getPre043(), aventuraClass.getPre051(), aventuraClass.getPre052(), aventuraClass.getPre053() };
+        RadioButton opciones [] = {rdbP011, rdbP012, rdbP013, rdbP021, rdbP022, rdbP023, rdbP031, rdbP032, rdbP033, rdbP041, rdbP042, rdbP043, rdbP051, rdbP052, rdbP053};
+        totalPuntos = 0;
+        for (int i = 0; i < opciones.length; i++) {
+            if (opciones[i].isChecked() && respuestas[i] == 1) {
+                totalPuntos++;
+            }
+        }
+        txtTotalAciertos.setText("Aciertos: " + totalPuntos);
+    }
 
 
     @Override
@@ -847,4 +1012,435 @@ public class CuentosAventura extends AppCompatActivity {
         this.serviceConnection = serviceConnection;
     }
 
+    public LinearLayout getLyvAct01() {
+        return lyvAct01;
+    }
+
+    public void setLyvAct01(LinearLayout lyvAct01) {
+        this.lyvAct01 = lyvAct01;
+    }
+
+    public LinearLayout getLyvAct02() {
+        return lyvAct02;
+    }
+
+    public void setLyvAct02(LinearLayout lyvAct02) {
+        this.lyvAct02 = lyvAct02;
+    }
+
+    public LinearLayout getLyvAct03() {
+        return lyvAct03;
+    }
+
+    public void setLyvAct03(LinearLayout lyvAct03) {
+        this.lyvAct03 = lyvAct03;
+    }
+
+    public LinearLayout getLyvPreguntas() {
+        return lyvPreguntas;
+    }
+
+    public void setLyvPreguntas(LinearLayout lyvPreguntas) {
+        this.lyvPreguntas = lyvPreguntas;
+    }
+
+    public String getCorrecto() {
+        return correcto;
+    }
+
+    public void setCorrecto(String correcto) {
+        this.correcto = correcto;
+    }
+
+    public String getIncorrecto() {
+        return incorrecto;
+    }
+
+    public void setIncorrecto(String incorrecto) {
+        this.incorrecto = incorrecto;
+    }
+
+    public TextView getTxtLetra01Act3() {
+        return txtLetra01Act3;
+    }
+
+    public void setTxtLetra01Act3(TextView txtLetra01Act3) {
+        this.txtLetra01Act3 = txtLetra01Act3;
+    }
+
+    public TextView getTxtLetra02Act3() {
+        return txtLetra02Act3;
+    }
+
+    public void setTxtLetra02Act3(TextView txtLetra02Act3) {
+        this.txtLetra02Act3 = txtLetra02Act3;
+    }
+
+    public TextView getTxtLetra03Act3() {
+        return txtLetra03Act3;
+    }
+
+    public void setTxtLetra03Act3(TextView txtLetra03Act3) {
+        this.txtLetra03Act3 = txtLetra03Act3;
+    }
+
+    public TextView getTxtLetra04Act3() {
+        return txtLetra04Act3;
+    }
+
+    public void setTxtLetra04Act3(TextView txtLetra04Act3) {
+        this.txtLetra04Act3 = txtLetra04Act3;
+    }
+
+    public TextView getTxtLetra05Act3() {
+        return txtLetra05Act3;
+    }
+
+    public void setTxtLetra05Act3(TextView txtLetra05Act3) {
+        this.txtLetra05Act3 = txtLetra05Act3;
+    }
+
+    public TextView getTxtLetra06Act3() {
+        return txtLetra06Act3;
+    }
+
+    public void setTxtLetra06Act3(TextView txtLetra06Act3) {
+        this.txtLetra06Act3 = txtLetra06Act3;
+    }
+
+    public Button getBtnLetra01Act3() {
+        return btnLetra01Act3;
+    }
+
+    public void setBtnLetra01Act3(Button btnLetra01Act3) {
+        this.btnLetra01Act3 = btnLetra01Act3;
+    }
+
+    public Button getBtnLetra02Act3() {
+        return btnLetra02Act3;
+    }
+
+    public void setBtnLetra02Act3(Button btnLetra02Act3) {
+        this.btnLetra02Act3 = btnLetra02Act3;
+    }
+
+    public Button getBtnLetra03Act3() {
+        return btnLetra03Act3;
+    }
+
+    public void setBtnLetra03Act3(Button btnLetra03Act3) {
+        this.btnLetra03Act3 = btnLetra03Act3;
+    }
+
+    public Button getBtnLetra04Act3() {
+        return btnLetra04Act3;
+    }
+
+    public void setBtnLetra04Act3(Button btnLetra04Act3) {
+        this.btnLetra04Act3 = btnLetra04Act3;
+    }
+
+    public Button getBtnEvaluar03() {
+        return btnEvaluar03;
+    }
+
+    public void setBtnEvaluar03(Button btnEvaluar03) {
+        this.btnEvaluar03 = btnEvaluar03;
+    }
+
+    public TextView getTxtPregunta01() {
+        return txtPregunta01;
+    }
+
+    public void setTxtPregunta01(TextView txtPregunta01) {
+        this.txtPregunta01 = txtPregunta01;
+    }
+
+    public TextView getTxtPregunta02() {
+        return txtPregunta02;
+    }
+
+    public void setTxtPregunta02(TextView txtPregunt02) {
+        this.txtPregunta02 = txtPregunt02;
+    }
+
+    public TextView getTxtPregunta03() {
+        return txtPregunta03;
+    }
+
+    public void setTxtPregunta03(TextView txtPregunta03) {
+        this.txtPregunta03 = txtPregunta03;
+    }
+
+    public TextView getTxtPregunta04() {
+        return txtPregunta04;
+    }
+
+    public void setTxtPregunta04(TextView txtPregunta04) {
+        this.txtPregunta04 = txtPregunta04;
+    }
+
+    public TextView getTxtPregunta05() {
+        return txtPregunta05;
+    }
+
+    public void setTxtPregunta05(TextView txtPregunta05) {
+        this.txtPregunta05 = txtPregunta05;
+    }
+
+    public RadioButton getRdbP011() {
+        return rdbP011;
+    }
+
+    public void setRdbP011(RadioButton rdbP011) {
+        this.rdbP011 = rdbP011;
+    }
+
+    public RadioButton getRdbP012() {
+        return rdbP012;
+    }
+
+    public void setRdbP012(RadioButton rdbP012) {
+        this.rdbP012 = rdbP012;
+    }
+
+    public RadioButton getRdbP013() {
+        return rdbP013;
+    }
+
+    public void setRdbP013(RadioButton rdbP013) {
+        this.rdbP013 = rdbP013;
+    }
+
+    public RadioButton getRdbP021() {
+        return rdbP021;
+    }
+
+    public void setRdbP021(RadioButton rdbP021) {
+        this.rdbP021 = rdbP021;
+    }
+
+    public RadioButton getRdbP022() {
+        return rdbP022;
+    }
+
+    public void setRdbP022(RadioButton rdbP022) {
+        this.rdbP022 = rdbP022;
+    }
+
+    public RadioButton getRdbP023() {
+        return rdbP023;
+    }
+
+    public void setRdbP023(RadioButton rdbP023) {
+        this.rdbP023 = rdbP023;
+    }
+
+    public RadioButton getRdbP031() {
+        return rdbP031;
+    }
+
+    public void setRdbP031(RadioButton rdbP031) {
+        this.rdbP031 = rdbP031;
+    }
+
+    public RadioButton getRdbP032() {
+        return rdbP032;
+    }
+
+    public void setRdbP032(RadioButton rdbP032) {
+        this.rdbP032 = rdbP032;
+    }
+
+    public RadioButton getRdbP033() {
+        return rdbP033;
+    }
+
+    public void setRdbP033(RadioButton rdbP033) {
+        this.rdbP033 = rdbP033;
+    }
+
+    public RadioButton getRdbP041() {
+        return rdbP041;
+    }
+
+    public void setRdbP041(RadioButton rdbP041) {
+        this.rdbP041 = rdbP041;
+    }
+
+    public RadioButton getRdbP042() {
+        return rdbP042;
+    }
+
+    public void setRdbP042(RadioButton rdbP042) {
+        this.rdbP042 = rdbP042;
+    }
+
+    public RadioButton getRdbP043() {
+        return rdbP043;
+    }
+
+    public void setRdbP043(RadioButton rdbP043) {
+        this.rdbP043 = rdbP043;
+    }
+
+    public RadioButton getRdbP051() {
+        return rdbP051;
+    }
+
+    public void setRdbP051(RadioButton rdbP051) {
+        this.rdbP051 = rdbP051;
+    }
+
+    public RadioButton getRdbP052() {
+        return rdbP052;
+    }
+
+    public void setRdbP052(RadioButton rdbP052) {
+        this.rdbP052 = rdbP052;
+    }
+
+    public RadioButton getRdbP053() {
+        return rdbP053;
+    }
+
+    public void setRdbP053(RadioButton rdbP053) {
+        this.rdbP053 = rdbP053;
+    }
+
+    public int getTotalPuntos() {
+        return totalPuntos;
+    }
+
+    public void setTotalPuntos(int totalPuntos) {
+        this.totalPuntos = totalPuntos;
+    }
+
+    public int getPre011() {
+        return pre011;
+    }
+
+    public void setPre011(int pre011) {
+        this.pre011 = pre011;
+    }
+
+    public int getPre012() {
+        return pre012;
+    }
+
+    public void setPre012(int pre012) {
+        this.pre012 = pre012;
+    }
+
+    public int getPre013() {
+        return pre013;
+    }
+
+    public void setPre013(int pre013) {
+        this.pre013 = pre013;
+    }
+
+    public int getPre021() {
+        return pre021;
+    }
+
+    public void setPre021(int pre021) {
+        this.pre021 = pre021;
+    }
+
+    public int getPre022() {
+        return pre022;
+    }
+
+    public void setPre022(int pre022) {
+        this.pre022 = pre022;
+    }
+
+    public int getPre023() {
+        return pre023;
+    }
+
+    public void setPre023(int pre023) {
+        this.pre023 = pre023;
+    }
+
+    public int getPre031() {
+        return pre031;
+    }
+
+    public void setPre031(int pre031) {
+        this.pre031 = pre031;
+    }
+
+    public int getPre032() {
+        return pre032;
+    }
+
+    public void setPre032(int pre032) {
+        this.pre032 = pre032;
+    }
+
+    public int getPre033() {
+        return pre033;
+    }
+
+    public void setPre033(int pre033) {
+        this.pre033 = pre033;
+    }
+
+    public int getPre041() {
+        return pre041;
+    }
+
+    public void setPre041(int pre041) {
+        this.pre041 = pre041;
+    }
+
+    public int getPre042() {
+        return pre042;
+    }
+
+    public void setPre042(int pre042) {
+        this.pre042 = pre042;
+    }
+
+    public int getPre043() {
+        return pre043;
+    }
+
+    public void setPre043(int pre043) {
+        this.pre043 = pre043;
+    }
+
+    public int getPre051() {
+        return pre051;
+    }
+
+    public void setPre051(int pre051) {
+        this.pre051 = pre051;
+    }
+
+    public int getPre052() {
+        return pre052;
+    }
+
+    public void setPre052(int pre052) {
+        this.pre052 = pre052;
+    }
+
+    public int getPre053() {
+        return pre053;
+    }
+
+    public void setPre053(int pre053) {
+        this.pre053 = pre053;
+    }
+
+    public TextView getTxtTotalAciertos() {
+        return txtTotalAciertos;
+    }
+
+    public void setTxtTotalAciertos(TextView txtTotalAciertos) {
+        this.txtTotalAciertos = txtTotalAciertos;
+    }
 }
