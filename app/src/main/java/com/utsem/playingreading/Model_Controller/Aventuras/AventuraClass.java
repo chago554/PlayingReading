@@ -1,16 +1,12 @@
 package com.utsem.playingreading.Model_Controller.Aventuras;
 
-import android.widget.Button;
+
 
 import com.utsem.playingreading.R;
 
 public class AventuraClass {
 
-    CuentosAventura cuentosAventura = new CuentosAventura();
-
-    private Button escuchar;
-    private Button parar;
-    private String [] titulos= {
+    private final String [] titulos= {
             "Los Tres Cerditos ",
             "Caperucita Roja",
             "El Patito Feo",
@@ -26,16 +22,14 @@ public class AventuraClass {
     //componentes de la actividad 1
     private  int imgAct01;
     private  String letra01="", letra02="", letra03="", letra04="", letra05="";
-    private  Button btnLetra01, btnLetra02, btnLetra03, btnLetra04, btnLetra05, btnEvaluarAct01;
 
     //componentes de la actividad 2
     private int img01Act02, img02Act02, img03Act02, img04Act02;
     private String palabra01, palabra02, palabra03, palabra04;
-    private Button btn01Act02, btn02Act02, btn03Act02, btn04Act02;
 
     //componentes de la actividad 3
     private String letra_Act3_01= "", letra_Act3_02 = "", letra_Act3_03 ="", letra_Act3_04 = "", letra_Act3_05 ="", letra_Act3_06 ="";
-    private String btn01Act03, btn02Act03, btn03Act03, btn04Act03, btn05Act03, btn06Act03;
+    private String btn01Act03, btn02Act03, btn03Act03, btn04Act03;
 
     //componentes de la activida 4
     private String txtPregunta01, txtPregunta02, txtPregunta03, txtPregunta04, txtPregunta05;
@@ -252,14 +246,6 @@ public class AventuraClass {
         this.cuentoSelecto = cuentoSelecto;
     }
 
-    public CuentosAventura getCuentosAventura() {
-        return cuentosAventura;
-    }
-
-    public void setCuentosAventura(CuentosAventura cuentosAventura) {
-        this.cuentosAventura = cuentosAventura;
-    }
-
     public String getTituloCuentoSelecto() {
         return tituloCuentoSelecto;
     }
@@ -270,10 +256,6 @@ public class AventuraClass {
 
     public String[] getTitulos() {
         return titulos;
-    }
-
-    public void setTitulos(String[] titulos) {
-        this.titulos = titulos;
     }
 
     public String getParrafo() {
@@ -298,22 +280,6 @@ public class AventuraClass {
 
     public void setImagen(int imagen) {
         this.imagen = imagen;
-    }
-
-    public Button getParar() {
-        return parar;
-    }
-
-    public void setParar(Button parar) {
-        this.parar = parar;
-    }
-
-    public Button getEscuchar() {
-        return escuchar;
-    }
-
-    public void setEscuchar(Button escuchar) {
-        this.escuchar = escuchar;
     }
 
     public int getImgAct01() {
@@ -364,54 +330,6 @@ public class AventuraClass {
         this.letra05 = letra05;
     }
 
-    public Button getBtnLetra01() {
-        return btnLetra01;
-    }
-
-    public void setBtnLetra01(Button btnLetra01) {
-        this.btnLetra01 = btnLetra01;
-    }
-
-    public Button getBtnLetra02() {
-        return btnLetra02;
-    }
-
-    public void setBtnLetra02(Button btnLetra02) {
-        this.btnLetra02 = btnLetra02;
-    }
-
-    public Button getBtnLetra03() {
-        return btnLetra03;
-    }
-
-    public void setBtnLetra03(Button btnLetra03) {
-        this.btnLetra03 = btnLetra03;
-    }
-
-    public Button getBtnLetra04() {
-        return btnLetra04;
-    }
-
-    public void setBtnLetra04(Button btnLetra04) {
-        this.btnLetra04 = btnLetra04;
-    }
-
-    public Button getBtnLetra05() {
-        return btnLetra05;
-    }
-
-    public void setBtnLetra05(Button btnLetra05) {
-        this.btnLetra05 = btnLetra05;
-    }
-
-    public Button getBtnEvaluarAct01() {
-        return btnEvaluarAct01;
-    }
-
-    public void setBtnEvaluarAct01(Button btnEvaluarAct01) {
-        this.btnEvaluarAct01 = btnEvaluarAct01;
-    }
-
     public int getImg01Act02() {
         return img01Act02;
     }
@@ -442,38 +360,6 @@ public class AventuraClass {
 
     public void setImg04Act02(int img04Act02) {
         this.img04Act02 = img04Act02;
-    }
-
-    public Button getBtn01Act02() {
-        return btn01Act02;
-    }
-
-    public void setBtn01Act02(Button btn01Act02) {
-        this.btn01Act02 = btn01Act02;
-    }
-
-    public Button getBtn02Act02() {
-        return btn02Act02;
-    }
-
-    public void setBtn02Act02(Button btn02Act02) {
-        this.btn02Act02 = btn02Act02;
-    }
-
-    public Button getBtn03Act02() {
-        return btn03Act02;
-    }
-
-    public void setBtn03Act02(Button btn03Act02) {
-        this.btn03Act02 = btn03Act02;
-    }
-
-    public Button getBtn04Act02() {
-        return btn04Act02;
-    }
-
-    public void setBtn04Act02(Button btn04Act02) {
-        this.btn04Act02 = btn04Act02;
     }
 
     public String getPalabra01() {
@@ -586,22 +472,6 @@ public class AventuraClass {
 
     public void setBtn04Act03(String btn04Act03) {
         this.btn04Act03 = btn04Act03;
-    }
-
-    public String getBtn05Act03() {
-        return btn05Act03;
-    }
-
-    public void setBtn05Act03(String btn05Act03) {
-        this.btn05Act03 = btn05Act03;
-    }
-
-    public String getBtn06Act03() {
-        return btn06Act03;
-    }
-
-    public void setBtn06Act03(String btn06Act03) {
-        this.btn06Act03 = btn06Act03;
     }
 
     public String getTxtPregunta01() {
@@ -764,17 +634,15 @@ public class AventuraClass {
         this.rdbP053 = rdbP053;
     }
 
-    public int getPre011() {
-        return pre011;
-    }
-
     public void setPre011(int pre011) {
         this.pre011 = pre011;
     }
 
-    public int getPre012() {
-        return pre012;
+    public int getPre011() {
+        return pre011;
     }
+
+    public int getPre012() {return pre012;}
 
     public void setPre012(int pre012) {
         this.pre012 = pre012;
@@ -784,24 +652,12 @@ public class AventuraClass {
         return pre013;
     }
 
-    public void setPre013(int pre013) {
-        this.pre013 = pre013;
-    }
-
     public int getPre021() {
         return pre021;
     }
 
-    public void setPre021(int pre021) {
-        this.pre021 = pre021;
-    }
-
     public int getPre022() {
         return pre022;
-    }
-
-    public void setPre022(int pre022) {
-        this.pre022 = pre022;
     }
 
     public int getPre023() {
@@ -816,10 +672,6 @@ public class AventuraClass {
         return pre031;
     }
 
-    public void setPre031(int pre031) {
-        this.pre031 = pre031;
-    }
-
     public int getPre032() {
         return pre032;
     }
@@ -832,24 +684,12 @@ public class AventuraClass {
         return pre033;
     }
 
-    public void setPre033(int pre033) {
-        this.pre033 = pre033;
-    }
-
     public int getPre041() {
         return pre041;
     }
 
-    public void setPre041(int pre041) {
-        this.pre041 = pre041;
-    }
-
     public int getPre042() {
         return pre042;
-    }
-
-    public void setPre042(int pre042) {
-        this.pre042 = pre042;
     }
 
     public int getPre043() {
@@ -864,23 +704,50 @@ public class AventuraClass {
         return pre051;
     }
 
-    public void setPre051(int pre051) {
-        this.pre051 = pre051;
-    }
-
     public int getPre052() {
         return pre052;
+    }
+
+    public int getPre053() {
+        return pre053;
+    }
+    public void setPre053(int pre053) {
+        this.pre053 = pre053;
     }
 
     public void setPre052(int pre052) {
         this.pre052 = pre052;
     }
 
-    public int getPre053() {
-        return pre053;
+    public void setPre051(int pre051) {
+        this.pre051 = pre051;
     }
 
-    public void setPre053(int pre053) {
-        this.pre053 = pre053;
+    public void setPre042(int pre042) {
+        this.pre042 = pre042;
+    }
+
+    public void setPre041(int pre041) {
+        this.pre041 = pre041;
+    }
+
+    public void setPre033(int pre033) {
+        this.pre033 = pre033;
+    }
+
+    public void setPre031(int pre031) {
+        this.pre031 = pre031;
+    }
+
+    public void setPre022(int pre022) {
+        this.pre022 = pre022;
+    }
+
+    public void setPre021(int pre021) {
+        this.pre021 = pre021;
+    }
+
+    public void setPre013(int pre013) {
+        this.pre013 = pre013;
     }
 }
