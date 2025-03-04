@@ -38,7 +38,6 @@ public class AventuraClass {
 
     public void avance20(){
         setTituloCuentoSelecto(titulos[this.cuentoSelecto]);
-
         switch (this.cuentoSelecto){
             case 0:
                 setParrafo("Había tres cerditos que decidieron construir sus casas. El primero, perezoso, usó paja; el segundo, un poco más trabajador, usó madera; y el tercero, precavido, usó ladrillos. Cada uno confiaba en su elección.");
@@ -53,14 +52,17 @@ public class AventuraClass {
             case 2:
                 setParrafo("En un apacible estanque, nacieron varios patitos. Todos eran amarillos y esponjosos, salvo uno, que era grande y gris. Los demás se burlaban de él, llamándolo feo.");
                 setAudio(R.raw.patitofeo01);
+                setImagen(R.drawable.patito);
             break;
             case 3:
                 setParrafo("La liebre se burlaba de la tortuga por su lentitud. Para demostrar su velocidad, la retó a una carrera. La tortuga aceptó con determinación, pese a las burlas.");
                 setAudio(R.raw.liebreytortuga01);
+                setImagen(R.drawable.liebre);
             break;
             case 4:
                 setParrafo("Hansel y Gretel vivían en una familia pobre. Sus padres, desesperados, los llevaron al bosque y los abandonaron. Para no perderse, Hansel dejó migas de pan en el camino.");
                 setAudio(R.raw.hanselygretel01);
+                setImagen(R.drawable.bosque);
                 break;
             default: setParrafo("Creo que este cuento se acabo...");
         }
@@ -83,6 +85,14 @@ public class AventuraClass {
             case 1:
                 setParrafo("Mientras caminaba por el bosque, se encontró con un lobo astuto. Él le preguntó adónde iba, y sin sospechar nada, le contó su destino. El lobo ideó un plan para adelantarse.");
                 setAudio(R.raw.caperucitaroja02);
+                setImagen(R.drawable.bosque);
+                setImgAct01(R.drawable.libro);
+                //actividad 1: jugar
+                setLetra01("L");
+                setLetra02("B");
+                setLetra03("O");
+                setLetra04("I");
+                setLetra05("R");
                 break;
             case 2:
                 setParrafo("Sentirse rechazado lo hizo marcharse. El patito vagó solo durante un crudo invierno. A pesar de la soledad, nunca perdió la esperanza.");
@@ -120,7 +130,12 @@ public class AventuraClass {
             break;
             case 1:
                 setParrafo("El lobo tomó un camino corto y llegó primero a la casa de la anciana. Se disfrazó con su ropa y se metió en la cama. Esperaba engañar a Caperucita al momento de su llegada.");
-                setAudio(R.raw.caperucitaroja03);
+                try {
+                    setAudio(R.raw.caperucitaroja03);
+                    setImagen(R.drawable.viejo);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             case 2:
                 setParrafo("Cuando llegó la primavera, vio un lago habitado por elegantes cisnes. Con temor se acercó, pero fue recibido con amabilidad. Al mirarse en el agua, se sorprendió.");
@@ -161,6 +176,7 @@ public class AventuraClass {
             case 1:
                 setParrafo("Cuando la niña entró, notó que su \"abuela\" tenía grandes orejas, ojos y dientes. Al instante, el lobo saltó de la cama para atraparla. La tensión llenó la habitación en segundos.");
                 setAudio(R.raw.caperucitaroja04);
+                setImagen(R.drawable.hombrelobo);
                 break;
             case 2:
                 setParrafo("Descubrió que había crecido y se había transformado en un hermoso cisne. Ya no era feo, sino especial y digno de admiración. La nueva imagen le devolvió la confianza.");
@@ -220,6 +236,8 @@ public class AventuraClass {
             case 1:
                 setParrafo("Por fortuna, un leñador cercano escuchó los gritos. Entró corriendo, espantó al lobo y rescató a la abuela y a la niña. Desde ese día, Caperucita obedeció las advertencias de su madre.");
                 setAudio(R.raw.caperucitaroja05);
+                setImagen(R.drawable.madera);
+
                 break;
             case 2:
                 setParrafo("Ahora, con una familia que lo aceptó, vivió feliz y comprendió que la verdadera belleza viene desde dentro. Nunca volvió a sentirse solo ni rechazado.");
@@ -236,10 +254,6 @@ public class AventuraClass {
             default: setParrafo("Creo que este cuento se acabo...");
         }
     }
-
-
-
-
 
 
     public void setCuentoSelecto(int cuentoSelecto) {

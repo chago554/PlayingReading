@@ -108,10 +108,7 @@ public class CuentosAventura extends AppCompatActivity {
         lyvAct03 = findViewById(R.id.lyvAct03);
         lyvPreguntas = findViewById(R.id.lyvPreguntas);
 
-
-
         cargarComponentesAct01();
-
         setCuentoSelecto(cuentoSelecto-1);
         colorActivity();
         avance20();
@@ -522,11 +519,24 @@ public class CuentosAventura extends AppCompatActivity {
     //actividad 1 cuento 1
     public void ponerLetra01(View v) {
         TextView[] letras = {txtLetra01, txtLetra02, txtLetra03, txtLetra04, txtLetra05};
-        for (TextView letra : letras) {
-            if (letra.getText().toString().equals("__")) {
-                letra.setText("J");
-                btnLetra01.setEnabled(false);
-                return;
+
+        for (TextView letra01 : letras) {
+
+            switch (cuentoSelecto) {
+                case 0:
+                    if (letra01.getText().toString().equals("__")) {
+                        letra01.setText("J");
+                        btnLetra01.setEnabled(false);
+                        return;
+                    }
+                    break;
+                case 1:
+                    if (letra01.getText().toString().equals("__")) {
+                        letra01.setText("L");
+                        btnLetra01.setEnabled(false);
+                        return;
+                    }
+                    break;
             }
         }
     }
@@ -534,10 +544,20 @@ public class CuentosAventura extends AppCompatActivity {
     public void ponerLetra02(View v) {
         TextView[] letras = {txtLetra01, txtLetra02, txtLetra03, txtLetra04, txtLetra05};
         for (TextView letra : letras) {
-            if (letra.getText().toString().equals("__")) {
-                letra.setText("G");
-                btnLetra02.setEnabled(false);
-                return;
+            switch (cuentoSelecto){
+                case 0:
+                    if (letra.getText().toString().equals("__")) {
+                        letra.setText("G");
+                        btnLetra02.setEnabled(false);
+                        return;
+                    }
+                    break;
+                case 1:
+                    if (letra.getText().toString().equals("__")) {
+                        letra.setText("B");
+                        btnLetra02.setEnabled(false);
+                        return;
+                    }
             }
         }
     }
@@ -545,10 +565,22 @@ public class CuentosAventura extends AppCompatActivity {
     public void ponerLetra03(View v) {
         TextView[] letras = {txtLetra01, txtLetra02, txtLetra03, txtLetra04, txtLetra05};
         for (TextView letra : letras) {
-            if (letra.getText().toString().equals("__")) {
-                letra.setText("R");
-                btnLetra03.setEnabled(false);
-                return;
+
+            switch (cuentoSelecto){
+                case 0:
+                    if (letra.getText().toString().equals("__")) {
+                        letra.setText("R");
+                        btnLetra03.setEnabled(false);
+                        return;
+                    }
+                    break;
+                case 1:
+                    if (letra.getText().toString().equals("__")) {
+                        letra.setText("O");
+                        btnLetra03.setEnabled(false);
+                        return;
+                    }
+                    break;
             }
         }
     }
@@ -556,10 +588,21 @@ public class CuentosAventura extends AppCompatActivity {
     public void ponerLetra04(View v) {
         TextView[] letras = {txtLetra01, txtLetra02, txtLetra03, txtLetra04, txtLetra05};
         for (TextView letra : letras) {
-            if (letra.getText().toString().equals("__")) {
-                letra.setText("U");
-                btnLetra04.setEnabled(false);
-                return;
+            switch (cuentoSelecto){
+                case 0:
+                    if (letra.getText().toString().equals("__")) {
+                        letra.setText("U");
+                        btnLetra04.setEnabled(false);
+                        return;
+                    }
+                    break;
+                case 1:
+                    if (letra.getText().toString().equals("__")) {
+                        letra.setText("I");
+                        btnLetra04.setEnabled(false);
+                        return;
+                    }
+                    break;
             }
         }
     }
@@ -567,11 +610,23 @@ public class CuentosAventura extends AppCompatActivity {
     public void ponerLetra05(View v) {
         TextView[] letras = {txtLetra01, txtLetra02, txtLetra03, txtLetra04, txtLetra05};
         for (TextView letra : letras) {
-            if (letra.getText().toString().equals("__")) {
-                letra.setText("A");
-                btnLetra05.setEnabled(false);
-                return;
+            switch (cuentoSelecto){
+                case 0:
+                    if (letra.getText().toString().equals("__")) {
+                        letra.setText("A");
+                        btnLetra05.setEnabled(false);
+                        return;
+                    }
+                    break;
+                case 1:
+                    if (letra.getText().toString().equals("__")) {
+                        letra.setText("R");
+                        btnLetra05.setEnabled(false);
+                        return;
+                    }
+
             }
+
         }
     }
 
