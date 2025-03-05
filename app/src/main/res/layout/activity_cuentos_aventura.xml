@@ -342,6 +342,7 @@
                             android:layout_margin="5dp"
                             android:layout_weight="1"
                             android:background="#ff5400"
+                            android:textColor="#fff"
                             android:onClick="comprobarBtn02Act02"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -490,7 +491,7 @@
                                 android:background="#E91E63"
                                 android:onClick="ponerLetra01Act03"
                                 android:text=""
-                                android:textColor="#EDEDED"
+                                android:textColor="#FFF"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
 
@@ -503,6 +504,7 @@
                                 android:background="#5B7F33"
                                 android:onClick="ponerLetra02Act03"
                                 android:text=""
+                                android:textColor="#fff"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
 
@@ -778,6 +780,7 @@
                         android:id="@+id/txtTotalAciertos"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginTop="150dp"
                         android:layout_weight="1"
                         android:text="Aciertos: "
                         android:textAlignment="center"

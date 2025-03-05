@@ -21,7 +21,7 @@ public class AventuraClass {
 
     //componentes de la actividad 1
     private  int imgAct01;
-    private  String letra01="", letra02="", letra03="", letra04="", letra05="";
+    private  String btnLetra01 ="", btnLetra02 ="", btnLetra03 ="", btnLetra04 ="", btnLetra05 ="";
 
     //componentes de la actividad 2
     private int img01Act02, img02Act02, img03Act02, img04Act02;
@@ -69,30 +69,32 @@ public class AventuraClass {
     }
 
     public void avance40(){
-        switch (this.cuentoSelecto){
+        switch (this.cuentoSelecto) {
             case 0:
                 setParrafo("Un día, un lobo hambriento llegó al pueblo y vio la casa de paja. Sopló con fuerza y la destruyó en segundos. El cerdito huyó a la casa de su hermano, y el lobo lo siguió.");
                 setAudio(R.raw.lostrescerditos02);
                 setImagen(R.drawable.lobo);
                 setImgAct01(R.drawable.bloquear);
+
                 //actividad 1: jugar
-                setLetra01("J");
-                setLetra02("G");
-                setLetra03("R");
-                setLetra04("U");
-                setLetra05("A");
+                setBtnLetra01("J");
+                setBtnLetra02("G");
+                setBtnLetra03("R");
+                setBtnLetra04("U");
+                setBtnLetra05("A");
                 break;
             case 1:
                 setParrafo("Mientras caminaba por el bosque, se encontró con un lobo astuto. Él le preguntó adónde iba, y sin sospechar nada, le contó su destino. El lobo ideó un plan para adelantarse.");
                 setAudio(R.raw.caperucitaroja02);
                 setImagen(R.drawable.bosque);
                 setImgAct01(R.drawable.libro);
-                //actividad 1: jugar
-                setLetra01("L");
-                setLetra02("B");
-                setLetra03("O");
-                setLetra04("I");
-                setLetra05("R");
+
+                //actividad 1: libro
+                setBtnLetra01("L");
+                setBtnLetra02("B");
+                setBtnLetra03("O");
+                setBtnLetra04("I");
+                setBtnLetra05("R");
                 break;
             case 2:
                 setParrafo("Sentirse rechazado lo hizo marcharse. El patito vagó solo durante un crudo invierno. A pesar de la soledad, nunca perdió la esperanza.");
@@ -123,19 +125,25 @@ public class AventuraClass {
                 setImg03Act02(R.drawable.numeros);
                 setImg04Act02(R.drawable.aprenderenlinea);
 
-                setPalabra01("Videos");
+                setPalabra01("Laptop");
                 setPalabra02("Aprender");
-                setPalabra03("Diversión");
-                setPalabra04("Números");
-            break;
+                setPalabra03("Enojo");
+                setPalabra04("Tablas");
+                break;
             case 1:
                 setParrafo("El lobo tomó un camino corto y llegó primero a la casa de la anciana. Se disfrazó con su ropa y se metió en la cama. Esperaba engañar a Caperucita al momento de su llegada.");
-                try {
-                    setAudio(R.raw.caperucitaroja03);
-                    setImagen(R.drawable.viejo);
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
+                setAudio(R.raw.caperucitaroja03);
+                setImagen(R.drawable.viejo);
+
+                setImg01Act02(R.drawable.planta);
+                setImg02Act02(R.drawable.hoja);
+                setImg03Act02(R.drawable.planta1);
+                setImg04Act02(R.drawable.planta2);
+
+                setPalabra01("Plantas");
+                setPalabra02("Armario");
+                setPalabra03("Fauna");
+                setPalabra04("Bicicleta");
                 break;
             case 2:
                 setParrafo("Cuando llegó la primavera, vio un lago habitado por elegantes cisnes. Con temor se acercó, pero fue recibido con amabilidad. Al mirarse en el agua, se sorprendió.");
@@ -177,6 +185,17 @@ public class AventuraClass {
                 setParrafo("Cuando la niña entró, notó que su \"abuela\" tenía grandes orejas, ojos y dientes. Al instante, el lobo saltó de la cama para atraparla. La tensión llenó la habitación en segundos.");
                 setAudio(R.raw.caperucitaroja04);
                 setImagen(R.drawable.hombrelobo);
+                //actividad 3: verdad
+                setLetra_Act3_01("__");
+                setLetra_Act3_02("E");
+                setLetra_Act3_03("__");
+                setLetra_Act3_04("D");
+                setLetra_Act3_05("__");
+                setLetra_Act3_06("__");
+                setBtn01Act03("D");
+                setBtn02Act03("A");
+                setBtn03Act03("V");
+                setBtn04Act03("R");
                 break;
             case 2:
                 setParrafo("Descubrió que había crecido y se había transformado en un hermoso cisne. Ya no era feo, sino especial y digno de admiración. La nueva imagen le devolvió la confianza.");
@@ -237,6 +256,38 @@ public class AventuraClass {
                 setParrafo("Por fortuna, un leñador cercano escuchó los gritos. Entró corriendo, espantó al lobo y rescató a la abuela y a la niña. Desde ese día, Caperucita obedeció las advertencias de su madre.");
                 setAudio(R.raw.caperucitaroja05);
                 setImagen(R.drawable.madera);
+
+                setTxtPregunta01("¿Qué llevaba Caperucita en su canasta?");
+                setRdbP011("a) Frutas y verduras");
+                setRdbP012("b) Pan y miel"); //corecta
+                setRdbP013("c) Galletas y leche");
+                setPre012(1);
+
+                setTxtPregunta02("¿Quién le hizo la capa roja a Caperucita?");
+                setRdbP021("a) Su mamá");
+                setRdbP022("b) Su abuela");//correcta
+                setRdbP023("c) Su tía");
+                setPre022(1);
+
+
+                setTxtPregunta03("¿A quién se encontró Caperucita en el bosque?");
+                setRdbP031("a) Un oso");
+                setRdbP032("b) Un conejo");
+                setRdbP033("c) Un lobo");//correcta
+                setPre033(1);
+
+                setTxtPregunta04("¿Qué hizo el lobo para engañar a Caperucita?");
+                setRdbP041("a) Se disfrazó de su abuela");//correcta
+                setRdbP042("b) Se escondió en un árbol");
+                setRdbP043("c) Se hizo amigo de ella");
+                setPre041(1);
+
+                setTxtPregunta05("¿Quién salvó a Caperucita y a su abuela?");
+                setRdbP051("a) Un príncipe");
+                setRdbP052("b) Un leñador");//correcta
+                setRdbP053("c) Un cazador");
+                setPre052(1);
+
 
                 break;
             case 2:
@@ -304,44 +355,44 @@ public class AventuraClass {
         this.imgAct01 = imgAct01;
     }
 
-    public String getLetra01() {
-        return letra01;
+    public String getBtnLetra01() {
+        return btnLetra01;
     }
 
-    public void setLetra01(String letra01) {
-        this.letra01 = letra01;
+    public void setBtnLetra01(String btnLetra01) {
+        this.btnLetra01 = btnLetra01;
     }
 
-    public String getLetra02() {
-        return letra02;
+    public String getBtnLetra02() {
+        return btnLetra02;
     }
 
-    public void setLetra02(String letra02) {
-        this.letra02 = letra02;
+    public void setBtnLetra02(String btnLetra02) {
+        this.btnLetra02 = btnLetra02;
     }
 
-    public String getLetra03() {
-        return letra03;
+    public String getBtnLetra03() {
+        return btnLetra03;
     }
 
-    public void setLetra03(String letra03) {
-        this.letra03 = letra03;
+    public void setBtnLetra03(String btnLetra03) {
+        this.btnLetra03 = btnLetra03;
     }
 
-    public String getLetra04() {
-        return letra04;
+    public String getBtnLetra04() {
+        return btnLetra04;
     }
 
-    public void setLetra04(String letra04) {
-        this.letra04 = letra04;
+    public void setBtnLetra04(String btnLetra04) {
+        this.btnLetra04 = btnLetra04;
     }
 
-    public String getLetra05() {
-        return letra05;
+    public String getBtnLetra05() {
+        return btnLetra05;
     }
 
-    public void setLetra05(String letra05) {
-        this.letra05 = letra05;
+    public void setBtnLetra05(String btnLetra05) {
+        this.btnLetra05 = btnLetra05;
     }
 
     public int getImg01Act02() {
