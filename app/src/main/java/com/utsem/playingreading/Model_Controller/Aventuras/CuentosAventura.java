@@ -574,44 +574,91 @@ public class CuentosAventura extends AppCompatActivity {
         }
     }
 
+    //actividad 1
     public void comprobarActividad01(View v){
-
-        switch (cuentoSelecto){
+        switch (cuentoSelecto) {
             case 0:
-                if(txtLetra01.getText().toString().equals("J") && txtLetra02.getText().toString().equals("U") &&  txtLetra03.getText().toString().equals("G") && txtLetra04.getText().toString().equals("A") && txtLetra05.getText().toString().equals("R")){
+                if (txtLetra01.getText().toString().equals("J") && txtLetra02.getText().toString().equals("U") && txtLetra03.getText().toString().equals("G") && txtLetra04.getText().toString().equals("A") && txtLetra05.getText().toString().equals("R")) {
                     btnEvaluar01.setEnabled(false);
                     Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
                     TextView[] letras = {txtLetra01, txtLetra02, txtLetra03, txtLetra04, txtLetra05};
-                    Button [] botones = {btnLetra01, btnLetra02, btnLetra03, btnLetra04, btnLetra05, btnEvaluar01};
-                    for(TextView letra : letras){
+                    Button[] botones = {btnLetra01, btnLetra02, btnLetra03, btnLetra04, btnLetra05, btnEvaluar01};
+                    for (TextView letra : letras) {
                         letra.setText("__");
                     }
-                    for(Button boton : botones){
+                    for (Button boton : botones) {
                         boton.setEnabled(true);
                     }
                 }
                 break;
             case 1:
-                if(txtLetra01.getText().toString().equals("L") && txtLetra02.getText().toString().equals("I") &&  txtLetra03.getText().toString().equals("B") && txtLetra04.getText().toString().equals("R") && txtLetra05.getText().toString().equals("O")){
+                if (txtLetra01.getText().toString().equals("L") && txtLetra02.getText().toString().equals("I") && txtLetra03.getText().toString().equals("B") && txtLetra04.getText().toString().equals("R") && txtLetra05.getText().toString().equals("O")) {
                     btnEvaluar01.setEnabled(false);
                     Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
                     TextView[] letras = {txtLetra01, txtLetra02, txtLetra03, txtLetra04, txtLetra05};
-                    Button [] botones = {btnLetra01, btnLetra02, btnLetra03, btnLetra04, btnLetra05, btnEvaluar01};
-                    for(TextView letra : letras){
+                    Button[] botones = {btnLetra01, btnLetra02, btnLetra03, btnLetra04, btnLetra05, btnEvaluar01};
+                    for (TextView letra : letras) {
                         letra.setText("__");
                     }
-                    for(Button boton : botones){
+                    for (Button boton : botones) {
+                        boton.setEnabled(true);
+                    }
+                }
+                break;
+            case 2:
+                if (txtLetra01.getText().toString().equals("N") && txtLetra02.getText().toString().equals("O") && txtLetra03.getText().toString().equals("B") && txtLetra04.getText().toString().equals("L") && txtLetra05.getText().toString().equals("E")) {
+                    btnEvaluar01.setEnabled(false);
+                    Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                    TextView[] letras = {txtLetra01, txtLetra02, txtLetra03, txtLetra04, txtLetra05};
+                    Button[] botones = {btnLetra01, btnLetra02, btnLetra03, btnLetra04, btnLetra05, btnEvaluar01};
+                    for (TextView letra : letras) {
+                        letra.setText("__");
+                    }
+                    for (Button boton : botones) {
+                        boton.setEnabled(true);
+                    }
+                }
+                break;
+            case 3:
+                if (txtLetra01.getText().toString().equals("C") && txtLetra02.getText().toString().equals("O") && txtLetra03.getText().toString().equals("C") && txtLetra04.getText().toString().equals("H") && txtLetra05.getText().toString().equals("E")) {
+                    btnEvaluar01.setEnabled(false);
+                    Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                    TextView[] letras = {txtLetra01, txtLetra02, txtLetra03, txtLetra04, txtLetra05};
+                    Button[] botones = {btnLetra01, btnLetra02, btnLetra03, btnLetra04, btnLetra05, btnEvaluar01};
+                    for (TextView letra : letras) {
+                        letra.setText("__");
+                    }
+                    for (Button boton : botones) {
+                        boton.setEnabled(true);
+                    }
+                }
+                break;
+            case 4:
+                if (txtLetra01.getText().toString().equals("P") && txtLetra02.getText().toString().equals("L") && txtLetra03.getText().toString().equals("A") && txtLetra04.getText().toString().equals("Y") && txtLetra05.getText().toString().equals("A")) {
+                    btnEvaluar01.setEnabled(false);
+                    Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                    TextView[] letras = {txtLetra01, txtLetra02, txtLetra03, txtLetra04, txtLetra05};
+                    Button[] botones = {btnLetra01, btnLetra02, btnLetra03, btnLetra04, btnLetra05, btnEvaluar01};
+                    for (TextView letra : letras) {
+                        letra.setText("__");
+                    }
+                    for (Button boton : botones) {
                         boton.setEnabled(true);
                     }
                 }
                 break;
         }
     }
-
 
     //actividad 2
     public void comprobarBtn01Act02(View v){
@@ -626,6 +673,16 @@ public class CuentosAventura extends AppCompatActivity {
                 btn03Act02.setEnabled(false);
                 btn04Act02.setEnabled(false);
                 break;
+            case 2:
+                Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                break;
+            case 3:
+                Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                break;
+            case 4:
+                Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                break;
+
         }
     }
     public void comprobarBtn02Act02(View v){
@@ -640,10 +697,21 @@ public class CuentosAventura extends AppCompatActivity {
             case 1:
                 Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
                 break;
+            case 2:
+                Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                break;
+            case 3:
+                Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
+                btn01Act02.setEnabled(false);
+                btn02Act02.setEnabled(false);
+                btn03Act02.setEnabled(false);
+                btn04Act02.setEnabled(false);
+                break;
+            case 4:
+                Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                break;
 
         }
-
-
     }
     public void comprobarBtn03Act02(View v){
         switch (cuentoSelecto){
@@ -652,6 +720,23 @@ public class CuentosAventura extends AppCompatActivity {
                 break;
             case 1:
                 Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                break;
+            case 2:
+                Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
+                btn01Act02.setEnabled(false);
+                btn02Act02.setEnabled(false);
+                btn03Act02.setEnabled(false);
+                btn04Act02.setEnabled(false);
+                break;
+            case 3:
+                Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                break;
+            case 4:
+                Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
+                btn01Act02.setEnabled(false);
+                btn02Act02.setEnabled(false);
+                btn03Act02.setEnabled(false);
+                btn04Act02.setEnabled(false);
                 break;
         }
 
@@ -665,8 +750,16 @@ public class CuentosAventura extends AppCompatActivity {
             case 1:
                 Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
                 break;
+            case 2:
+                Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                break;
+            case 3:
+                Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                break;
+            case 4:
+                Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                break;
         }
-
     }
 
     //actividad 3
@@ -711,7 +804,6 @@ public class CuentosAventura extends AppCompatActivity {
         }
     }
     public void comprobarActividad03(View v){
-
         switch (cuentoSelecto){
             case 0:
                 if(txtLetra01Act3.getText().toString().equals("A") && txtLetra02Act3.getText().toString().equals("M") &&  txtLetra03Act3.getText().toString().equals("I") && txtLetra04Act3.getText().toString().equals("G") && txtLetra05Act3.getText().toString().equals("O") && txtLetra06Act3.getText().toString().equals("S")){
@@ -768,8 +860,86 @@ public class CuentosAventura extends AppCompatActivity {
 
                 }
                 break;
-        }
+            case 2:
+                if(txtLetra01Act3.getText().toString().equals("B") && txtLetra02Act3.getText().toString().equals("O") &&  txtLetra03Act3.getText().toString().equals("N") && txtLetra04Act3.getText().toString().equals("D") && txtLetra05Act3.getText().toString().equals("A") && txtLetra06Act3.getText().toString().equals("D")){
 
+                    btnLetra01Act3.setEnabled(false);
+                    btnLetra02Act3.setEnabled(false);
+                    btnLetra03Act3.setEnabled(false);
+                    btnLetra04Act3.setEnabled(false);
+                    btnEvaluar03.setEnabled(false);
+
+                    Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                    txtLetra01Act3.setText(aventuraClass.getLetra_Act3_01());
+                    txtLetra02Act3.setText(aventuraClass.getLetra_Act3_02());
+                    txtLetra03Act3.setText(aventuraClass.getLetra_Act3_03());
+                    txtLetra04Act3.setText(aventuraClass.getLetra_Act3_04());
+                    txtLetra05Act3.setText(aventuraClass.getLetra_Act3_05());
+                    txtLetra06Act3.setText(aventuraClass.getLetra_Act3_06());
+
+                    btnLetra01Act3.setEnabled(true);
+                    btnLetra02Act3.setEnabled(true);
+                    btnLetra03Act3.setEnabled(true);
+                    btnLetra04Act3.setEnabled(true);
+                    btnEvaluar03.setEnabled(true);
+
+                }
+                break;
+            case 3:
+                if(txtLetra01Act3.getText().toString().equals("C") && txtLetra02Act3.getText().toString().equals("I") &&  txtLetra03Act3.getText().toString().equals("U") && txtLetra04Act3.getText().toString().equals("D") && txtLetra05Act3.getText().toString().equals("A") && txtLetra06Act3.getText().toString().equals("D")){
+
+                    btnLetra01Act3.setEnabled(false);
+                    btnLetra02Act3.setEnabled(false);
+                    btnLetra03Act3.setEnabled(false);
+                    btnLetra04Act3.setEnabled(false);
+                    btnEvaluar03.setEnabled(false);
+
+                    Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                    txtLetra01Act3.setText(aventuraClass.getLetra_Act3_01());
+                    txtLetra02Act3.setText(aventuraClass.getLetra_Act3_02());
+                    txtLetra03Act3.setText(aventuraClass.getLetra_Act3_03());
+                    txtLetra04Act3.setText(aventuraClass.getLetra_Act3_04());
+                    txtLetra05Act3.setText(aventuraClass.getLetra_Act3_05());
+                    txtLetra06Act3.setText(aventuraClass.getLetra_Act3_06());
+
+                    btnLetra01Act3.setEnabled(true);
+                    btnLetra02Act3.setEnabled(true);
+                    btnLetra03Act3.setEnabled(true);
+                    btnLetra04Act3.setEnabled(true);
+                    btnEvaluar03.setEnabled(true);
+
+                }
+                break;
+            case 4:
+                if(txtLetra01Act3.getText().toString().equals("M") && txtLetra02Act3.getText().toString().equals("U") &&  txtLetra03Act3.getText().toString().equals("S") && txtLetra04Act3.getText().toString().equals("I") && txtLetra05Act3.getText().toString().equals("C") && txtLetra06Act3.getText().toString().equals("A")){
+
+                    btnLetra01Act3.setEnabled(false);
+                    btnLetra02Act3.setEnabled(false);
+                    btnLetra03Act3.setEnabled(false);
+                    btnLetra04Act3.setEnabled(false);
+                    btnEvaluar03.setEnabled(false);
+
+                    Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                    txtLetra01Act3.setText(aventuraClass.getLetra_Act3_01());
+                    txtLetra02Act3.setText(aventuraClass.getLetra_Act3_02());
+                    txtLetra03Act3.setText(aventuraClass.getLetra_Act3_03());
+                    txtLetra04Act3.setText(aventuraClass.getLetra_Act3_04());
+                    txtLetra05Act3.setText(aventuraClass.getLetra_Act3_05());
+                    txtLetra06Act3.setText(aventuraClass.getLetra_Act3_06());
+
+                    btnLetra01Act3.setEnabled(true);
+                    btnLetra02Act3.setEnabled(true);
+                    btnLetra03Act3.setEnabled(true);
+                    btnLetra04Act3.setEnabled(true);
+                    btnEvaluar03.setEnabled(true);
+                }
+        }
     }
 
     //comprobar las prguntas

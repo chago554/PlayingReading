@@ -1,7 +1,5 @@
 package com.utsem.playingreading.Model_Controller.Aventuras;
 
-
-
 import com.utsem.playingreading.R;
 
 public class AventuraClass {
@@ -99,14 +97,42 @@ public class AventuraClass {
             case 2:
                 setParrafo("Sentirse rechazado lo hizo marcharse. El patito vagó solo durante un crudo invierno. A pesar de la soledad, nunca perdió la esperanza.");
                 setAudio(R.raw.patitofeo02);
+                setImagen(R.drawable.arboldeinvierno);
+                setImgAct01(R.drawable.noble);
+
+                //actividad 1: Noble
+                setBtnLetra01("B");
+                setBtnLetra02("O");
+                setBtnLetra03("E");
+                setBtnLetra04("L");
+                setBtnLetra05("N");
             break;
             case 3:
                 setParrafo("Al inicio de la carrera, la liebre salió disparada y dejó a la tortuga muy atrás. Confiada en su triunfo, se detuvo a descansar bajo un árbol. El sueño la venció por completo.");
                 setAudio(R.raw.liebreytortuga02);
+                setImagen(R.drawable.tortuga);
+                setImgAct01(R.drawable.coche);
+
+                //actividad 1: Coche
+                setBtnLetra01("C");
+                setBtnLetra02("O");
+                setBtnLetra03("H");
+                setBtnLetra04("E");
+                setBtnLetra05("C");
                 break;
+
             case 4:
                 setParrafo("Pero los pájaros se comieron las migas, dejándolos sin ruta de regreso. Perdidos y hambrientos, los niños encontraron una casa hecha de dulces. La tentación era irresistible.");
                 setAudio(R.raw.hanselygretel02);
+                setImagen(R.drawable.tucan);
+                setImgAct01(R.drawable.playa);
+
+                //actividad 1: Playa
+                setBtnLetra01("A");
+                setBtnLetra02("P");
+                setBtnLetra03("Y");
+                setBtnLetra04("L");
+                setBtnLetra05("A");
                 break;
             default: setParrafo("Creo que este cuento se acabo...");
         }
@@ -148,14 +174,47 @@ public class AventuraClass {
             case 2:
                 setParrafo("Cuando llegó la primavera, vio un lago habitado por elegantes cisnes. Con temor se acercó, pero fue recibido con amabilidad. Al mirarse en el agua, se sorprendió.");
                 setAudio(R.raw.patitofeo03);
+                setImagen(R.drawable.primavera);
+
+                setImg01Act02(R.drawable.corazones);
+                setImg02Act02(R.drawable.amor);
+                setImg03Act02(R.drawable.amabilidad);
+                setImg04Act02(R.drawable.unir);
+
+                setPalabra01("Valiente");
+                setPalabra02("Auto");
+                setPalabra03("Amor");
+                setPalabra04("Carencia");
                 break;
             case 3:
                 setParrafo("Mientras la liebre dormía, la tortuga avanzaba paso a paso. Con constancia, se fue acercando a la meta sin detenerse. Su esfuerzo silencioso hablaba por sí mismo.");
                 setAudio(R.raw.liebreytortuga03);
+                setImagen(R.drawable.lineademeta);
+
+                setImg01Act02(R.drawable.correr);
+                setImg02Act02(R.drawable.corriendo);
+                setImg03Act02(R.drawable.corriendo1);
+                setImg04Act02(R.drawable.trotar);
+
+                setPalabra01("Perro");
+                setPalabra02("Correr");
+                setPalabra03("Tarta");
+                setPalabra04("Viento");
                 break;
             case 4:
                 setParrafo("La dueña de la casa era una bruja malvada que los atrapó. Planeaba engordar a Hansel para comérselo y obligó a Gretel a trabajar. El peligro se cernía sobre ellos.");
                 setAudio(R.raw.hanselygretel03);
+                setImagen(R.drawable.bruja);
+
+                setImg01Act02(R.drawable.paleta);
+                setImg02Act02(R.drawable.caramelos);
+                setImg03Act02(R.drawable.bastoncaramelo);
+                setImg04Act02(R.drawable.chupete);
+
+                setPalabra01("Malo");
+                setPalabra02("Miedo");
+                setPalabra03("Dulce");
+                setPalabra04("Bueno");
                 break;
             default: setParrafo("Creo que este cuento se acabo...");
         }
@@ -185,6 +244,7 @@ public class AventuraClass {
                 setParrafo("Cuando la niña entró, notó que su \"abuela\" tenía grandes orejas, ojos y dientes. Al instante, el lobo saltó de la cama para atraparla. La tensión llenó la habitación en segundos.");
                 setAudio(R.raw.caperucitaroja04);
                 setImagen(R.drawable.hombrelobo);
+
                 //actividad 3: verdad
                 setLetra_Act3_01("__");
                 setLetra_Act3_02("E");
@@ -192,6 +252,7 @@ public class AventuraClass {
                 setLetra_Act3_04("D");
                 setLetra_Act3_05("__");
                 setLetra_Act3_06("__");
+
                 setBtn01Act03("D");
                 setBtn02Act03("A");
                 setBtn03Act03("V");
@@ -200,14 +261,58 @@ public class AventuraClass {
             case 2:
                 setParrafo("Descubrió que había crecido y se había transformado en un hermoso cisne. Ya no era feo, sino especial y digno de admiración. La nueva imagen le devolvió la confianza.");
                 setAudio(R.raw.patitofeo04);
+                setImagen(R.drawable.cisne);
+
+                //actividad 3: Bondad
+                setLetra_Act3_01("__");
+                setLetra_Act3_02("O");
+                setLetra_Act3_03("__");
+                setLetra_Act3_04("__");
+                setLetra_Act3_05("A");
+                setLetra_Act3_06("__");
+
+                setBtn01Act03("D");
+                setBtn02Act03("N");
+                setBtn03Act03("B");
+                setBtn04Act03("D");
                 break;
             case 3:
                 setParrafo("Cuando la liebre despertó, la tortuga estaba a punto de cruzar la línea de meta. Desesperada, corrió lo más rápido que pudo, pero era tarde.");
                 setAudio(R.raw.liebreytortuga04);
+                setImagen(R.drawable.dormido);
+
+                //actividad 3: Ciudad
+                setLetra_Act3_01("C");
+                setLetra_Act3_02("__");
+                setLetra_Act3_03("U");
+                setLetra_Act3_04("__");
+                setLetra_Act3_05("__");
+                setLetra_Act3_06("__");
+
+                setBtn01Act03("D");
+                setBtn02Act03("I");
+                setBtn03Act03("A");
+                setBtn04Act03("D");
+
                 break;
             case 4:
                 setParrafo("Con astucia, Gretel empujó a la bruja al horno durante un descuido. Juntos, encontraron un cofre con oro que les permitió escapar. La esperanza resurgía en medio del miedo.");
                 setAudio(R.raw.hanselygretel04);
+                setImagen(R.drawable.cofre);
+
+                //actividad 3: Música
+                setLetra_Act3_01("__");
+                setLetra_Act3_02("U");
+                setLetra_Act3_03("S");
+                setLetra_Act3_04("__");
+                setLetra_Act3_05("__");
+                setLetra_Act3_06("__");
+
+                setBtn01Act03("M");
+                setBtn02Act03("C");
+                setBtn03Act03("I");
+                setBtn04Act03("A");
+
                 break;
             default: setParrafo("Creo que este cuento se acabo...");
         }
@@ -293,14 +398,112 @@ public class AventuraClass {
             case 2:
                 setParrafo("Ahora, con una familia que lo aceptó, vivió feliz y comprendió que la verdadera belleza viene desde dentro. Nunca volvió a sentirse solo ni rechazado.");
                 setAudio(R.raw.patitofeo05);
+                setImagen(R.drawable.corazones);
+
+                setTxtPregunta01("¿De qué color era el patito diferente al principio?");
+                setRdbP011("a) Amarillo");
+                setRdbP012("b) Gris"); //corecta
+                setRdbP013("c) Blanco");
+                setPre012(1);
+
+                setTxtPregunta02("¿Qué le decían los otros patitos al patito diferente?");
+                setRdbP021("a) Lindo");
+                setRdbP022("b) Amigo");
+                setRdbP023("c) Feo");//correcta
+                setPre023(1);
+
+
+                setTxtPregunta03("¿En qué animal se convirtió el patito feo?");
+                setRdbP031("a) Un pato grande");
+                setRdbP032("b) Un cisne");//correcta
+                setRdbP033("c) Un ganso");
+                setPre032(1);
+
+                setTxtPregunta04("¿Qué estación del año llegó después del invierno en la historia?");
+                setRdbP041("a) El verano");
+                setRdbP042("b) La primavera");//correcta
+                setRdbP043("c) El otoño");
+                setPre042(1);
+
+                setTxtPregunta05("¿Qué aprendió el patito sobre la belleza?");
+                setRdbP051("a) Que la verdadera belleza está en el interior");//correcta
+                setRdbP052("b) Que debe ser igual a los demás");
+                setRdbP053("c) Que solo importa el exterior");
+                setPre051(1);
                 break;
             case 3:
                 setParrafo("La tortuga ganó la carrera con perseverancia. La liebre aprendió que la constancia y el esfuerzo superan la mera velocidad. Una lección que nunca olvidó.");
                 setAudio(R.raw.liebreytortuga05);
+                setImagen(R.drawable.ganar);
+
+                setTxtPregunta01("¿Qué animal retó a la tortuga a una carrera?");
+                setRdbP011("a) Un conejo");
+                setRdbP012("b) Una ardilla");
+                setRdbP013("c) Una liebre");//corecta
+                setPre013(1);
+
+                setTxtPregunta02("¿Qué hizo la liebre durante la carrera?");
+                setRdbP021("a) Siguió corriendo");
+                setRdbP022("b) Se detuvo a dormir");//correcta
+                setRdbP023("c) Se puso a comer");
+                setPre022(1);
+
+
+                setTxtPregunta03("¿Quién ganó la carrera?");
+                setRdbP031("a) La tortuga");//correcta
+                setRdbP032("b) La liebre");
+                setRdbP033("c) Un ganso");
+                setPre031(1);
+
+                setTxtPregunta04("¿Qué aprendió la liebre de la carrera?");
+                setRdbP041("a) Que debe dormir más");
+                setRdbP042("b) Que la velocidad lo es todo");
+                setRdbP043("c) Que la constancia supera la velocidad");//correcta
+                setPre043(1);
+
+                setTxtPregunta05("¿Cómo avanzaba la tortuga durante la carrera?");
+                setRdbP051("a) Saltando");
+                setRdbP052("b) Corriendo");
+                setRdbP053("c) Paso a paso");//correcta
+                setPre053(1);
+
                 break;
             case 4:
                 setParrafo("Al volver a casa, sus padres los recibieron con alegría. Con el oro, la familia nunca volvió a pasar hambre, y la vida de los niños cambió para siempre.");
                 setAudio(R.raw.hanselygretel05);
+                setImagen(R.drawable.casa1);
+
+                setTxtPregunta01("¿De qué material estaba hecha la casa que encontraron Hansel y Gretel?");
+                setRdbP011("a) Dulces");//corecta
+                setRdbP012("b) Ladrillos");
+                setRdbP013("c) Madera");
+                setPre011(1);
+
+                setTxtPregunta02("¿Quién vivía en la casa de dulces?");
+                setRdbP021("a) Un hada");
+                setRdbP022("b) Un gidante");
+                setRdbP023("c) Una bruja");//correcta
+                setPre023(1);
+
+
+                setTxtPregunta03("¿Qué dejaron Hansel y Gretel para encontrar el camino de regreso?");
+                setRdbP031("a) Piedras");
+                setRdbP032("b) Migas de pan");//correcta
+                setRdbP033("c) Flores");
+                setPre032(1);
+
+                setTxtPregunta04("¿Qué encontraron Hansel y Gretel que les permitió vivir bien?");
+                setRdbP041("a) Un castillo");
+                setRdbP042("b) Un cofre de oro");//correcta
+                setRdbP043("c) Un animal mágico");
+                setPre042(1);
+
+                setTxtPregunta05("¿Qué le hizo Gretel a la bruja?");
+                setRdbP051("a) La encerró en la casa");
+                setRdbP052("b) La convirtió en piedra");
+                setRdbP053("c) La empujó al horno");//correcta
+                setPre053(1);
+
                 break;
             default: setParrafo("Creo que este cuento se acabo...");
         }
