@@ -61,7 +61,8 @@ public class Memorama extends AppCompatActivity {
                 R.id.imgBtn09, R.id.imgBtn10, R.id.imgBtn11, R.id.imgBtn12,
                 R.id.imgBtn13, R.id.imgBtn14, R.id.imgBtn15, R.id.imgBtn16
         };
-        memorama.cargarMemorama(findViewById(R.id.main), botones, imagenes);
+        memorama.cargarMemorama(findViewById(R.id.main), botones, imagenes, this);
+
     }
 
     private ServiceConnection serviceConnection = new ServiceConnection() {
