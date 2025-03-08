@@ -75,7 +75,7 @@ public class CuentosAventura extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cuentos_aventura);
+        setContentView(R.layout.activity_cuentos_estructura);
         scrCuento = findViewById(R.id.scrCuento);
         barraSuperior = findViewById(R.id.lnhBarraSuperior);
         barraInferior = findViewById(R.id.lyvInferior);

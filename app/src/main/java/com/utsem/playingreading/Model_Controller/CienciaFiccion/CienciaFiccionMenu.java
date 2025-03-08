@@ -2,7 +2,6 @@ package com.utsem.playingreading.Model_Controller.CienciaFiccion;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +9,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.utsem.playingreading.Model_Controller.Aventuras.CuentosAventura;
 import com.utsem.playingreading.R;
 
 public class CienciaFiccionMenu extends AppCompatActivity {
@@ -38,27 +36,27 @@ public class CienciaFiccionMenu extends AppCompatActivity {
     }
 
     private void cuento01() {
-        Intent intent = new Intent(this, CienciaFiccionMenu.class);
+        Intent intent = new Intent(this, CuentosCienciaFiccion.class);
         intent.putExtra("VALOR_CUENTO_SELECTO", 1);
         startActivity(intent);
     }
     private void cuento02() {
-        Intent intent = new Intent(this, CienciaFiccionMenu.class);
+        Intent intent = new Intent(this, CuentosCienciaFiccion.class);
         intent.putExtra("VALOR_CUENTO_SELECTO", 2);
         startActivity(intent);
     }
     public void cuento03() {
-        Intent intent = new Intent(this, CienciaFiccionMenu.class);
+        Intent intent = new Intent(this, CuentosCienciaFiccion.class);
         intent.putExtra("VALOR_CUENTO_SELECTO", 3);
         startActivity(intent);
     }
     public void cuento04() {
-        Intent intent = new Intent(this, CienciaFiccionMenu.class);
+        Intent intent = new Intent(this, CuentosCienciaFiccion.class);
         intent.putExtra("VALOR_CUENTO_SELECTO", 4);
         startActivity(intent);
     }
     public void cuento05() {
-        Intent intent = new Intent(this, CienciaFiccionMenu.class);
+        Intent intent = new Intent(this, CuentosCienciaFiccion.class);
         intent.putExtra("VALOR_CUENTO_SELECTO", 5);
         startActivity(intent);
     }
