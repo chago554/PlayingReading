@@ -156,7 +156,7 @@ public class MemoramaController {
                 long tiempoActual = SystemClock.elapsedRealtime() - tiempoInicio;
                 int segundos = (int) (tiempoActual / 1000);
                 cronometroTextView.setText("Tiempo: " + segundos + "s");
-               // cronometroHandler.postDelayed(this, 500);
+                cronometroHandler.postDelayed(this, 500);
             }
         };
         cronometroHandler.post(actualizarCronometro);
