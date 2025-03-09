@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
 
     <application
@@ -24,9 +24,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PlayingReading">
         <activity
+            android:name=".Model_Controller.Superheroes.CuentosSuperheroes"
+            android:exported="false" />
+        <activity
             android:name=".Model_Controller.CienciaFiccion.CuentosCienciaFiccion"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Model_Controller.Aventuras.CuentosAventura"
             android:exported="false"
@@ -34,9 +37,9 @@
 
         <service
             android:name=".Services.BluetoothService"
-            android:foregroundServiceType="connectedDevice"
             android:enabled="true"
-            android:exported="false" />
+            android:exported="false"
+            android:foregroundServiceType="connectedDevice" />
 
         <activity
             android:name=".Model_Controller.Memorama"
@@ -51,7 +54,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Model_Controller.Superheroes"
+            android:name=".Model_Controller.Superheroes.SuperheroesMenu"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

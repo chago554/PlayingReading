@@ -31,6 +31,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.utsem.playingreading.Model_Controller.Aventuras.AventuraMenu;
 import com.utsem.playingreading.Model_Controller.CienciaFiccion.CienciaFiccionMenu;
+import com.utsem.playingreading.Model_Controller.Superheroes.SuperheroesMenu;
 import com.utsem.playingreading.R;
 import com.utsem.playingreading.Services.BluetoothService;
 
@@ -240,7 +241,7 @@ public class MenuPrincipal extends AppCompatActivity {
         startActivity(intent);
     }
     public void goSuperheroes (View v){
-        Intent intent =  new Intent(this, Superheroes.class);
+        Intent intent =  new Intent(this, SuperheroesMenu.class);
         startActivity(intent);
     }
     public void goPrincesas(View v){

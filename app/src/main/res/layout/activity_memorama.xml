@@ -222,7 +222,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="10dp"
-                android:text="Top 3 Mejores Tiempos:\n1. -- s\n2. -- s\n3. -- s"
+                android:text="Top 3 Mejores tiempos:\n1. -- s\n2. -- s\n3. -- s"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 

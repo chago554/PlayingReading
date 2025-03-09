@@ -56,7 +56,7 @@ public class MemoramaController {
         int mejor2 = prefs.getInt("Mejor2", Integer.MAX_VALUE);
         int mejor3 = prefs.getInt("Mejor3", Integer.MAX_VALUE);
 
-        txtTop3.setText("Top 3 Mejres Tiempos:\n1. " + (mejor1 == Integer.MAX_VALUE ? "--" : mejor1 + "s") +
+        txtTop3.setText("Top 3 Mejores tiempos:\n1. " + (mejor1 == Integer.MAX_VALUE ? "--" : mejor1 + "s") +
                 "\n2. " + (mejor2 == Integer.MAX_VALUE ? "--" : mejor2 + "s") +
                 "\n3. " + (mejor3 == Integer.MAX_VALUE ? "--" : mejor3 + "s"));
 
@@ -100,7 +100,7 @@ public class MemoramaController {
             boton.setEnabled(false);
             botonesSeleccionados.add(boton);
             if (botonesSeleccionados.size() == 2) {
-                handler.postDelayed(this::comprobarMemorama, 500);
+                handler.postDelayed(this::comprobarMemorama, 300);
             }
         }
     }
@@ -156,7 +156,7 @@ public class MemoramaController {
                 long tiempoActual = SystemClock.elapsedRealtime() - tiempoInicio;
                 int segundos = (int) (tiempoActual / 1000);
                 cronometroTextView.setText("Tiempo: " + segundos + "s");
-                cronometroHandler.postDelayed(this, 1000);
+               // cronometroHandler.postDelayed(this, 500);
             }
         };
         cronometroHandler.post(actualizarCronometro);
