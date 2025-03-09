@@ -1,4 +1,4 @@
-package com.utsem.playingreading.Model_Controller.Superheroes;
+package com.utsem.playingreading.Model_Controller.PrincesasyHadas;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -27,13 +27,13 @@ import androidx.core.view.WindowInsetsCompat;
 import com.utsem.playingreading.R;
 import com.utsem.playingreading.Services.BluetoothService;
 
-public class CuentosSuperheroes extends AppCompatActivity {
+public class CuentosPrincesasyHadas extends AppCompatActivity {
 
     private int cuentoSelecto;
     private LinearLayout barraSuperior;
     private LinearLayout barraInferior;
     private TextView titulo;
-    SuperheroesClass superheroesClass;
+    PrincesasyHadasClass princesasyHadasClass;
     private TextView parrafo;
     private int valorAvance = 20;
     private ImageButton btnAudio;
@@ -91,7 +91,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
 
         cuentoSelecto = getIntent().getIntExtra("VALOR_CUENTO_SELECTO", 0);
         titulo = findViewById(R.id.tituloCuento);
-        superheroesClass = new SuperheroesClass();
+        princesasyHadasClass = new PrincesasyHadasClass();
         parrafo = findViewById(R.id.txtParrafo);
         btnAudio = findViewById(R.id.imgBtnEscuchar);
         next = findViewById(R.id.next);
@@ -137,9 +137,9 @@ public class CuentosSuperheroes extends AppCompatActivity {
     public void colorActivity() {
         switch (cuentoSelecto) {
             case 0:
-                scrCuento.setBackgroundColor(Color.parseColor("#FF3B30"));
-                barraSuperior.setBackgroundColor(Color.parseColor("#9C1006"));
-                barraInferior.setBackgroundColor(Color.parseColor("#9C1006"));
+                scrCuento.setBackgroundColor(Color.parseColor("#8A226F"));
+                barraSuperior.setBackgroundColor(Color.parseColor("#6B0B52"));
+                barraInferior.setBackgroundColor(Color.parseColor("#6B0B52"));
                 break;
             case 1:
                 scrCuento.setBackgroundColor(Color.parseColor("#6462F8"));
@@ -147,14 +147,14 @@ public class CuentosSuperheroes extends AppCompatActivity {
                 barraInferior.setBackgroundColor(Color.parseColor("#2F2DCE"));
                 break;
             case 2:
+                scrCuento.setBackgroundColor(Color.parseColor("#FF3B30"));
+                barraSuperior.setBackgroundColor(Color.parseColor("#9C1006"));
+                barraInferior.setBackgroundColor(Color.parseColor("#9C1006"));
+                break;
+            case 3:
                 scrCuento.setBackgroundColor(Color.parseColor("#ffb703"));
                 barraSuperior.setBackgroundColor(Color.parseColor("#bb3e03"));
                 barraInferior.setBackgroundColor(Color.parseColor("#bb3e03"));
-                break;
-            case 3:
-                scrCuento.setBackgroundColor(Color.parseColor("#bb3e03"));
-                barraSuperior.setBackgroundColor(Color.parseColor("#ae2012"));
-                barraInferior.setBackgroundColor(Color.parseColor("#ae2012"));
                 break;
             case 4:
                 scrCuento.setBackgroundColor(Color.parseColor("#386641"));
@@ -171,17 +171,17 @@ public class CuentosSuperheroes extends AppCompatActivity {
 
     public void avance20() {
         scrCuento.scrollTo(0, 0);
-        String[] titulos = superheroesClass.getTitulos();
+        String[] titulos = princesasyHadasClass.getTitulos();
         lyvAct01.setVisibility(View.GONE);
         atras.setEnabled(false);
 
         if (cuentoSelecto >= 0 && cuentoSelecto < titulos.length) {
-            superheroesClass.setCuentoSelecto(cuentoSelecto);
-            superheroesClass.avance20();
-            String tituloCuento = superheroesClass.getTituloCuentoSelecto();
+            princesasyHadasClass.setCuentoSelecto(cuentoSelecto);
+            princesasyHadasClass.avance20();
+            String tituloCuento = princesasyHadasClass.getTituloCuentoSelecto();
             titulo.setText(tituloCuento);
-            parrafo.setText(superheroesClass.getParrafo());
-            imagenCuento.setImageResource(superheroesClass.getImagen());
+            parrafo.setText(princesasyHadasClass.getParrafo());
+            imagenCuento.setImageResource(princesasyHadasClass.getImagen());
 
         } else {
             titulo.setText("Título no encontrado");
@@ -194,22 +194,22 @@ public class CuentosSuperheroes extends AppCompatActivity {
         lyvAct01.setVisibility(View.VISIBLE);
         lyvAct02.setVisibility(View.GONE);
 
-        String[] titulos = superheroesClass.getTitulos();
+        String[] titulos = princesasyHadasClass.getTitulos();
         atras.setEnabled(true);
 
         if (cuentoSelecto >= 0 && cuentoSelecto < titulos.length) {
-            superheroesClass.setCuentoSelecto(cuentoSelecto);
-            superheroesClass.avance40();
-            parrafo.setText(superheroesClass.getParrafo());
-            imagenCuento.setImageResource(superheroesClass.getImagen());
+            princesasyHadasClass.setCuentoSelecto(cuentoSelecto);
+            princesasyHadasClass.avance40();
+            parrafo.setText(princesasyHadasClass.getParrafo());
+            imagenCuento.setImageResource(princesasyHadasClass.getImagen());
 
             //actividad 1
-            imgAct01.setImageResource(superheroesClass.getImgAct01());
-            btnLetra01.setText(superheroesClass.getBtnLetra01());
-            btnLetra02.setText(superheroesClass.getBtnLetra02());
-            btnLetra03.setText(superheroesClass.getBtnLetra03());
-            btnLetra04.setText(superheroesClass.getBtnLetra04());
-            btnLetra05.setText(superheroesClass.getBtnLetra05());
+            imgAct01.setImageResource(princesasyHadasClass.getImgAct01());
+            btnLetra01.setText(princesasyHadasClass.getBtnLetra01());
+            btnLetra02.setText(princesasyHadasClass.getBtnLetra02());
+            btnLetra03.setText(princesasyHadasClass.getBtnLetra03());
+            btnLetra04.setText(princesasyHadasClass.getBtnLetra04());
+            btnLetra05.setText(princesasyHadasClass.getBtnLetra05());
 
         } else {
             titulo.setText("Título no encontrado");
@@ -223,23 +223,23 @@ public class CuentosSuperheroes extends AppCompatActivity {
         lyvAct02.setVisibility(View.VISIBLE);
         lyvAct03.setVisibility(View.GONE);
 
-        String[] titulos = superheroesClass.getTitulos();
+        String[] titulos = princesasyHadasClass.getTitulos();
 
         if (cuentoSelecto >= 0 && cuentoSelecto < titulos.length) {
-            superheroesClass.setCuentoSelecto(cuentoSelecto);
-            superheroesClass.avance60();
-            parrafo.setText(superheroesClass.getParrafo());
-            imagenCuento.setImageResource(superheroesClass.getImagen());
+            princesasyHadasClass.setCuentoSelecto(cuentoSelecto);
+            princesasyHadasClass.avance60();
+            parrafo.setText(princesasyHadasClass.getParrafo());
+            imagenCuento.setImageResource(princesasyHadasClass.getImagen());
 
             //actividad 2
-            img01Act02.setImageResource(superheroesClass.getImg01Act02());
-            img02Act02.setImageResource(superheroesClass.getImg02Act02());
-            img03Act02.setImageResource(superheroesClass.getImg03Act02());
-            img04Act02.setImageResource(superheroesClass.getImg04Act02());
-            btn01Act02.setText(superheroesClass.getPalabra01());
-            btn02Act02.setText(superheroesClass.getPalabra02());
-            btn03Act02.setText(superheroesClass.getPalabra03());
-            btn04Act02.setText(superheroesClass.getPalabra04());
+            img01Act02.setImageResource(princesasyHadasClass.getImg01Act02());
+            img02Act02.setImageResource(princesasyHadasClass.getImg02Act02());
+            img03Act02.setImageResource(princesasyHadasClass.getImg03Act02());
+            img04Act02.setImageResource(princesasyHadasClass.getImg04Act02());
+            btn01Act02.setText(princesasyHadasClass.getPalabra01());
+            btn02Act02.setText(princesasyHadasClass.getPalabra02());
+            btn03Act02.setText(princesasyHadasClass.getPalabra03());
+            btn04Act02.setText(princesasyHadasClass.getPalabra04());
 
         } else {
             titulo.setText("Título no encontrado");
@@ -248,7 +248,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
 
     public void avance80() {
         scrCuento.scrollTo(0, 0);
-        String[] titulos = superheroesClass.getTitulos();
+        String[] titulos = princesasyHadasClass.getTitulos();
         cargarComponentesAct04();
         lyvAct02.setVisibility(View.GONE);
         lyvAct03.setVisibility(View.VISIBLE);
@@ -256,23 +256,23 @@ public class CuentosSuperheroes extends AppCompatActivity {
 
 
         if (cuentoSelecto >= 0 && cuentoSelecto < titulos.length) {
-            superheroesClass.setCuentoSelecto(cuentoSelecto);
-            superheroesClass.avance80();
-            parrafo.setText(superheroesClass.getParrafo());
-            imagenCuento.setImageResource(superheroesClass.getImagen());
+            princesasyHadasClass.setCuentoSelecto(cuentoSelecto);
+            princesasyHadasClass.avance80();
+            parrafo.setText(princesasyHadasClass.getParrafo());
+            imagenCuento.setImageResource(princesasyHadasClass.getImagen());
 
             //actividad 3: Amigos
-            txtLetra01Act3.setText(superheroesClass.getLetra_Act3_01());
-            txtLetra02Act3.setText(superheroesClass.getLetra_Act3_02());
-            txtLetra03Act3.setText(superheroesClass.getLetra_Act3_03());
-            txtLetra04Act3.setText(superheroesClass.getLetra_Act3_04());
-            txtLetra05Act3.setText(superheroesClass.getLetra_Act3_05());
-            txtLetra06Act3.setText(superheroesClass.getLetra_Act3_06());
+            txtLetra01Act3.setText(princesasyHadasClass.getLetra_Act3_01());
+            txtLetra02Act3.setText(princesasyHadasClass.getLetra_Act3_02());
+            txtLetra03Act3.setText(princesasyHadasClass.getLetra_Act3_03());
+            txtLetra04Act3.setText(princesasyHadasClass.getLetra_Act3_04());
+            txtLetra05Act3.setText(princesasyHadasClass.getLetra_Act3_05());
+            txtLetra06Act3.setText(princesasyHadasClass.getLetra_Act3_06());
 
-            btnLetra01Act3.setText(superheroesClass.getBtn01Act03());
-            btnLetra02Act3.setText(superheroesClass.getBtn02Act03());
-            btnLetra03Act3.setText(superheroesClass.getBtn03Act03());
-            btnLetra04Act3.setText(superheroesClass.getBtn04Act03());
+            btnLetra01Act3.setText(princesasyHadasClass.getBtn01Act03());
+            btnLetra02Act3.setText(princesasyHadasClass.getBtn02Act03());
+            btnLetra03Act3.setText(princesasyHadasClass.getBtn03Act03());
+            btnLetra04Act3.setText(princesasyHadasClass.getBtn04Act03());
 
 
         } else {
@@ -282,41 +282,41 @@ public class CuentosSuperheroes extends AppCompatActivity {
 
     public void avance100() {
         scrCuento.scrollTo(0, 0);
-        String[] titulos = superheroesClass.getTitulos();
+        String[] titulos = princesasyHadasClass.getTitulos();
         lyvAct03.setVisibility(View.GONE);
         lyvPreguntas.setVisibility(View.VISIBLE);
 
         if (cuentoSelecto >= 0 && cuentoSelecto < titulos.length) {
-            superheroesClass.setCuentoSelecto(cuentoSelecto);
-            superheroesClass.avance100();
-            parrafo.setText(superheroesClass.getParrafo());
-            imagenCuento.setImageResource(superheroesClass.getImagen());
+            princesasyHadasClass.setCuentoSelecto(cuentoSelecto);
+            princesasyHadasClass.avance100();
+            parrafo.setText(princesasyHadasClass.getParrafo());
+            imagenCuento.setImageResource(princesasyHadasClass.getImagen());
 
             //actividad 4
-            txtPregunta01.setText(superheroesClass.getTxtPregunta01());
-            rdbP011.setText(superheroesClass.getRdbP011());
-            rdbP012.setText(superheroesClass.getRdbP012());
-            rdbP013.setText(superheroesClass.getRdbP013());
+            txtPregunta01.setText(princesasyHadasClass.getTxtPregunta01());
+            rdbP011.setText(princesasyHadasClass.getRdbP011());
+            rdbP012.setText(princesasyHadasClass.getRdbP012());
+            rdbP013.setText(princesasyHadasClass.getRdbP013());
 
-            txtPregunta02.setText(superheroesClass.getTxtPregunta02());
-            rdbP021.setText(superheroesClass.getRdbP021());
-            rdbP022.setText(superheroesClass.getRdbP022());
-            rdbP023.setText(superheroesClass.getRdbP023());
+            txtPregunta02.setText(princesasyHadasClass.getTxtPregunta02());
+            rdbP021.setText(princesasyHadasClass.getRdbP021());
+            rdbP022.setText(princesasyHadasClass.getRdbP022());
+            rdbP023.setText(princesasyHadasClass.getRdbP023());
 
-            txtPregunta03.setText(superheroesClass.getTxtPregunta03());
-            rdbP031.setText(superheroesClass.getRdbP031());
-            rdbP032.setText(superheroesClass.getRdbP032());
-            rdbP033.setText(superheroesClass.getRdbP033());
+            txtPregunta03.setText(princesasyHadasClass.getTxtPregunta03());
+            rdbP031.setText(princesasyHadasClass.getRdbP031());
+            rdbP032.setText(princesasyHadasClass.getRdbP032());
+            rdbP033.setText(princesasyHadasClass.getRdbP033());
 
-            txtPregunta04.setText(superheroesClass.getTxtPregunta04());
-            rdbP041.setText(superheroesClass.getRdbP041());
-            rdbP042.setText(superheroesClass.getRdbP042());
-            rdbP043.setText(superheroesClass.getRdbP043());
+            txtPregunta04.setText(princesasyHadasClass.getTxtPregunta04());
+            rdbP041.setText(princesasyHadasClass.getRdbP041());
+            rdbP042.setText(princesasyHadasClass.getRdbP042());
+            rdbP043.setText(princesasyHadasClass.getRdbP043());
 
-            txtPregunta05.setText(superheroesClass.getTxtPregunta05());
-            rdbP051.setText(superheroesClass.getRdbP051());
-            rdbP052.setText(superheroesClass.getRdbP052());
-            rdbP053.setText(superheroesClass.getRdbP053());
+            txtPregunta05.setText(princesasyHadasClass.getTxtPregunta05());
+            rdbP051.setText(princesasyHadasClass.getRdbP051());
+            rdbP052.setText(princesasyHadasClass.getRdbP052());
+            rdbP053.setText(princesasyHadasClass.getRdbP053());
 
         } else {
             titulo.setText("Título no encontrado");
@@ -332,7 +332,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
             // Si el audio está en pausa o no se está reproduciendo, cambiamos la imagen a "parar"
             btnAudio.setBackgroundResource(R.drawable.parar);
             if (audio == null) {
-                audio = MediaPlayer.create(this, superheroesClass.getAudio());
+                audio = MediaPlayer.create(this, princesasyHadasClass.getAudio());
                 if (audio != null) {
                     audio.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
@@ -520,7 +520,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
         TextView[] letras = {txtLetra01, txtLetra02, txtLetra03, txtLetra04, txtLetra05};
         for(TextView letra : letras){
             if(letra.getText().toString().equals("__")){
-                letra.setText(superheroesClass.getBtnLetra01());
+                letra.setText(princesasyHadasClass.getBtnLetra01());
                 btnLetra01.setEnabled(false);
                 return;
             }
@@ -530,7 +530,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
         TextView[] letras = {txtLetra01, txtLetra02, txtLetra03, txtLetra04, txtLetra05};
         for(TextView letra : letras){
             if(letra.getText().toString().equals("__")){
-                letra.setText(superheroesClass.getBtnLetra02());
+                letra.setText(princesasyHadasClass.getBtnLetra02());
                 btnLetra02.setEnabled(false);
                 return;
             }
@@ -540,7 +540,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
         TextView[] letras = {txtLetra01, txtLetra02, txtLetra03, txtLetra04, txtLetra05};
         for(TextView letra : letras){
             if(letra.getText().toString().equals("__")){
-                letra.setText(superheroesClass.getBtnLetra03());
+                letra.setText(princesasyHadasClass.getBtnLetra03());
                 btnLetra03.setEnabled(false);
                 return;
             }
@@ -550,7 +550,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
         TextView[] letras = {txtLetra01, txtLetra02, txtLetra03, txtLetra04, txtLetra05};
         for(TextView letra : letras){
             if(letra.getText().toString().equals("__")){
-                letra.setText(superheroesClass.getBtnLetra04());
+                letra.setText(princesasyHadasClass.getBtnLetra04());
                 btnLetra04.setEnabled(false);
                 return;
             }
@@ -560,7 +560,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
         TextView[] letras = {txtLetra01, txtLetra02, txtLetra03, txtLetra04, txtLetra05};
         for(TextView letra : letras){
             if(letra.getText().toString().equals("__")){
-                letra.setText(superheroesClass.getBtnLetra05());
+                letra.setText(princesasyHadasClass.getBtnLetra05());
                 btnLetra05.setEnabled(false);
                 return;
             }
@@ -570,7 +570,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
     public void comprobarActividad01(View v){
         switch (cuentoSelecto) {
             case 0:
-                if (txtLetra01.getText().toString().equals("H") && txtLetra02.getText().toString().equals("E") && txtLetra03.getText().toString().equals("R") && txtLetra04.getText().toString().equals("O") && txtLetra05.getText().toString().equals("E")) {
+                if (txtLetra01.getText().toString().equals("H") && txtLetra02.getText().toString().equals("O") && txtLetra03.getText().toString().equals("G") && txtLetra04.getText().toString().equals("A") && txtLetra05.getText().toString().equals("R")) {
                     btnEvaluar01.setEnabled(false);
                     Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
                 } else {
@@ -586,7 +586,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
                 }
                 break;
             case 1:
-                if (txtLetra01.getText().toString().equals("C") && txtLetra02.getText().toString().equals("A") && txtLetra03.getText().toString().equals("L") && txtLetra04.getText().toString().equals("O") && txtLetra05.getText().toString().equals("R")) {
+                if (txtLetra01.getText().toString().equals("T") && txtLetra02.getText().toString().equals("A") && txtLetra03.getText().toString().equals("C") && txtLetra04.getText().toString().equals("T") && txtLetra05.getText().toString().equals("O")) {
                     btnEvaluar01.setEnabled(false);
                     Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
                 } else {
@@ -602,7 +602,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
                 }
                 break;
             case 2:
-                if (txtLetra01.getText().toString().equals("N") && txtLetra02.getText().toString().equals("U") && txtLetra03.getText().toString().equals("B") && txtLetra04.getText().toString().equals("E") && txtLetra05.getText().toString().equals("S")) {
+                if (txtLetra01.getText().toString().equals("G") && txtLetra02.getText().toString().equals("R") && txtLetra03.getText().toString().equals("U") && txtLetra04.getText().toString().equals("P") && txtLetra05.getText().toString().equals("O")) {
                     btnEvaluar01.setEnabled(false);
                     Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
                 } else {
@@ -618,7 +618,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
                 }
                 break;
             case 3:
-                if (txtLetra01.getText().toString().equals("J") && txtLetra02.getText().toString().equals("U") && txtLetra03.getText().toString().equals("E") && txtLetra04.getText().toString().equals("G") && txtLetra05.getText().toString().equals("O")) {
+                if (txtLetra01.getText().toString().equals("E") && txtLetra02.getText().toString().equals("N") && txtLetra03.getText().toString().equals("A") && txtLetra04.getText().toString().equals("N") && txtLetra05.getText().toString().equals("O")) {
                     btnEvaluar01.setEnabled(false);
                     Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
                 } else {
@@ -634,7 +634,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
                 }
                 break;
             case 4:
-                if (txtLetra01.getText().toString().equals("V") && txtLetra02.getText().toString().equals("E") && txtLetra03.getText().toString().equals("L") && txtLetra04.getText().toString().equals("O") && txtLetra05.getText().toString().equals("Z")) {
+                if (txtLetra01.getText().toString().equals("M") && txtLetra02.getText().toString().equals("A") && txtLetra03.getText().toString().equals("G") && txtLetra04.getText().toString().equals("I") && txtLetra05.getText().toString().equals("A")) {
                     btnEvaluar01.setEnabled(false);
                     Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
                 } else {
@@ -659,11 +659,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
                 Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
                 break;
             case 1:
-                Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
-                btn01Act02.setEnabled(false);
-                btn02Act02.setEnabled(false);
-                btn03Act02.setEnabled(false);
-                btn04Act02.setEnabled(false);
+                Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
                 break;
             case 2:
                 Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
@@ -680,7 +676,11 @@ public class CuentosSuperheroes extends AppCompatActivity {
     public void comprobarBtn02Act02(View v){
         switch (cuentoSelecto){
             case 0:
-                Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
+                btn01Act02.setEnabled(false);
+                btn02Act02.setEnabled(false);
+                btn03Act02.setEnabled(false);
+                btn04Act02.setEnabled(false);
                 break;
             case 1:
                 Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
@@ -700,11 +700,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
     public void comprobarBtn03Act02(View v){
         switch (cuentoSelecto){
             case 0:
-                Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
-                btn01Act02.setEnabled(false);
-                btn02Act02.setEnabled(false);
-                btn03Act02.setEnabled(false);
-                btn04Act02.setEnabled(false);
+                Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
                 break;
             case 1:
                 Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
@@ -720,7 +716,11 @@ public class CuentosSuperheroes extends AppCompatActivity {
                 btn04Act02.setEnabled(false);
                 break;
             case 4:
-                Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
+                btn01Act02.setEnabled(false);
+                btn02Act02.setEnabled(false);
+                btn03Act02.setEnabled(false);
+                btn04Act02.setEnabled(false);
                 break;
         }
 
@@ -731,7 +731,11 @@ public class CuentosSuperheroes extends AppCompatActivity {
                 Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
                 break;
             case 1:
-                Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
+                btn01Act02.setEnabled(false);
+                btn02Act02.setEnabled(false);
+                btn03Act02.setEnabled(false);
+                btn04Act02.setEnabled(false);
                 break;
             case 2:
                 Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
@@ -744,11 +748,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
                 Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
                 break;
             case 4:
-                Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
-                btn01Act02.setEnabled(false);
-                btn02Act02.setEnabled(false);
-                btn03Act02.setEnabled(false);
-                btn04Act02.setEnabled(false);
+                Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -758,7 +758,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
         TextView[] letras = {txtLetra01Act3, txtLetra02Act3, txtLetra03Act3, txtLetra04Act3, txtLetra05Act3, txtLetra06Act3};
         for(TextView letra : letras){
             if(letra.getText().toString().equals("__")){
-                letra.setText(superheroesClass.getBtn01Act03());
+                letra.setText(princesasyHadasClass.getBtn01Act03());
                 btnLetra01Act3.setEnabled(false);
                 return;
             }
@@ -768,7 +768,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
         TextView[] letras = {txtLetra01Act3, txtLetra02Act3, txtLetra03Act3, txtLetra04Act3, txtLetra05Act3, txtLetra06Act3};
         for(TextView letra : letras){
             if(letra.getText().toString().equals("__")){
-                letra.setText(superheroesClass.getBtn02Act03());
+                letra.setText(princesasyHadasClass.getBtn02Act03());
                 btnLetra02Act3.setEnabled(false);
                 return;
             }
@@ -778,7 +778,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
         TextView[] letras = {txtLetra01Act3, txtLetra02Act3, txtLetra03Act3, txtLetra04Act3, txtLetra05Act3, txtLetra06Act3};
         for(TextView letra : letras){
             if(letra.getText().toString().equals("__")){
-                letra.setText(superheroesClass.getBtn03Act03());
+                letra.setText(princesasyHadasClass.getBtn03Act03());
                 btnLetra03Act3.setEnabled(false);
                 return;
             }
@@ -788,7 +788,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
         TextView[] letras = {txtLetra01Act3, txtLetra02Act3, txtLetra03Act3, txtLetra04Act3, txtLetra05Act3, txtLetra06Act3};
         for(TextView letra : letras){
             if(letra.getText().toString().equals("__")){
-                letra.setText(superheroesClass.getBtn04Act03());
+                letra.setText(princesasyHadasClass.getBtn04Act03());
                 btnLetra04Act3.setEnabled(false);
                 return;
             }
@@ -798,7 +798,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
     public void comprobarActividad03(View v){
         switch (cuentoSelecto){
             case 0:
-                if(txtLetra01Act3.getText().toString().equals("H") && txtLetra02Act3.getText().toString().equals("O") &&  txtLetra03Act3.getText().toString().equals("M") && txtLetra04Act3.getText().toString().equals("B") && txtLetra05Act3.getText().toString().equals("R") && txtLetra06Act3.getText().toString().equals("E")){
+                if(txtLetra01Act3.getText().toString().equals("U") && txtLetra02Act3.getText().toString().equals("N") &&  txtLetra03Act3.getText().toString().equals("I") && txtLetra04Act3.getText().toString().equals("D") && txtLetra05Act3.getText().toString().equals("O") && txtLetra06Act3.getText().toString().equals("S")){
 
                     btnLetra01Act3.setEnabled(false);
                     btnLetra02Act3.setEnabled(false);
@@ -809,12 +809,12 @@ public class CuentosSuperheroes extends AppCompatActivity {
                     Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
-                    txtLetra01Act3.setText(superheroesClass.getLetra_Act3_01());
-                    txtLetra02Act3.setText(superheroesClass.getLetra_Act3_02());
-                    txtLetra03Act3.setText(superheroesClass.getLetra_Act3_03());
-                    txtLetra04Act3.setText(superheroesClass.getLetra_Act3_04());
-                    txtLetra05Act3.setText(superheroesClass.getLetra_Act3_05());
-                    txtLetra06Act3.setText(superheroesClass.getLetra_Act3_06());
+                    txtLetra01Act3.setText(princesasyHadasClass.getLetra_Act3_01());
+                    txtLetra02Act3.setText(princesasyHadasClass.getLetra_Act3_02());
+                    txtLetra03Act3.setText(princesasyHadasClass.getLetra_Act3_03());
+                    txtLetra04Act3.setText(princesasyHadasClass.getLetra_Act3_04());
+                    txtLetra05Act3.setText(princesasyHadasClass.getLetra_Act3_05());
+                    txtLetra06Act3.setText(princesasyHadasClass.getLetra_Act3_06());
 
                     btnLetra01Act3.setEnabled(true);
                     btnLetra02Act3.setEnabled(true);
@@ -826,7 +826,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
                 break;
             case 1:
 
-                if(txtLetra01Act3.getText().toString().equals("G") && txtLetra02Act3.getText().toString().equals("L") &&  txtLetra03Act3.getText().toString().equals("O") && txtLetra04Act3.getText().toString().equals("B") && txtLetra05Act3.getText().toString().equals("A") && txtLetra06Act3.getText().toString().equals("L")){
+                if(txtLetra01Act3.getText().toString().equals("A") && txtLetra02Act3.getText().toString().equals("M") &&  txtLetra03Act3.getText().toString().equals("A") && txtLetra04Act3.getText().toString().equals("B") && txtLetra05Act3.getText().toString().equals("L") && txtLetra06Act3.getText().toString().equals("E")){
 
                     btnLetra01Act3.setEnabled(false);
                     btnLetra02Act3.setEnabled(false);
@@ -837,12 +837,12 @@ public class CuentosSuperheroes extends AppCompatActivity {
                     Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
-                    txtLetra01Act3.setText(superheroesClass.getLetra_Act3_01());
-                    txtLetra02Act3.setText(superheroesClass.getLetra_Act3_02());
-                    txtLetra03Act3.setText(superheroesClass.getLetra_Act3_03());
-                    txtLetra04Act3.setText(superheroesClass.getLetra_Act3_04());
-                    txtLetra05Act3.setText(superheroesClass.getLetra_Act3_05());
-                    txtLetra06Act3.setText(superheroesClass.getLetra_Act3_06());
+                    txtLetra01Act3.setText(princesasyHadasClass.getLetra_Act3_01());
+                    txtLetra02Act3.setText(princesasyHadasClass.getLetra_Act3_02());
+                    txtLetra03Act3.setText(princesasyHadasClass.getLetra_Act3_03());
+                    txtLetra04Act3.setText(princesasyHadasClass.getLetra_Act3_04());
+                    txtLetra05Act3.setText(princesasyHadasClass.getLetra_Act3_05());
+                    txtLetra06Act3.setText(princesasyHadasClass.getLetra_Act3_06());
 
                     btnLetra01Act3.setEnabled(true);
                     btnLetra02Act3.setEnabled(true);
@@ -853,7 +853,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
                 }
                 break;
             case 2:
-                if(txtLetra01Act3.getText().toString().equals("B") && txtLetra02Act3.getText().toString().equals("O") &&  txtLetra03Act3.getText().toString().equals("M") && txtLetra04Act3.getText().toString().equals("B") && txtLetra05Act3.getText().toString().equals("A") && txtLetra06Act3.getText().toString().equals("S")){
+                if(txtLetra01Act3.getText().toString().equals("J") && txtLetra02Act3.getText().toString().equals("U") &&  txtLetra03Act3.getText().toString().equals("S") && txtLetra04Act3.getText().toString().equals("T") && txtLetra05Act3.getText().toString().equals("O") && txtLetra06Act3.getText().toString().equals("S")){
                     btnLetra01Act3.setEnabled(false);
                     btnLetra02Act3.setEnabled(false);
                     btnLetra03Act3.setEnabled(false);
@@ -863,12 +863,12 @@ public class CuentosSuperheroes extends AppCompatActivity {
                     Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
-                    txtLetra01Act3.setText(superheroesClass.getLetra_Act3_01());
-                    txtLetra02Act3.setText(superheroesClass.getLetra_Act3_02());
-                    txtLetra03Act3.setText(superheroesClass.getLetra_Act3_03());
-                    txtLetra04Act3.setText(superheroesClass.getLetra_Act3_04());
-                    txtLetra05Act3.setText(superheroesClass.getLetra_Act3_05());
-                    txtLetra06Act3.setText(superheroesClass.getLetra_Act3_06());
+                    txtLetra01Act3.setText(princesasyHadasClass.getLetra_Act3_01());
+                    txtLetra02Act3.setText(princesasyHadasClass.getLetra_Act3_02());
+                    txtLetra03Act3.setText(princesasyHadasClass.getLetra_Act3_03());
+                    txtLetra04Act3.setText(princesasyHadasClass.getLetra_Act3_04());
+                    txtLetra05Act3.setText(princesasyHadasClass.getLetra_Act3_05());
+                    txtLetra06Act3.setText(princesasyHadasClass.getLetra_Act3_06());
 
                     btnLetra01Act3.setEnabled(true);
                     btnLetra02Act3.setEnabled(true);
@@ -878,7 +878,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
                 }
                 break;
             case 3:
-                if(txtLetra01Act3.getText().toString().equals("T") && txtLetra02Act3.getText().toString().equals("I") &&  txtLetra03Act3.getText().toString().equals("E") && txtLetra04Act3.getText().toString().equals("M") && txtLetra05Act3.getText().toString().equals("P") && txtLetra06Act3.getText().toString().equals("O")){
+                if(txtLetra01Act3.getText().toString().equals("V") && txtLetra02Act3.getText().toString().equals("I") &&  txtLetra03Act3.getText().toString().equals("R") && txtLetra04Act3.getText().toString().equals("T") && txtLetra05Act3.getText().toString().equals("U") && txtLetra06Act3.getText().toString().equals("D")){
 
                     btnLetra01Act3.setEnabled(false);
                     btnLetra02Act3.setEnabled(false);
@@ -889,12 +889,12 @@ public class CuentosSuperheroes extends AppCompatActivity {
                     Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
-                    txtLetra01Act3.setText(superheroesClass.getLetra_Act3_01());
-                    txtLetra02Act3.setText(superheroesClass.getLetra_Act3_02());
-                    txtLetra03Act3.setText(superheroesClass.getLetra_Act3_03());
-                    txtLetra04Act3.setText(superheroesClass.getLetra_Act3_04());
-                    txtLetra05Act3.setText(superheroesClass.getLetra_Act3_05());
-                    txtLetra06Act3.setText(superheroesClass.getLetra_Act3_06());
+                    txtLetra01Act3.setText(princesasyHadasClass.getLetra_Act3_01());
+                    txtLetra02Act3.setText(princesasyHadasClass.getLetra_Act3_02());
+                    txtLetra03Act3.setText(princesasyHadasClass.getLetra_Act3_03());
+                    txtLetra04Act3.setText(princesasyHadasClass.getLetra_Act3_04());
+                    txtLetra05Act3.setText(princesasyHadasClass.getLetra_Act3_05());
+                    txtLetra06Act3.setText(princesasyHadasClass.getLetra_Act3_06());
 
                     btnLetra01Act3.setEnabled(true);
                     btnLetra02Act3.setEnabled(true);
@@ -905,7 +905,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
                 }
                 break;
             case 4:
-                if(txtLetra01Act3.getText().toString().equals("C") && txtLetra02Act3.getText().toString().equals("O") &&  txtLetra03Act3.getText().toString().equals("R") && txtLetra04Act3.getText().toString().equals("R") && txtLetra05Act3.getText().toString().equals("E") && txtLetra06Act3.getText().toString().equals("R")){
+                if(txtLetra01Act3.getText().toString().equals("D") && txtLetra02Act3.getText().toString().equals("U") &&  txtLetra03Act3.getText().toString().equals("E") && txtLetra04Act3.getText().toString().equals("N") && txtLetra05Act3.getText().toString().equals("D") && txtLetra06Act3.getText().toString().equals("E")){
 
                     btnLetra01Act3.setEnabled(false);
                     btnLetra02Act3.setEnabled(false);
@@ -916,12 +916,12 @@ public class CuentosSuperheroes extends AppCompatActivity {
                     Toast.makeText(this, correcto, Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(this, incorrecto, Toast.LENGTH_SHORT).show();
-                    txtLetra01Act3.setText(superheroesClass.getLetra_Act3_01());
-                    txtLetra02Act3.setText(superheroesClass.getLetra_Act3_02());
-                    txtLetra03Act3.setText(superheroesClass.getLetra_Act3_03());
-                    txtLetra04Act3.setText(superheroesClass.getLetra_Act3_04());
-                    txtLetra05Act3.setText(superheroesClass.getLetra_Act3_05());
-                    txtLetra06Act3.setText(superheroesClass.getLetra_Act3_06());
+                    txtLetra01Act3.setText(princesasyHadasClass.getLetra_Act3_01());
+                    txtLetra02Act3.setText(princesasyHadasClass.getLetra_Act3_02());
+                    txtLetra03Act3.setText(princesasyHadasClass.getLetra_Act3_03());
+                    txtLetra04Act3.setText(princesasyHadasClass.getLetra_Act3_04());
+                    txtLetra05Act3.setText(princesasyHadasClass.getLetra_Act3_05());
+                    txtLetra06Act3.setText(princesasyHadasClass.getLetra_Act3_06());
 
                     btnLetra01Act3.setEnabled(true);
                     btnLetra02Act3.setEnabled(true);
@@ -934,7 +934,7 @@ public class CuentosSuperheroes extends AppCompatActivity {
 
     //comprobar las prguntas
     public void comprobarPreguntas(View v){
-        int[] respuestas = {superheroesClass.getPre011(), superheroesClass.getPre012(), superheroesClass.getPre013(), superheroesClass.getPre021(), superheroesClass.getPre022(), superheroesClass.getPre023(), superheroesClass.getPre031(), superheroesClass.getPre032(), superheroesClass.getPre033(), superheroesClass.getPre041(), superheroesClass.getPre042(), superheroesClass.getPre043(), superheroesClass.getPre051(), superheroesClass.getPre052(), superheroesClass.getPre053() };
+        int[] respuestas = {princesasyHadasClass.getPre011(), princesasyHadasClass.getPre012(), princesasyHadasClass.getPre013(), princesasyHadasClass.getPre021(), princesasyHadasClass.getPre022(), princesasyHadasClass.getPre023(), princesasyHadasClass.getPre031(), princesasyHadasClass.getPre032(), princesasyHadasClass.getPre033(), princesasyHadasClass.getPre041(), princesasyHadasClass.getPre042(), princesasyHadasClass.getPre043(), princesasyHadasClass.getPre051(), princesasyHadasClass.getPre052(), princesasyHadasClass.getPre053() };
         RadioButton opciones [] = {rdbP011, rdbP012, rdbP013, rdbP021, rdbP022, rdbP023, rdbP031, rdbP032, rdbP033, rdbP041, rdbP042, rdbP043, rdbP051, rdbP052, rdbP053};
         totalPuntos = 0;
         for (int i = 0; i < opciones.length; i++) {
@@ -1003,12 +1003,12 @@ public class CuentosSuperheroes extends AppCompatActivity {
         this.titulo = titulo;
     }
 
-    public SuperheroesClass getSuperheroesClass() {
-        return superheroesClass;
+    public PrincesasyHadasClass getPrincesasyHadasClass() {
+        return princesasyHadasClass;
     }
 
-    public void setSuperheroesClass(SuperheroesClass superheroesClass) {
-        this.superheroesClass = superheroesClass;
+    public void setPrincesasyHadasClass(PrincesasyHadasClass princesasyHadasClass) {
+        this.princesasyHadasClass = princesasyHadasClass;
     }
 
     public TextView getParrafo() {
@@ -1698,4 +1698,6 @@ public class CuentosSuperheroes extends AppCompatActivity {
     public void setTxtTotalAciertos(TextView txtTotalAciertos) {
         this.txtTotalAciertos = txtTotalAciertos;
     }
+
+
 }

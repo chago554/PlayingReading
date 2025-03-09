@@ -24,8 +24,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PlayingReading">
         <activity
-            android:name=".Model_Controller.Superheroes.CuentosSuperheroes"
+            android:name=".Model_Controller.PrincesasyHadas.CuentosPrincesasyHadas"
             android:exported="false" />
+        <activity
+            android:name=".Model_Controller.Superheroes.CuentosSuperheroes"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Model_Controller.CienciaFiccion.CuentosCienciaFiccion"
             android:exported="false"
@@ -50,7 +54,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Model_Controller.PrincesasyHadas"
+            android:name=".Model_Controller.PrincesasyHadas.PrincesasyHadasMenu"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

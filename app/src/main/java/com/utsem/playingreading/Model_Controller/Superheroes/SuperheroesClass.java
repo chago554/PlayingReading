@@ -154,7 +154,7 @@ public class SuperheroesClass {
 
                 setPalabra01("Respirar");
                 setPalabra02("Reciclar");
-                setPalabra03("Respensabilidad");
+                setPalabra03("Responsabilidad");
                 setPalabra04("Querer");
                 break;
             case 1:
