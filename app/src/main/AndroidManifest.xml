@@ -24,8 +24,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PlayingReading">
         <activity
+            android:name=".Model_Controller.MisterioyDetectives.CuentosMisterioyDetectives"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Model_Controller.PrincesasyHadas.CuentosPrincesasyHadas"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Model_Controller.Superheroes.CuentosSuperheroes"
             android:exported="false"
@@ -50,7 +55,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Model_Controller.MisterioyDetectives"
+            android:name=".Model_Controller.MisterioyDetectives.MisterioyDetectivesMenu"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

@@ -31,6 +31,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.utsem.playingreading.Model_Controller.Aventuras.AventuraMenu;
 import com.utsem.playingreading.Model_Controller.CienciaFiccion.CienciaFiccionMenu;
+import com.utsem.playingreading.Model_Controller.MisterioyDetectives.MisterioyDetectivesMenu;
 import com.utsem.playingreading.Model_Controller.PrincesasyHadas.PrincesasyHadasMenu;
 import com.utsem.playingreading.Model_Controller.Superheroes.SuperheroesMenu;
 import com.utsem.playingreading.R;
@@ -250,7 +251,7 @@ public class MenuPrincipal extends AppCompatActivity {
         startActivity(intent);
     }
     public void goMisterio(View v){
-        Intent intent =  new Intent(this, MisterioyDetectives.class);
+        Intent intent =  new Intent(this, MisterioyDetectivesMenu.class);
         startActivity(intent);
     }
     public void goMemoramas(View v){
