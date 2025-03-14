@@ -431,7 +431,7 @@ public class CuentosAventura extends AppCompatActivity {
         bindService(intent, serviceConnection, BIND_AUTO_CREATE);
         if(bluetoothService != null){
             try {
-                bluetoothService.sendData("A");
+                bluetoothService.sendData("7kirDM4r7^P@^$9B#^M#M%40#");
                 scrCuento.setVisibility(View.GONE);
                 lyvSuperior.setVisibility(View.GONE);
                 barraSuperior.setVisibility(View.GONE);

@@ -128,8 +128,6 @@ public class BluetoothService extends Service {
 
 
     public void sendData(String data) {
-
-
         try {
             mmOutStream.write(data.getBytes());
             Log.d(TAG, "Datos enviados: " + data);
