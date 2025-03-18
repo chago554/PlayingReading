@@ -1,10 +1,11 @@
-package com.utsem.playingreading.Model_Controller;
+package com.utsem.playingreading.Model_Controller.Actividades;
 
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -20,9 +21,9 @@ import com.utsem.playingreading.Services.BluetoothService;
 
 public class Memorama extends AppCompatActivity {
 
-    private BluetoothService bluetoothService;
-    private boolean isBound = false;
     private MemoramaController memorama;
+    private BluetoothService bluetoothService = new BluetoothService();
+    private boolean isBound = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,9 +69,13 @@ public class Memorama extends AppCompatActivity {
     private ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            BluetoothService.LocalBinder binder = (BluetoothService.LocalBinder) service;
-            bluetoothService = binder.getService();
-            isBound = true;
+            if (service instanceof BluetoothService.LocalBinder) {
+                BluetoothService.LocalBinder binder = (BluetoothService.LocalBinder) service;
+                bluetoothService = binder.getService();
+                isBound = true;
+            } else {
+                Log.e("CuentosAventura", "Error: No se pudo castear el IBinder correctamente.");
+            }
         }
 
         @Override
@@ -80,14 +85,19 @@ public class Memorama extends AppCompatActivity {
         }
     };
 
-    public void mandarA() {
+    //soltar dulce al final de cuento
+    public void soltarDulce(){
         Intent intent = new Intent(this, BluetoothService.class);
         bindService(intent, serviceConnection, BIND_AUTO_CREATE);
-        if (bluetoothService != null) {
-            bluetoothService.sendData("A");
-            Toast.makeText(this, "Recoge tu premio", Toast.LENGTH_SHORT).show();
+        if(bluetoothService != null){
+            try {
+                bluetoothService.sendData("7kirDM4r7^P@^$9B#^M#M%40#");
+            }catch (Exception e){
+                Log.e("SoltarDulce", "Falla al soltar el dulce");
+            }
         }
     }
+
     public void goBack(View v){
         this.finish();
     }

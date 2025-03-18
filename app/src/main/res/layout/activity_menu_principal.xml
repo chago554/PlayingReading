@@ -153,6 +153,15 @@
                         android:layout_marginStart="25dp"
                         android:tooltipText="¡Memoramas!"/>
 
+                    <ImageButton
+
+                        android:layout_width="200dp"
+                        android:layout_height="120dp"
+                        android:layout_marginEnd="15dp"
+                        android:background="@drawable/juegopiedrapapeltijera"
+                        android:onClick="goPiedraPapelTijeras"
+                        android:layout_marginStart="25dp"
+                        android:tooltipText="¡Piedra, papel o tijeras!"/>
 
                 </LinearLayout>
             </HorizontalScrollView>

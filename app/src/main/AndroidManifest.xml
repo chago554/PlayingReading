@@ -24,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PlayingReading">
         <activity
+            android:name=".Model_Controller.Actividades.PiedraPapelTijeras"
+            android:exported="false" />
+        <activity
             android:name=".Model_Controller.MisterioyDetectives.CuentosMisterioyDetectives"
             android:exported="false"
             android:screenOrientation="portrait" />
@@ -51,7 +54,7 @@
             android:foregroundServiceType="connectedDevice" />
 
         <activity
-            android:name=".Model_Controller.Memorama"
+            android:name=".Model_Controller.Actividades.Memorama"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

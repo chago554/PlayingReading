@@ -29,6 +29,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.utsem.playingreading.Model_Controller.Actividades.Memorama;
+import com.utsem.playingreading.Model_Controller.Actividades.PiedraPapelTijeras;
 import com.utsem.playingreading.Model_Controller.Aventuras.AventuraMenu;
 import com.utsem.playingreading.Model_Controller.CienciaFiccion.CienciaFiccionMenu;
 import com.utsem.playingreading.Model_Controller.MisterioyDetectives.MisterioyDetectivesMenu;
@@ -256,6 +258,10 @@ public class MenuPrincipal extends AppCompatActivity {
     }
     public void goMemoramas(View v){
         Intent intent =  new Intent(this, Memorama.class);
+        startActivity(intent);
+    }
+    public void goPiedraPapelTijeras(View v){
+        Intent intent = new Intent(this, PiedraPapelTijeras.class);
         startActivity(intent);
     }
 

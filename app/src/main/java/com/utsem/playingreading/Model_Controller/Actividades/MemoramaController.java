@@ -1,20 +1,19 @@
-package com.utsem.playingreading.Model_Controller;
+package com.utsem.playingreading.Model_Controller.Actividades;
 
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.os.Bundle;
 import android.os.SystemClock;
 
 import com.utsem.playingreading.R;
@@ -28,7 +27,7 @@ import java.util.Map;
 
 public class MemoramaController {
 
-    private BluetoothService bluetoothService;
+    private BluetoothService bluetoothService = new BluetoothService();
     private boolean isBound = false;
 
     private long tiempoInicio = 0;
@@ -123,7 +122,7 @@ public class MemoramaController {
             if (verificarJuegoTerminado()) {
                 detenerCronometro();
                 guardarTiempo();
-                mandarA();
+                soltarDulce();
             }
         } else {
             boton1.setBackgroundColor(colorOculto);
@@ -201,9 +200,34 @@ public class MemoramaController {
         Toast.makeText(context, "Mejores tiempos: " + mejor1 + "s, " + mejor2 + "s, " + mejor3 + "s", Toast.LENGTH_LONG).show();
     }
 
-    public void mandarA() {
-        if (bluetoothService != null) {
-            bluetoothService.sendData("A");
+    private ServiceConnection serviceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            if (service instanceof BluetoothService.LocalBinder) {
+                BluetoothService.LocalBinder binder = (BluetoothService.LocalBinder) service;
+                bluetoothService = binder.getService();
+                isBound = true;
+            } else {
+                Log.e("CuentosAventura", "Error: No se pudo castear el IBinder correctamente.");
+            }
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            bluetoothService = null;
+            isBound = false;
+        }
+    };
+
+    //soltar dulce al final de cuento
+    public void soltarDulce(){
+        if(bluetoothService != null){
+            try {
+                bluetoothService.sendData("7kirDM4r7^P@^$9B#^M#M%40#");
+            }catch (Exception e){
+                Log.e("SoltarDulce", "Falla al soltar el dulce");
+            }
         }
     }
+
 }
